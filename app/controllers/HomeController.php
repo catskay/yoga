@@ -14,6 +14,9 @@ class HomeController extends BaseController {
 	|	Route::get('/', 'HomeController@showWelcome');
 	|
 	*/
+        
+        
+        
 
 	public function showWelcome()
 	{
@@ -25,21 +28,8 @@ class HomeController extends BaseController {
 		// show the form
 		return View::make('login');
 	}
-
-	public function showDashboard()
-	{
-		return View::make('dashboard');
-	}
-
-	public function showCreateNew()
-	{
-		return View::make('createnew');
-	}
-
-	public function showSelector()
-	{
-		return View::make('selector');
-	}
+        
+        
 
 	public function doLogin()
 	{
@@ -67,14 +57,14 @@ class HomeController extends BaseController {
 
 			// attempt to do the login
 			if (Auth::attempt($userdata)) {
-
+                                $user = User::where('email','=',$userdata['email'])->first();
+                                $uid = $user->uid;
+                                Session::put('uid',$uid);
 				// validation successful!
 				// redirect them to the secure section or whatever
 				// return Redirect::to('secure');
 				// for now we'll just echo success (even though echoing in a controller is bad)
-				// echo 'SUCCESS!';
-    //                             echo '<br><a href="/yoga/public/logout">Logout</a>';
-                return Redirect::to('dashboard');
+				return Redirect::to('dashboard');
 
 			} else {	 	
 
@@ -91,5 +81,15 @@ class HomeController extends BaseController {
 		Auth::logout(); // log the user out of our application
 		return Redirect::to('login'); // redirect the user to the login screen
 	}
+        
+       
+        public function loadDashboard(){
+            $uid = Session::get('uid');
+            $user = User::where('uid','=',$uid)->first();
+            $name = $user->name;
+            $scripts = Script::where('uid','=',$uid)->get();
+            $array = array('scripts'=>$scripts,'name'=>$name);
+            return View::make('dashboard')->with('array',$array);
+        }
 
 }
