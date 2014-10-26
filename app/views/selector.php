@@ -74,12 +74,25 @@
     <!-- /.row -->
     <div class="row">
         <div class="col-lg-12">
-                
+            <h2>Section Summary</h2>
         </div>
     </div>
 
-</div>
+    <div class="row">
+        <div id="content" style="float:left">
+            <p>1. Internalizing Awareness</p>
+            <p>2. Induction Techniques Phase 1</p>
+            <p>3. Instructions for Yoga Nidra</p>
+        </section>
+    </div>
 
+    <div class="row">
+        <div class="col-lg-12">
+            <a href="/yoga/public/createnew">  <button type="button" class="btn btn-danger" style="float:left">Back</button> </a>
+            <button type="button" class="btn btn-danger" style="float:right">Document Preview</button>
+        </div>
+    </div>
+</div>
 
 
 

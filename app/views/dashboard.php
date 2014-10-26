@@ -105,7 +105,7 @@
                                     <tbody>
                                         <tr class="odd gradeX">
                                             <td>Instruction 1</td>
-                                            <td>5/10/13</td>
+                                            <td>05/10/2013</td>
                                             <td>This is an instruction for kids.</td>
                                             <td> <div class="btn-group">
                                               <button type="button" id="download" class="btn btn-default">Download</button>
@@ -116,7 +116,7 @@
                                        </tr>
                                        <tr class="odd gradeX">
                                             <td>Instruction 2</td>
-                                            <td>7/23/13</td>
+                                            <td>07/23/2013</td>
                                             <td>This is an instruction for students.</td>
                                             <td> <div class="btn-group">
                                               <button type="button" id="download2" class="btn btn-default">Download</button>
@@ -127,7 +127,7 @@
                                        </tr>
                                        <tr class="odd gradeX">
                                             <td>Instruction 3</td>
-                                            <td>1/14/2014</td>
+                                            <td>01/14/2014</td>
                                             <td>This is an instruction for beginners.</td>
                                             <td> <div class="btn-group">
                                               <button type="button" id="download3" class="btn btn-default">Download</button>
@@ -138,7 +138,7 @@
                                        </tr>
                                        <tr class="odd gradeX">
                                             <td>Instruction 4</td>
-                                            <td>9/14/2014</td>
+                                            <td>09/14/2014</td>
                                             <td>This is an instruction for CS capstone students.</td>
                                             <td><div class="btn-group">
                                               <button type="button" id="download3" class="btn btn-default">Download</button>

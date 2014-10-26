@@ -33,13 +33,13 @@
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
+                <a class="navbar-brand" href="/yoga/public/dashboard" style="float:left"> <h3>Dashboard</h3>  </a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/yoga/public/dashboard"> <h3>Dashboard</h3>  </a>
             </div>
             <!-- /.navbar-header -->
 
@@ -71,32 +71,39 @@
 </div>    
 
 <div id="page-wrapper">
-    <!-- /.row -->
     <div class="row">
-        <div class="col-lg-12">
-                <!-- left select box -->
-                <select id="optionValues" multiple style="float:left">
-                    <option>1. Internalizing Awareness</option>
-                    <option>2. Induction Techniques Phase 1</option>
-                    <option>3. Instructions for Yoga Nidra</option>
-                </select>
-                <div>
-                    <input type="button" id="btnAdd" class="btn btn-default" style="float:left" value="+" />
-                    <input type="button" id="btnDelete" class="btn btn-default" style="float:left" value="-" />
-                </div>
-                <div>
-                    <!-- right select box -->
-                    <select id="selectedValues" multiple style="float:right"></select>
-                </div>
+        <div>
+            <h3>Methods Available</h3>
+        </div>
+        <div>
+            <select id="optionValues" style="float:left" multiple>
+                <option>1. Internalizing Awareness</option>
+                <option>2. Induction Techniques Phase 1</option>
+                <option>3. Instructions for Yoga Nidra</option>
+            </select>
         </div>
     </div>
     <div class="row">
+        <div>
+            <input type="button" id="btnAdd" class="btn btn-default" style="width: 70px;" value="Add" />
+            <input type="button" id="btnDelete" class="btn btn-default" style="width: 70px;" value="Remove" />
+        </div>
+    </div>
+    <div class="row">
+        <div>
+            <div>
+                <h3>Methods Selected</h3>
+            </div>
+            <select id="selectedValues" multiple></select>
+        </div>
+    </div>
+    
+    <div class="row">
         <div class="col-lg-12">
-            <a href="/yoga/public/selector">  <button type="button" class="btn btn-default" style="float:right">Continue</button> </a>
+            <a href="/yoga/public/selector">  <button type="button" class="btn btn-danger" style="float:right">Continue</button> </a>
         </div>
     </div>
 </div>
-
 
 
 
