@@ -19,6 +19,11 @@ Route::get('/', function()
 // route to show the login form
 Route::get('login', array('uses' => 'HomeController@showLogin'));
 
+Route::get('createnew', array('uses' => 'HomeController@showCreateNew'));
+
+Route::get('selector', array('uses' => 'HomeController@showSelector'));
+
+
 // route to process the form
 Route::post('login', array('uses' => 'HomeController@doLogin'));
 

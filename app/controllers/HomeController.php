@@ -75,6 +75,16 @@ class HomeController extends BaseController {
 
 		}
 	}
+
+	public function showCreateNew()
+	{
+		return View::make('createnew');
+	}
+
+	public function showSelector()
+	{
+		return View::make('selector');
+	}
         
         public function doLogout()
 	{
