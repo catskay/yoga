@@ -67,7 +67,9 @@ class HomeController extends BaseController {
 
 			// attempt to do the login
 			if (Auth::attempt($userdata)) {
-
+				$user = User::where('email','=',$userdata['email'])->first();
+                $uid = $user->uid;
+                Session::put('uid',$uid);
 				// validation successful!
 				// redirect them to the secure section or whatever
 				// return Redirect::to('secure');
@@ -91,5 +93,14 @@ class HomeController extends BaseController {
 		Auth::logout(); // log the user out of our application
 		return Redirect::to('login'); // redirect the user to the login screen
 	}
+
+	 public function loadDashboard(){
+            $uid = Session::get('uid');
+            $user = User::where('uid','=',$uid)->first();
+            $name = $user->name;
+            $scripts = Script::where('uid','=',$uid)->get();
+            $array = array('scripts'=>$scripts,'name'=>$name);
+            return View::make('dashboard')->with('array',$array);
+        }
 
 }
