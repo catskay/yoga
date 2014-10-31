@@ -15,11 +15,7 @@ class DatabaseSeeder extends Seeder {
 
 		$this->call('ScriptTableSeeder');
 
-		$this->call('SectionTableSeeder');
-
-		$this->call('SubsectionTableSeeder');
-
-		$this->call('MethodTableSeeder');
+		$this->call('MasterSeeder');
 	}
 
 }
