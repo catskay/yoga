@@ -18,6 +18,11 @@ class UserTableSeeder extends Seeder
 			'email'    => 'burtlu01@gettysburg.edu',
 			'password' => Hash::make('itsme'),
 		));
+		User::create(array(
+			'name'     => 'Phoebe Eng',
+			'email'    => 'engph01@gettysburg.edu',
+			'password' => Hash::make('gettcoll'),
+		));
                 User::create(array(
 			'name'     => 'Luke Burtch',
 			'email'    => 'onethousandeight@yahoo.com',

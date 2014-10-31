@@ -17,7 +17,8 @@ Route::get('/', function()
 });
 
 // route to show the login form
-Route::get('login', array('uses' => 'HomeController@showLogin'));
+
+Route::get('dashboard', array('uses' => 'HomeController@showDashboard'));
 
 Route::get('createnew', array('uses' => 'HomeController@showCreateNew'));
 
