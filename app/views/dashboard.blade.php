@@ -34,12 +34,13 @@
 </head>
 <body>
 <table>
-    <tr>
-        <td>{{ HTML::image('img/amrit-yoga-logo.gif') }}</td>
-    </tr>
-</table>                            
+	<tr>
+		<td>{{ HTML::image('img/amrit-yoga-logo.gif') }}</td>
+		<td style="width: 80%;"><center><h1>Dashboard</h1></center>	</td>
+	</tr>
+</table>							
 
- <div id="wrapper">
+<div id="wrapper">
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
         <div class="navbar-header">
@@ -49,7 +50,6 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/yoga/public/dashboard">Dashboard</a>
         </div>
         <!-- /.navbar-header -->
 
@@ -72,7 +72,7 @@
         </ul>
         <!-- /.navbar-top-links -->
     </nav>
-</div> 
+</div>  
 
 <div id="page-wrapper">
             <div class="row">
