@@ -21,7 +21,6 @@ class CreateScriptsTable extends Migration {
 			$table->foreign('uid')->references('uid')->on('users');
 			$table->date('date');
 			$table->string('notes', 1000);
-			$table->string('methods', 500);
 			$table->string('font_size', 15);
 
 			$table->timestamps();

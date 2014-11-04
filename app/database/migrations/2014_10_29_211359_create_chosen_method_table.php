@@ -19,9 +19,9 @@ class CreateChosenMethodTable extends Migration {
 
 			$table->foreign('mid')->references('mid')->on('methods');
 
-			$table->unsignedInteger('uid');
+			$table->unsignedInteger('id');
 
-			$table->foreign('uid')->references('uid')->on('users');
+			$table->foreign('id')->references('id')->on('scripts');
                         
             $table->timestamps();
 		});
