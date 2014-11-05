@@ -97,7 +97,10 @@
                 </optgroup>
             @endforeach
         </select>
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
                 
         </div>
     </div>
@@ -106,7 +109,10 @@
         <div class="col-lg-12">
             <a href="/yoga/public/selector">  <button type="button" class="btn btn-danger" style="float:right">Continue</button> </a>
         </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
     </div>
 
 </div>
