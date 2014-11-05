@@ -6,19 +6,7 @@ class EditingController extends BaseController {
 	public function showSelect()
 	{
 		$methods = Method::all();
-		$ssid = 0;
-		$sections = Section::all();
-		$arr = array();
-		foreach($sections as $section){
-			$subsections = Subsection::where('sid','=',$section->sid)->get();
-			$ssArr = array();
-			foreach($subsections as $subsection){
-				$methods = Method::where('ssid','=',$subsection->ssid)->get();
-				$ssArr[$subsection->ssname] = $methods;
-			}
-			$arr[$section->sname] = $ssArr;
-		}
-		return View::make('selection')->with('arr',$arr);
+		return View::make('selection')->with('methods',$methods);
 	}
 
 	public function showSelect2()

@@ -82,6 +82,8 @@
     </nav>
 </div>
 
+ 
+
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
@@ -93,16 +95,16 @@
     <div class="row">
         <div class="col-md-7">
             <select id='optgroupp' multiple='multiple'>
-              <optgroup label='Friends'>
-                <optgroup label = 'Hello'>
-                <option value='1'>Yoda</option>
-                <option value='2' selected>Obiwan</option>
+              
+            @foreach($arr as $section => $subsections)
+                <optgroup label={{$section}}>
+                    @foreach($subsections as $subsection => $methods)
+                        @foreach($methods as $method)
+                            <option>{{$method->mname}}
+                        @endforeach
+                    @endforeach
                 </optgroup>
-            </optgroup>
-            <optgroup label='Enemies'>
-                <option value='3'>Palpatine</option>
-                <option value='4' disabled>Darth Vader</option>
-            </optgroup>
+            @endforeach
         </select>
     </div>
 </div>
