@@ -67,15 +67,11 @@ class HomeController extends BaseController {
 
 			// attempt to do the login
 			if (Auth::attempt($userdata)) {
-				$user = User::where('email','=',$userdata['email'])->first();
-                $uid = $user->uid;
-                Session::put('uid',$uid);
+				
 				// validation successful!
 				// redirect them to the secure section or whatever
 				// return Redirect::to('secure');
-				// for now we'll just echo success (even though echoing in a controller is bad)
-				// echo 'SUCCESS!';
-    //                             echo '<br><a href="/yoga/public/logout">Logout</a>';
+				
                 return Redirect::to('dashboard');
 
 			} else {	 	
@@ -95,12 +91,12 @@ class HomeController extends BaseController {
 	}
 
 	 public function loadDashboard(){
-            $uid = Session::get('uid');
-            $user = User::where('uid','=',$uid)->first();
-            $name = $user->name;
-            $scripts = Script::where('uid','=',$uid)->get();
-            $array = array('scripts'=>$scripts,'name'=>$name);
-            return View::make('dashboard')->with('array',$array);
+	 		if(Auth::check()){
+            	$name = Auth::user()->name;
+            	$scripts = Script::where('uid','=',Auth::user()->uid)->get();
+            	$array = array('scripts'=>$scripts,'name'=>$name);
+            	return View::make('dashboard')->with('array',$array);
+        	}
         }
 
 }
