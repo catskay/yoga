@@ -171,6 +171,11 @@
       }
     },
 
+// added
+
+
+
+// added
     'addOption' : function(options){
       var that = this;
 
