@@ -107,7 +107,7 @@
         </div>
         <div class="col-md-4">
             <div class="wrapper">
-                <button class="button-center">Section Summary</button>
+                <a href="/yoga/public/selector"><button class="button-center">Section Summary</button></a>
             </div>
         </div>
         <div class="col-md-4">

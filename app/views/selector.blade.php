@@ -113,7 +113,7 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <a href="/yoga/public/createnew">  <button type="button" class="btn btn-danger" style="float:left">Back</button> </a>
+            <a href="/yoga/public/selection2">  <button type="button" class="btn btn-danger" style="float:left">Back</button> </a>
             <a href="/yoga/public/preview"> <button type="button" class="btn btn-danger" style="float:right">Document Preview</button> </a>
         </div>
     </div>
