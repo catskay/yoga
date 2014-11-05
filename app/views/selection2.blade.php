@@ -28,9 +28,9 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
-    <link href="css/multiselect.css" media="screen" rel="stylesheet" type="text/css">
-
     <link rel=stylesheet type="text/css" href="css/layout.css">
+    <link href="css/multi-select.css" media="screen" rel="stylesheet" type="text/css">
+
 
 </head>
 <body>
@@ -92,7 +92,7 @@
 
     <div class="row">
         <div class="col-md-7">
-            <select id='optgroup' multiple='multiple'>
+            <select id='optgroupp' multiple='multiple'>
               <optgroup label='Friends'>
                 <option value='1'>Yoda</option>
                 <option value='2' selected>Obiwan</option>
@@ -102,10 +102,6 @@
                 <option value='4' disabled>Darth Vader</option>
             </optgroup>
         </select>
-        <script>
-             $('#optgroup').multiSelect({ selectableOptgroup: true });
-        </script>
-
     </div>
 </div>
 
@@ -129,6 +125,8 @@
 <script src="js/sb-admin-2.js"></script>
 
 <script src="js/jquery.multi-select.js" type="text/javascript"></script>
+<script src="js/application.js" type="text/javascript"></script> 
+
 
 
 <!-- Page-Level Demo Scripts - Tables - Use for reference -->

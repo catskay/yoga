@@ -1,19 +1,32 @@
+
+<!DOCTYPE html>
 <html>
-  <head>
-    <link href="css/multiselect.css" media="screen" rel="stylesheet" type="text/css">
-  </head>
-  <body>
-    <select multiple="multiple" id="my-select" name="my-select[]">
-      <option value='elem_1'>elem 1</option>
-      <option value='elem_2'>elem 2</option>
-      <option value='elem_3'>elem 3</option>
-      <option value='elem_4'>elem 4</option>
-      ...
-      <option value='elem_100'>elem 100</option>
+<head>
+  <title>jQuery multiselect</title>
+  <link href="css/bootstrap.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/multi-select.css" media="screen" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+
+  <div class='container'>
+    <div class='hero-multiselect'>
+     <select id='optgroup' multiple='multiple'>
+      <optgroup label='Friends'>
+        <option value='1'>Yoda</option>
+        <option value='2' selected>Obiwan</option>
+      </optgroup>
+      <optgroup label='Enemies'>
+        <option value='3'>Palpatine</option>
+        <option value='4' disabled>Darth Vader</option>
+      </optgroup>
     </select>
-    <script>
-      $('#my-select').multiSelect();
-    </script>
+  </div>
+</div>
+
+<script src="js/jquery.js" type="text/javascript"></script>
+<script src="js/bootstrap.js" type="text/javascript"></script>
 <script src="js/jquery.multi-select.js" type="text/javascript"></script>
-  </body>
+<script src="js/application.js" type="text/javascript"></script> 
+
 </html>
