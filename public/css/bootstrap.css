@@ -62,6 +62,7 @@ dfn {
 h1 {
   margin: .67em 0;
   font-size: 2em;
+  color: #310f03;
 }
 mark {
   color: #000;
@@ -999,7 +1000,7 @@ h6,
   font-family: inherit;
   font-weight: 500;
   line-height: 1.1;
-  color: inherit;
+  color: #310f03;
 }
 h1 small,
 h2 small,
@@ -1216,7 +1217,7 @@ a.bg-danger:hover {
 .page-header {
   padding-bottom: 9px;
   margin: 40px 0 20px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #310f03;
 }
 ul,
 ol {

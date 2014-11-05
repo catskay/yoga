@@ -5,7 +5,7 @@
  */
 
 body {
-    background-color: #f8f8f8;
+    background-color: #f2dfb5;
 }
 
 #wrapper {
@@ -15,7 +15,7 @@ body {
 #page-wrapper {
     padding: 0 15px;
     min-height: 568px;
-    background-color: #fff;
+    background-color: #f2dfb5;
 }
 
 @media(min-width:768px) {
@@ -95,7 +95,7 @@ body {
 }
 
 .sidebar ul li a.active {
-    background-color: #eee;
+    background-color: #f2dfb5;
 }
 
 .sidebar .arrow {
@@ -244,7 +244,7 @@ table.dataTable thead .sorting:after {
     content: "\f0dc";
     float: right;
     font-family: fontawesome;
-    color: rgba(50,50,50,.5);
+    color: #310f03;
 }
 
 .btn-circle {
@@ -342,22 +342,4 @@ table.dataTable thead .sorting:after {
 
 .panel-yellow a:hover {
     color: #df8a13;
-}
-
-SELECT, INPUT[type="text"] {
-    width: 400px;
-    box-sizing: border-box;
-}
-SECTION {
-    padding: 8px;
-    background-color: #f0f0f0;
-    overflow: auto;
-}
-SECTION > DIV {
-    float: left;
-    padding: 4px;
-}
-SECTION > DIV + DIV {
-    width: 40px;
-    text-align: center;
 }
