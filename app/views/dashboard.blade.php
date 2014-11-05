@@ -82,7 +82,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Instruction List</h1>
-                    <a href="/yoga/public/selection">  <button type="button" class="btn btn-danger" style="float:right">CREATE NEW</button> </a>
+                    <a href="/yoga/public/selection2">  <button type="button" class="btn btn-danger" style="float:right">CREATE NEW</button> </a>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>

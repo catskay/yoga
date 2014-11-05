@@ -94,8 +94,10 @@
         <div class="col-md-7">
             <select id='optgroupp' multiple='multiple'>
               <optgroup label='Friends'>
+                <optgroup label = 'Hello'>
                 <option value='1'>Yoda</option>
                 <option value='2' selected>Obiwan</option>
+                </optgroup>
             </optgroup>
             <optgroup label='Enemies'>
                 <option value='3'>Palpatine</option>

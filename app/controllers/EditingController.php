@@ -14,16 +14,27 @@ class EditingController extends BaseController {
 			$ssArr = array();
 			foreach($subsections as $subsection){
 				$methods = Method::where('ssid','=',$subsection->ssid)->get();
-				array_push($ssArr,$subsection->ssname=>$methods);
+				$ssArr[$subsection->ssname] = $methods;
 			}
-			array_push($arr,$section->sname=>$ssArr);
+			$arr[$section->sname] = $ssArr;
 		}
 		return View::make('selection')->with('arr',$arr);
 	}
 
 	public function showSelect2()
 	{
-		return View::make('selection2');
+		$sections = Section::all();
+		$arr = array();
+		foreach($sections as $section){
+			$subsections = Subsection::where('sid','=',$section->sid)->get();
+			$ssArr = array();
+			foreach($subsections as $subsection){
+				$methods = Method::where('ssid','=',$subsection->ssid)->get();
+				$ssArr[$subsection->ssname] = $methods;
+			}
+			$arr[$section->sname] = $ssArr;
+		}
+		return View::make('selection2')->with('arr',$arr);
 	}
 
 	
