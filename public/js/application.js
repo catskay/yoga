@@ -7,8 +7,8 @@
     $('.multiselect').multiSelect({});
 
     $('.searchable').multiSelect({
-      selectableHeader: "<input type='text' class='search-input' autocomplete='off' placeholder='try \"12\"'>",
-      selectionHeader: "<input type='text' class='search-input' autocomplete='off' placeholder='try \"4\"'>",
+      selectableFooter: "<input type='text' class='search-input' autocomplete='off' placeholder='Search methods'>",
+      selectionFooter: "<input type='text' class='search-input' autocomplete='off' placeholder='Search methods'>",
       afterInit: function(ms){
         var that = this,
             $selectableSearch = that.$selectableUl.prev(),
@@ -48,7 +48,9 @@
     });
 
     $('#optgroupp').multiSelect({
-      selectableOptgroup: true
+	   selectableHeader: "<div class='custom-header'>Methods Available:</div>",
+      selectionHeader: "<div class='custom-header'>Methods Selected:</div>"
+     
     });
 
 

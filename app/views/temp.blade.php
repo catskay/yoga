@@ -11,14 +11,15 @@
 
   <div class='container'>
     <div class='hero-multiselect'>
-     <select id='optgroup' multiple='multiple'>
-      <optgroup label='Friends'>
-        <option value='1'>Yoda</option>
-        <option value='2' selected>Obiwan</option>
+     <select id='optgroupp' multiple='multiple' class="searchable" name="searchable[]">
+      <optgroup label='Section 1'>
+        <option value='1'>Method 1</option>
+        <option value='2' >Method 2</option>
+        <option value='5' >Method 3</option>
       </optgroup>
-      <optgroup label='Enemies'>
-        <option value='3'>Palpatine</option>
-        <option value='4' disabled>Darth Vader</option>
+      <optgroup label='Section 2'>
+        <option value='3'>Method 1</option>
+        <option value='4' disabled>Method 2</option>
       </optgroup>
     </select>
   </div>
@@ -28,5 +29,7 @@
 <script src="js/bootstrap.js" type="text/javascript"></script>
 <script src="js/jquery.multi-select.js" type="text/javascript"></script>
 <script src="js/application.js" type="text/javascript"></script> 
+<script src="js/jquery.tinysort.js" type="text/javascript"></script>
+<script src="js/jquery.quicksearch.js" type="text/javascript"></script>
 
 </html>
