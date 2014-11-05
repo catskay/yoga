@@ -31,7 +31,7 @@ class ScriptTableSeeder extends Seeder
 		));
                 Script::create(array(
 			'name'     => 'my script',
-			'uid' => '2',
+			'uid' => '1',
 			'date'    => '2014-10-15',
 			'notes' => 'This script is for addiction.',
 			'font_size' => 'small',
