@@ -76,6 +76,7 @@
   cursor: pointer;
   color: #8B1417;
   font-weight: bold;
+  font-size:medium;
 }
 
 .ms-container .ms-selectable li.ms-elem-selectable,
