@@ -8,3 +8,5 @@ Thumbs.db
 database.php
 
 app/config/database.php
+
+app/views/selection2.blade.php
