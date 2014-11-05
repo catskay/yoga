@@ -32,6 +32,10 @@ Route::get('selection2', array('uses' => 'EditingController@showSelect2'));
 
 Route::get('temp', array('uses' => 'EditingController@showTemp'));
 
+Route::get('edit', array('uses' => 'EditingController@showEdit'));
+
+Route::get('view', array('uses' => 'EditingController@showView'));
+
 // route to process the form
 Route::get('summary', array('uses' => 'EditingController@showSummary'));
 

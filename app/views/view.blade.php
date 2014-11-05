@@ -39,7 +39,7 @@
     </tr>
 </table>                            
 
- <div id="wrapper">
+  <div id="wrapper">
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
         <div class="navbar-header">
@@ -71,7 +71,8 @@
         </ul>
         <!-- /.navbar-top-links -->
     </nav>
-</div>     
+</div>
+
 
 <div id="page-wrapper">
     <!-- /.row -->
@@ -81,68 +82,50 @@
         </div>
     </div>
 
-    <div class="container">
-    <div class="row col-md-6 col-md-offset-1 custyle">
-    <table class="table table-striped custab">
-    <thead>
-        <tr>
-            <th>Methods</th>
-            <th>Option</th>
-        </tr>
-    </thead>
-            <tr>
-                <td>
-                    <p>1. Internalizing Awareness</p>
-                    <pIndent1>A. Quiet/Centering</pIndent1>
-                    <pIndent2>2. Closing the eyes and being present </pIndent2>
-                </td>
-                <td><a href="/yoga/public/edit">  <button type="button" class="btn btn-default">Edit</button> </a></td>
-            </tr>
-            <tr>
-                <td>2. Induction Techniques Phase 1</td>
-                <td><a href="/yoga/public/view">  <button type="button" class="btn btn-default">View</button> </a></td>
-            </tr>
-            <tr>
-                <td>3. Instructions for Yoga Nidra</td>
-                <td><a href="/yoga/public/edit">  <button type="button" class="btn btn-default">Edit</button> </a></td>
-            </tr>
+    <div class="panel panel-default">
+        <div class="panel body">
             
-    </table>
+        </div>
     </div>
-</div>
 
     <div class="row">
-        <div class="col-lg-12">
-            <a href="/yoga/public/createnew">  <button type="button" class="btn btn-danger" style="float:left">Back</button> </a>
-            <button type="button" class="btn btn-danger" style="float:right">Document Preview</button>
+        <div class="col-md-4">
+            <button type="button" class="btn btn-danger">Previous</button>
+        </div>
+        <div class="col-md-4">
+            <div class="wrapper">
+                <button class="button-center">Section Summary</button>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <button type="button" class="btn btn-danger" style="float:right">Next</button>
         </div>
     </div>
 </div>
 
 
 
- <!-- jQuery Version 1.11.0 -->
-    <script src="js/jquery-1.11.0.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
 
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="js/plugins/metisMenu/metisMenu.min.js"></script>
 
-    <!-- DataTables JavaScript -->
-    <script src="js/plugins/dataTables/jquery.dataTables.js"></script>
-    <script src="js/plugins/dataTables/dataTables.bootstrap.js"></script>
+<!-- jQuery Version 1.11.0 -->
+<script src="js/jquery-1.11.0.js"></script>
 
-    <!-- Custom Theme JavaScript -->
-    <script src="js/sb-admin-2.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
 
-    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
-    <script>
-    $(document).ready(function() {
-        $('#dataTables-example').dataTable();
-    });
-    </script>
+<!-- Metis Menu Plugin JavaScript -->
+<script src="js/plugins/metisMenu/metisMenu.min.js"></script>
+
+<!-- DataTables JavaScript -->
+<script src="js/plugins/dataTables/jquery.dataTables.js"></script>
+<script src="js/plugins/dataTables/dataTables.bootstrap.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="js/sb-admin-2.js"></script>
+
+<script type="text/javascript" src="js/CollapsibleLists.js"></script>
+
 
 </body>
 </html>
