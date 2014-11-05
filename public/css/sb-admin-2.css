@@ -275,6 +275,10 @@ table.dataTable thead .sorting:after {
     line-height: 1.33;
 }
 
+.btn-link{
+    color: #cc0000;
+}
+
 .show-grid [class^=col-] {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -404,4 +408,19 @@ pIndent2{
 pIndent3{
     display: block;
     margin-left: 55px;
+}
+
+pSmall{
+    display: block;
+    font-size: small;
+}
+
+pMedium{
+    display: block;
+    font-size: medium;
+}
+
+pLarge{
+    display: block;
+    font-size: large;
 }
