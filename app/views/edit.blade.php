@@ -82,9 +82,22 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-lg-12">
+            <p>1. Internalizing Awareness</p>
+            <pIndent1>A. Quiet/Centering</pIndent1>
+            <pIndent2>2. Closing the eyes and being present </pIndent2>
+        </div>
+    </div>
+
     <div class="panel panel-default">
         <div class="panel body">
-            
+            <p>Close your eyes and quiet your mind. </p>
+            <p>Be still.</p>
+            <p>Let go of all thoughts, worry and tension.</p>
+            <p>Give yourself fully to a higher power. Relax, trust and let go... Breathe in fully and exhale with a deep sigh...</p>
+            <p>And again, breathe in fully and exhale with a deep sigh... And let go even more....</p>
+            <p>Feel a deep sense of contentment and peace in your heart.</p>
         </div>
     </div>
 

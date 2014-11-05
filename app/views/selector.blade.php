@@ -96,15 +96,15 @@
                     <pIndent1>A. Quiet/Centering</pIndent1>
                     <pIndent2>2. Closing the eyes and being present </pIndent2>
                 </td>
-                <td><a href="/yoga/public/edit">  <button type="button" class="btn btn-default">Edit</button> </a></td>
+                <td><a href="/yoga/public/edit">  <button type="button" class="btn btn-link">Edit</button> </a></td>
             </tr>
             <tr>
                 <td>2. Induction Techniques Phase 1</td>
-                <td><a href="/yoga/public/view">  <button type="button" class="btn btn-default">View</button> </a></td>
+                <td><a href="/yoga/public/view">  <button type="button" class="btn btn-link">View</button> </a></td>
             </tr>
             <tr>
                 <td>3. Instructions for Yoga Nidra</td>
-                <td><a href="/yoga/public/edit">  <button type="button" class="btn btn-default">Edit</button> </a></td>
+                <td><a href="/yoga/public/edit">  <button type="button" class="btn btn-link">Edit</button> </a></td>
             </tr>
             
     </table>
@@ -114,7 +114,7 @@
     <div class="row">
         <div class="col-lg-12">
             <a href="/yoga/public/createnew">  <button type="button" class="btn btn-danger" style="float:left">Back</button> </a>
-            <button type="button" class="btn btn-danger" style="float:right">Document Preview</button>
+            <a href="/yoga/public/preview"> <button type="button" class="btn btn-danger" style="float:right">Document Preview</button> </a>
         </div>
     </div>
 </div>

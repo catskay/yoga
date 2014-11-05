@@ -113,7 +113,7 @@
                                             <td> <div class="btn-group">
                                               <button type="button" id="download" class="btn btn-default">Download</button>
                                               <button type="button" id="print" class="btn btn-default">Print</button>
-                                              <button type="button" id="save" class="btn btn-default">Save</button>
+                                              <button type="button" id="save" class="btn btn-default">Edit</button>
                                             </div></td>                                    
                                             </tr>
                                        </tr>
