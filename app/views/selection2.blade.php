@@ -95,15 +95,9 @@
                         @endforeach
                     @endforeach
                 </optgroup>
-<<<<<<< HEAD
             @endforeach
         </select>
-=======
-                <optgroup label='Enemies'>
-                    <option value='3'>Palpatine</option>
-                    <option value='4' disabled>Darth Vader</option>
-                </optgroup>
-            </select>
+                
         </div>
     </div>
 
@@ -111,7 +105,6 @@
         <div class="col-lg-12">
             <a href="/yoga/public/selector">  <button type="button" class="btn btn-danger" style="float:right">Continue</button> </a>
         </div>
->>>>>>> origin/master
     </div>
 
 </div>
