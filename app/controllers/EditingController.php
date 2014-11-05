@@ -26,14 +26,23 @@ class EditingController extends BaseController {
 	}
 
 	
-public function showTemp()
+	public function showTemp()
 	{
 		return View::make('temp');
 	}
 
-public function showSummary()
+	public function showSummary()
 	{
 		return View::make('summary');
 	}
 
+	public function showEdit()
+	{
+		return View::make('edit');
+	}
+
+	public function showView()
+	{
+		return View::make('view');
+	}
 }

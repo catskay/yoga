@@ -343,3 +343,65 @@ table.dataTable thead .sorting:after {
 .panel-yellow a:hover {
     color: #df8a13;
 }
+
+.custab{
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 5% 0;
+    box-shadow: 3px 3px 2px #ccc;
+    transition: 0.5s;
+}
+.custab:hover{
+    box-shadow: 3px 3px 0px transparent;
+    transition: 0.5s;
+}
+
+.wrapper {
+    text-align: center;
+}
+
+.button-center {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    position: absolute:
+    top: 50%;
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+.button-center:hover {
+    color: #fff;
+    background-color: #c9302c;
+    border-color: #ac2925;
+}
+
+
+pIndent1{
+    display: block;
+    margin-left: 25px;
+}
+
+pIndent2{
+    display: block;
+    margin-left: 40px;
+}
+
+pIndent3{
+    display: block;
+    margin-left: 55px;
+}

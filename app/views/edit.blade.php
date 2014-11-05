@@ -24,13 +24,13 @@
     <!-- Custom Fonts -->
     <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-
-    <link rel=stylesheet type="text/css" href="css/layout.css">
-    <link href="css/multi-select.css" media="screen" rel="stylesheet" type="text/css">
-
-
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
 </head>
 <body>
 <table>
@@ -73,48 +73,39 @@
     </nav>
 </div>  
 
- 
 
 <div id="page-wrapper">
+    <!-- /.row -->
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Method Selection</h1>
+            <h2>Section Summary</h2>
         </div>
-        <!-- /.col-lg-12 -->
     </div>
 
-    <div class="row">
-        <div class="col-md-7">
-            <select id='optgroupp' multiple='multiple'>
-              
-            @foreach($arr as $section => $subsections)
-                <optgroup label={{$section}}>
-                    @foreach($subsections as $subsection => $methods)
-                        @foreach($methods as $method)
-                            <option>{{$method->mname}}
-                        @endforeach
-                    @endforeach
-                </optgroup>
-<<<<<<< HEAD
-            @endforeach
-        </select>
-=======
-                <optgroup label='Enemies'>
-                    <option value='3'>Palpatine</option>
-                    <option value='4' disabled>Darth Vader</option>
-                </optgroup>
-            </select>
+    <div class="panel panel-default">
+        <div class="panel body">
+            
         </div>
     </div>
 
     <div class="row">
-        <div class="col-lg-12">
-            <a href="/yoga/public/selector">  <button type="button" class="btn btn-danger" style="float:right">Continue</button> </a>
+        <div class="col-md-4">
+            <button type="button" class="btn btn-danger">Previous</button> 
         </div>
->>>>>>> origin/master
+        <div class="col-md-4">
+            <div class="wrapper">
+                <button class="button-center">Section Summary</button>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <button type="button" class="btn btn-danger" style="float:right">Next</button>
+        </div>
     </div>
-
 </div>
+
+
+
+
 
 
 <!-- jQuery Version 1.11.0 -->
@@ -133,17 +124,8 @@
 <!-- Custom Theme JavaScript -->
 <script src="js/sb-admin-2.js"></script>
 
-<script src="js/jquery.multi-select.js" type="text/javascript"></script>
-<script src="js/application.js" type="text/javascript"></script> 
+<script type="text/javascript" src="js/CollapsibleLists.js"></script>
 
-
-
-<!-- Page-Level Demo Scripts - Tables - Use for reference -->
-<script>
-$(document).ready(function() {
-    $('#dataTables-example').dataTable();
-});
-</script>
 
 </body>
 </html>

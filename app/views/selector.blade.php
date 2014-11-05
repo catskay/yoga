@@ -54,7 +54,6 @@
         <!-- /.navbar-header -->
 
         <ul class="nav navbar-top-links navbar-right">
-            </li>
             <!-- /.dropdown -->
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -82,13 +81,35 @@
         </div>
     </div>
 
-    <div class="panel panel-default">
-        <div class="panel body">
-            <p>1. Internalizing Awareness</p>
-            <p>2. Induction Techniques Phase 1</p>
-            <p>3. Instructions for Yoga Nidra</p>
-        </div>
+    <div class="container">
+    <div class="row col-md-6 col-md-offset-1 custyle">
+    <table class="table table-striped custab">
+    <thead>
+        <tr>
+            <th>Methods</th>
+            <th>Option</th>
+        </tr>
+    </thead>
+            <tr>
+                <td>
+                    <p>1. Internalizing Awareness</p>
+                    <pIndent1>A. Quiet/Centering</pIndent1>
+                    <pIndent2>2. Closing the eyes and being present </pIndent2>
+                </td>
+                <td><a href="/yoga/public/edit">  <button type="button" class="btn btn-default">Edit</button> </a></td>
+            </tr>
+            <tr>
+                <td>2. Induction Techniques Phase 1</td>
+                <td><a href="/yoga/public/view">  <button type="button" class="btn btn-default">View</button> </a></td>
+            </tr>
+            <tr>
+                <td>3. Instructions for Yoga Nidra</td>
+                <td><a href="/yoga/public/edit">  <button type="button" class="btn btn-default">Edit</button> </a></td>
+            </tr>
+            
+    </table>
     </div>
+</div>
 
     <div class="row">
         <div class="col-lg-12">
