@@ -28,6 +28,8 @@ Route::get('logout', array('uses' => 'HomeController@doLogout'));
 Route::get('selector', array('uses' => 'HomeController@showSelector'));
 
 Route::get('selection', array('uses' => 'EditingController@showSelect'));
+Route::get('selection2', array('uses' => 'EditingController@showSelect2'));
+
 Route::get('temp', array('uses' => 'EditingController@showTemp'));
 
 // route to process the form

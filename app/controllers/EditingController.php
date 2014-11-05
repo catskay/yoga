@@ -8,6 +8,11 @@ class EditingController extends BaseController {
 		return View::make('selection');
 	}
 
+	public function showSelect2()
+	{
+		return View::make('selection2');
+	}
+
 	
 public function showTemp()
 	{
