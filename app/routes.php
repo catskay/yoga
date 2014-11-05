@@ -19,7 +19,6 @@ Route::get('/', function()
 // route to show the login form
 Route::get('login', array('uses' => 'HomeController@showLogin'));
 
-Route::get('dashboard', array('uses' => 'HomeController@showDashboard'));
 // route to process the form
 Route::post('login', array('uses' => 'HomeController@doLogin'));
 
@@ -27,13 +26,11 @@ Route::get('createnew', array('uses' => 'HomeController@showCreateNew'));
 Route::get('logout', array('uses' => 'HomeController@doLogout'));
 
 Route::get('selector', array('uses' => 'HomeController@showSelector'));
-Route::get('dashboard', array('uses' => 'HomeController@showDashboard'));
 
 Route::get('selection', array('uses' => 'EditingController@showSelect'));
 Route::get('temp', array('uses' => 'EditingController@showTemp'));
 
 // route to process the form
-Route::post('login', array('uses' => 'HomeController@doLogin'));
 Route::get('summary', array('uses' => 'EditingController@showSummary'));
 
 Route::get('logout', array('uses' => 'HomeController@doLogout'));
