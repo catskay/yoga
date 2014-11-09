@@ -6,12 +6,4 @@ composer.lock
 .DS_Store
 Thumbs.db
 database.php
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/master
 app/config/database.php
-
-app/views/selection2.blade.php
-
-app/views/selection2.blade.php
