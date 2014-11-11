@@ -80,7 +80,6 @@
         <div class="col-lg-12">
             <h1 class="page-header">Method Selection</h1>
         </div>
-        <!-- /.col-lg-12 -->
     </div>
 
     <div class="row">
@@ -99,15 +98,10 @@
                 
             @endforeach
         </select>
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
                 
         </div>
     </div>
 
-    <p id="test" onclick="printResults()">Hello Friend</p>
 
     <script>
 
@@ -133,10 +127,6 @@
         <div class="col-lg-12 col-md-offset-10">
             <a href="/yoga/public/selector">  <button type="button" class="btn btn-danger">Continue</button> </a>
         </div>
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
     </div>
 
 </div>

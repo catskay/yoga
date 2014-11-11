@@ -36,11 +36,6 @@ class HomeController extends BaseController {
 		return View::make('createnew');
 	}
 
-	public function showSelector()
-	{
-		return View::make('selector');
-	}
-
 	public function doLogin()
 	{
 		// validate the info, create rules for the inputs
