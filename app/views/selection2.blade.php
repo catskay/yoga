@@ -99,7 +99,10 @@
                 
             @endforeach
         </select>
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
                 
         </div>
     </div>
@@ -127,10 +130,13 @@
     </script>
     
     <div class="row">
-        <div class="col-lg-12">
-            <a href="/yoga/public/selector">  <button type="button" class="btn btn-danger" style="float:right">Continue</button> </a>
+        <div class="col-lg-12 col-md-offset-10">
+            <a href="/yoga/public/selector">  <button type="button" class="btn btn-danger">Continue</button> </a>
         </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
     </div>
 
 </div>

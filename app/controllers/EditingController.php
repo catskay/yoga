@@ -47,4 +47,9 @@ class EditingController extends BaseController {
 	{
 		return View::make('view');
 	}
+
+	public function showPreview()
+	{
+		return View::make('preview');
+	}
 }

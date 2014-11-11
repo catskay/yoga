@@ -39,7 +39,7 @@
     </tr>
 </table>                            
 
-  <div id="wrapper">
+ <div id="wrapper">
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
         <div class="navbar-header">
@@ -71,38 +71,47 @@
         </ul>
         <!-- /.navbar-top-links -->
     </nav>
-</div>
+</div>  
 
 
 <div id="page-wrapper">
     <!-- /.row -->
     <div class="row">
         <div class="col-lg-12">
-            <h2>Section Summary</h2>
+            <h2>Document Preview</h2>
         </div>
     </div>
 
-    <div class="panel panel-default">
-        
+    <div class="col-md-8">
+        <div class="panel panel-default">
+        </div>
     </div>
 
-    <div class="row">
-        <div class="col-md-4">
-            <button type="button" class="btn btn-danger">Previous</button>
-        </div>
-        <div class="col-md-4">
-            <div class="wrapper">
-                <button class="button-center">Section Summary</button>
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h1 style="color:#cc0000 ">Font Size</h1>
+                <pSmall>Small</pSmall>
+                <pMedium>Medium</pMedium>
+                <pLarge>Large</pLarge>
             </div>
         </div>
-        <div class="col-md-4">
-            <button type="button" class="btn btn-danger" style="float:right">Next</button>
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="form-group">
+                    <label>Title</label>
+                    <input class="form-control">
+                    <label>Notes</label>
+                    <textarea class="form-control" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-danger btn-lg">Save</button>
+            </div>
         </div>
+
     </div>
+
 </div>
-
-
-
 
 
 
