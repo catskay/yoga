@@ -16,7 +16,7 @@ class CreateSectionsTable extends Migration {
 		{
 			$table->increments('sid');
                         
-            $table->string('sname', 50);
+            $table->string('sname', 100);
 			
             $table->timestamps();            
             

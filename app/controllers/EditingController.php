@@ -25,6 +25,8 @@ class EditingController extends BaseController {
 		return View::make('selection2')->with('arr',$arr);
 	}
 
+	//$('#optgroupp').val();
+
 	
 	public function showTemp()
 	{

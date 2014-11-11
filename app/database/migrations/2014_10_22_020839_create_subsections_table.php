@@ -16,7 +16,7 @@ class CreateSubsectionsTable extends Migration {
 		{
 			$table->increments('ssid');
                         
-            $table->string('ssname', 50);
+            $table->string('ssname', 100);
 			$table->unsignedInteger('sid');
 			$table->foreign('sid')->references('sid')->on('sections');
                         

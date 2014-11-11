@@ -88,34 +88,57 @@
             <select id='optgroupp' multiple='multiple'>
               
             @foreach($arr as $section => $subsections)
-                <optgroup label={{$section}}>
+                
                     @foreach($subsections as $subsection => $methods)
+                        <optgroup label={{$subsection}}>
                         @foreach($methods as $method)
-                            <option>{{$method->mname}}
+                            <option title = {{$section}} value = {{$method->mid}}>{{$method->mname}}</option>
                         @endforeach
+                        </optgroup>
                     @endforeach
-                </optgroup>
+                
             @endforeach
         </select>
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/master
                 
         </div>
     </div>
 
+    <p id="test" onclick="printResults()">Hello Friend</p>
+
+    <script>
+
+    function printEach(element){
+        document.getElementById("test").innerHTML = element;
+    }
+
+    function printResults(){
+        
+        var arr = $('#optgroupp').val();        
+        alert(arr);
+
+
+        return false;
+    }
+
+   $("select").change(printResults);
+
+    
+    </script>
+    
     <div class="row">
         <div class="col-lg-12">
             <a href="/yoga/public/selector">  <button type="button" class="btn btn-danger" style="float:right">Continue</button> </a>
         </div>
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/master
     </div>
 
 </div>
+
+<p id="test">
+    </p>
+
+
 
 
 <!-- jQuery Version 1.11.0 -->
