@@ -5,23 +5,19 @@
   <title>jQuery multiselect</title>
   <link href="css/bootstrap.css" media="screen" rel="stylesheet" type="text/css" />
   <link href="css/multi-select.css" media="screen" rel="stylesheet" type="text/css" />
+  <link href="css/application.css" media="screen" rel="stylesheet" type="text/css" />
 
 </head>
 <body>
 
   <div class='container'>
-    <div class='hero-multiselect'>
-     <select id='optgroupp' multiple='multiple' class="searchable" name="searchable[]">
-      <optgroup label='Section 1'>
-        <option value='1'>Method 1</option>
-        <option value='2' >Method 2</option>
-        <option value='5' >Method 3</option>
-      </optgroup>
-      <optgroup label='Section 2'>
-        <option value='3'>Method 1</option>
-        <option value='4' disabled>Method 2</option>
-      </optgroup>
-    </select>
+      <select multiple class="searchable" name="searchable[]">
+  <option value='elem_1' >elem 1</option>
+  <option value='elem_2'>elem 2</option>
+  <option value='elem_3'>elem 3</option>
+  <option value='elem_4' >elem 4</option>
+  <option value='elem_100'>elem 100</option>
+</select>
   </div>
 </div>
 
