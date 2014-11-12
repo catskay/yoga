@@ -38,6 +38,22 @@ class EditingController extends BaseController {
 		return View::make('temp');
 	}
 
+	public function showSelector()
+	{
+		$sections = Section::all();
+		$arr = array();
+		foreach($sections as $section){
+			$subsections = Subsection::where('sid','=',$section->sid)->get();
+			$ssArr = array();
+			foreach($subsections as $subsection){
+				$methods = Method::where('ssid','=',$subsection->ssid)->get();
+				$ssArr[$subsection->ssname] = $methods;
+			}
+			$arr[$section->sname] = $ssArr;
+		}
+		return View::make('selector')->with('arr',$arr);
+	}
+
 	public function showSummary()
 	{
 		return View::make('summary');
@@ -45,7 +61,18 @@ class EditingController extends BaseController {
 
 	public function showEdit()
 	{
-		return View::make('edit');
+		$sections = Section::all();
+		$arr = array();
+		foreach($sections as $section){
+			$subsections = Subsection::where('sid','=',$section->sid)->get();
+			$ssArr = array();
+			foreach($subsections as $subsection){
+				$methods = Method::where('ssid','=',$subsection->ssid)->get();
+				$ssArr[$subsection->ssname] = $methods;
+			}
+			$arr[$section->sname] = $ssArr;
+		}
+		return View::make('edit')->with('arr',$arr);
 	}
 
 	public function showView()

@@ -78,7 +78,7 @@
     <!-- /.row -->
     <div class="row">
         <div class="col-lg-12">
-            <h2>Section Summary</h2>
+            <h2>Edit method</h2>
         </div>
     </div>
 
@@ -92,12 +92,15 @@
 
     <div class="panel panel-default">
         <div class="panel body">
-            <p>Close your eyes and quiet your mind. </p>
-            <p>Be still.</p>
-            <p>Let go of all thoughts, worry and tension.</p>
-            <p>Give yourself fully to a higher power. Relax, trust and let go... Breathe in fully and exhale with a deep sigh...</p>
-            <p>And again, breathe in fully and exhale with a deep sigh... And let go even more....</p>
-            <p>Feel a deep sense of contentment and peace in your heart.</p>
+            @foreach($arr as $section => $subsections)
+                <h2> {{$section}} </h2>
+                    @foreach($subsections as $subsection => $methods)
+                        @foreach($methods as $method)
+                            <h4>{{$method->mname}}</h4>
+                        @endforeach
+                    @endforeach
+                </optgroup>
+            @endforeach
         </div>
     </div>
 

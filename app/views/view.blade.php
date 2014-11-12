@@ -79,7 +79,7 @@
     <!-- /.row -->
     <div class="row">
         <div class="col-lg-12">
-            <h2>Section Summary</h2>
+            <h2>View method</h2>
         </div>
     </div>
 

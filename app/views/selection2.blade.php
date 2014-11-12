@@ -82,6 +82,39 @@
             </div>
             <!-- /.col-lg-12 -->
         </div>
+<<<<<<< HEAD
+=======
+        <!-- /.navbar-header -->
+
+        <ul class="nav navbar-top-links navbar-right">
+            <!-- /.dropdown -->
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a></li>
+                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a></li>
+                    <li class="divider"></li>
+                    <li><a href="login"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
+                </ul>
+                <!-- /.dropdown-user -->
+            </li>
+            <!-- /.dropdown -->
+        </ul>
+        <!-- /.navbar-top-links -->
+    </nav>
+</div>  
+
+ 
+
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Method Selection</h1>
+        </div>
+    </div>
+>>>>>>> FETCH_HEAD
 
         <div class="row">
             <div class="col-md-7">
@@ -98,11 +131,21 @@
                     @endforeach
 
                     @endforeach
+<<<<<<< HEAD
                 </select>
             </div>
+=======
+                
+            @endforeach
+        </select>
+                
+>>>>>>> FETCH_HEAD
         </div>
 
+<<<<<<< HEAD
         <p id="test" onclick="printResults()">Hello Friend</p>
+=======
+>>>>>>> FETCH_HEAD
 
         <script>
 
@@ -130,7 +173,10 @@
             </div>
 
         </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> FETCH_HEAD
     </div>
 
     <p id="test">

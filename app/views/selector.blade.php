@@ -81,6 +81,7 @@
         </div>
     </div>
 
+<<<<<<< HEAD
     <div class="container">
     <div class="row col-md-6 col-md-offset-1 custyle">
     <table class="table table-striped custab">
@@ -93,26 +94,37 @@
             <th>Option</th>
         </tr>
     </thead>
+=======
+
+    <div class="row col-lg-12 custyle">
+        <table class="table table-striped custab">
+            <thead>
+                <tr>
+                    <th>Methods</th>
+                </tr>
+            </thead>
+            @foreach($arr as $section => $subsections)
+>>>>>>> FETCH_HEAD
             <tr>
                 <td>
-                    <p>1. Internalizing Awareness</p>
-                    <pIndent1>A. Quiet/Centering</pIndent1>
-                    <pIndent2>2. Closing the eyes and being present </pIndent2>
+                    <h3>{{$section}}</h3>
+                    <dl>
+                        @foreach($subsections as $subsection => $methods)
+                            <dt> {{$subsection}}</dt>
+                            @foreach($methods as $method)
+                                <dd>
+                                    {{$method->mname}}
+                                    <a href="/yoga/public/edit">  <button type="button" class="btn btn-link">Edit</button> </a>
+                                </dd>
+                            @endforeach
+                        @endforeach
+                    </dl>
                 </td>
-                <td><a href="/yoga/public/edit">  <button type="button" class="btn btn-link">Edit</button> </a></td>
             </tr>
-            <tr>
-                <td>2. Induction Techniques Phase 1</td>
-                <td><a href="/yoga/public/view">  <button type="button" class="btn btn-link">View</button> </a></td>
-            </tr>
-            <tr>
-                <td>3. Instructions for Yoga Nidra</td>
-                <td><a href="/yoga/public/edit">  <button type="button" class="btn btn-link">Edit</button> </a></td>
-            </tr>
-            
-    </table>
+            @endforeach
+        </table>
     </div>
-</div>
+
 
     <div class="row">
         <div class="col-lg-12">
