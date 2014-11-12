@@ -2,6 +2,11 @@
 
 class EditingController extends BaseController {
 
+	public function showSelector()
+	{
+		$selectedMethods = $_POST['data'];
+		return View::make('selector') -> with('selectedMethods', $selectedMethods);
+	}
 
 	public function showSelect()
 	{

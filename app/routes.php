@@ -25,7 +25,7 @@ Route::post('login', array('uses' => 'HomeController@doLogin'));
 Route::get('createnew', array('uses' => 'HomeController@showCreateNew'));
 Route::get('logout', array('uses' => 'HomeController@doLogout'));
 
-Route::get('selector', array('uses' => 'HomeController@showSelector'));
+Route::get('selector', array('uses' => 'EditingController@showSelector'));
 
 Route::get('selection', array('uses' => 'EditingController@showSelect'));
 Route::get('selection2', array('uses' => 'EditingController@showSelect2'));

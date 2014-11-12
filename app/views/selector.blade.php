@@ -86,6 +86,9 @@
     <table class="table table-striped custab">
     <thead>
         <tr>
+            @foreach($selectedMethods as $methods)
+            echo {{$methods}};
+            @endforeach
             <th>Methods</th>
             <th>Option</th>
         </tr>
