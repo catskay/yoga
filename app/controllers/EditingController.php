@@ -25,8 +25,6 @@ class EditingController extends BaseController {
 		return View::make('selection2')->with('arr',$arr);
 	}
 
-	//$('#optgroupp').val();
-
 	
 	public function showTemp()
 	{
@@ -35,6 +33,22 @@ class EditingController extends BaseController {
 
 	public function showSummary()
 	{
+		$arr = $_SERVER['array'];
+		echo "<script>alert('".$arr."');</script>";
+		$script = new Script;
+		$script->name = 'placeholder';
+		$script->notes = 'placeholder';
+		$script->uid = Auth::user()->uid;
+		$script->date = date('Y-m-d');
+		$script->font_size = 'medium';
+		$script->save();
+
+		foreach($arr as $id){
+			$chMethod = new ChosenMethod;
+			$chMethod->mid = $id;
+			$chMethod->id = $script->id;
+			$chMethod->save();
+		}
 		return View::make('summary');
 	}
 

@@ -99,44 +99,53 @@
                 
             @endforeach
         </select>
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/master
                 
         </div>
     </div>
 
-    <p id="test" onclick="printResults()">Hello Friend</p>
+    <form>
+        <input id="post" name="post" type="hidden">
+    </form>
 
     <script>
 
-    function printEach(element){
-        document.getElementById("test").innerHTML = element;
-    }
 
-    function printResults(){
-        
+    
+    function postResults(){
+
         var arr = $('#optgroupp').val();        
-        alert(arr);
+        
+        $.ajax({ 
+            type: "POST",
+            url: "EditingController.php?array="+arr,
+            datatype: "json",
+            traditional: true,
+            data: { 'arr': arr }              
+        });
 
+        var str = $.serialize(arr);
+        var elem = document.getElementById("post");
+        elem.value = str;
+
+        alert("balls");
 
         return false;
     }
+
+    
 
    $("select").change(printResults);
 
     
     </script>
+
     
     <div class="row">
         <div class="col-lg-12 col-md-offset-10">
-            <a href="/yoga/public/selector">  <button type="button" class="btn btn-danger">Continue</button> </a>
+            <a href="/yoga/public/summary">  <button type="button" class="btn btn-danger" onclick="postResults()">Continue</button> </a>
         </div>
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/master
     </div>
 
 </div>
