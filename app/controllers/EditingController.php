@@ -2,10 +2,24 @@
 
 class EditingController extends BaseController {
 
+
 	public function showSelector()
 	{
-		$selectedMethods = $_POST['data'];
-		return View::make('selector') -> with('selectedMethods', $selectedMethods);
+		// $selectedMethods = $_POST['data'];
+		// return View::make('selector') -> with('selectedMethods', $selectedMethods);
+
+		$sections = Section::all();
+		$arr = array();
+		foreach($sections as $section){
+			$subsections = Subsection::where('sid','=',$section->sid)->get();
+			$ssArr = array();
+			foreach($subsections as $subsection){
+				$methods = Method::where('ssid','=',$subsection->ssid)->get();
+				$ssArr[$subsection->ssname] = $methods;
+			}
+			$arr[$section->sname] = $ssArr;
+		}
+		return View::make('selector')->with('arr',$arr);
 	}
 
 	public function showSelect()
@@ -38,21 +52,6 @@ class EditingController extends BaseController {
 		return View::make('temp');
 	}
 
-	public function showSelector()
-	{
-		$sections = Section::all();
-		$arr = array();
-		foreach($sections as $section){
-			$subsections = Subsection::where('sid','=',$section->sid)->get();
-			$ssArr = array();
-			foreach($subsections as $subsection){
-				$methods = Method::where('ssid','=',$subsection->ssid)->get();
-				$ssArr[$subsection->ssname] = $methods;
-			}
-			$arr[$section->sname] = $ssArr;
-		}
-		return View::make('selector')->with('arr',$arr);
-	}
 
 	public function showSummary()
 	{
@@ -61,18 +60,13 @@ class EditingController extends BaseController {
 
 	public function showEdit()
 	{
-		$sections = Section::all();
-		$arr = array();
-		foreach($sections as $section){
-			$subsections = Subsection::where('sid','=',$section->sid)->get();
-			$ssArr = array();
-			foreach($subsections as $subsection){
-				$methods = Method::where('ssid','=',$subsection->ssid)->get();
-				$ssArr[$subsection->ssname] = $methods;
-			}
-			$arr[$section->sname] = $ssArr;
-		}
-		return View::make('edit')->with('arr',$arr);
+		$meth = Input::get('method');
+		$method = Method::where('mid', '=', $meth)->first();
+		$subsection = Subsection::where('ssid', '=', $method->ssid)->first();
+		$section = Section::where('sid', '=', $subsection->sid)->first();
+		$array = array('method'=>$method, 'subsection'=>$subsection, 'section'=>$section);
+
+		return $array;
 	}
 
 	public function showView()

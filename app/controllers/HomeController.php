@@ -36,10 +36,6 @@ class HomeController extends BaseController {
 		return View::make('createnew');
 	}
 
-<<<<<<< HEAD
-
-=======
->>>>>>> FETCH_HEAD
 	public function doLogin()
 	{
 		// validate the info, create rules for the inputs

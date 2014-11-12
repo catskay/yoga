@@ -84,6 +84,15 @@
 
     <div class="row">
         <div class="col-lg-12">
+            @foreach($arr as $section => $subsections)
+                <p> {{$section}} </p>
+                    @foreach($subsections as $subsection => $methods)
+                        @foreach($methods as $method)
+                            <h4>{{$method->mname}}</h4>
+                        @endforeach
+                    @endforeach
+                </optgroup>
+            @endforeach
             <p>1. Internalizing Awareness</p>
             <pIndent1>A. Quiet/Centering</pIndent1>
             <pIndent2>2. Closing the eyes and being present </pIndent2>
@@ -92,15 +101,7 @@
 
     <div class="panel panel-default">
         <div class="panel body">
-            @foreach($arr as $section => $subsections)
-                <h2> {{$section}} </h2>
-                    @foreach($subsections as $subsection => $methods)
-                        @foreach($methods as $method)
-                            <h4>{{$method->mname}}</h4>
-                        @endforeach
-                    @endforeach
-                </optgroup>
-            @endforeach
+            
         </div>
     </div>
 

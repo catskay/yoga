@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Dashboard</title>
+    <title>Dashboardd</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -81,21 +81,6 @@
         </div>
     </div>
 
-<<<<<<< HEAD
-    <div class="container">
-    <div class="row col-md-6 col-md-offset-1 custyle">
-    <table class="table table-striped custab">
-    <thead>
-        <tr>
-            @foreach($selectedMethods as $methods)
-            echo {{$methods}};
-            @endforeach
-            <th>Methods</th>
-            <th>Option</th>
-        </tr>
-    </thead>
-=======
-
     <div class="row col-lg-12 custyle">
         <table class="table table-striped custab">
             <thead>
@@ -104,7 +89,6 @@
                 </tr>
             </thead>
             @foreach($arr as $section => $subsections)
->>>>>>> FETCH_HEAD
             <tr>
                 <td>
                     <h3>{{$section}}</h3>
@@ -114,7 +98,10 @@
                             @foreach($methods as $method)
                                 <dd>
                                     {{$method->mname}}
-                                    <a href="/yoga/public/edit">  <button type="button" class="btn btn-link">Edit</button> </a>
+                                    {{Form::open(array('action' => 'EditingController@showEdit')) }}
+                                    <input name="meth" type="hidden" value={{$method->mid}}/>
+                                    {{Form::submit('Edit');}}
+                                    {{Form::close() }}
                                 </dd>
                             @endforeach
                         @endforeach
