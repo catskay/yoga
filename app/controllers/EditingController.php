@@ -43,9 +43,6 @@ class EditingController extends BaseController {
 		}
 		return View::make('selection2')->with('arr',$arr);
 	}
-
-	//$('#optgroupp').val();
-
 	
 	public function showTemp()
 	{
@@ -60,13 +57,13 @@ class EditingController extends BaseController {
 
 	public function showEdit()
 	{
-		$meth = Input::get('method');
+		$meth = Input::get('meth');
 		$method = Method::where('mid', '=', $meth)->first();
 		$subsection = Subsection::where('ssid', '=', $method->ssid)->first();
 		$section = Section::where('sid', '=', $subsection->sid)->first();
 		$array = array('method'=>$method, 'subsection'=>$subsection, 'section'=>$section);
 
-		return $array;
+		return View::make('edit')->with('array', $array);
 	}
 
 	public function showView()

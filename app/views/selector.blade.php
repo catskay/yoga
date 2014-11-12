@@ -99,7 +99,7 @@
                                 <dd>
                                     {{$method->mname}}
                                     {{Form::open(array('action' => 'EditingController@showEdit')) }}
-                                    <input name="meth" type="hidden" value={{$method->mid}}/>
+                                    {{Form::hidden('meth', $method->mid) }}
                                     {{Form::submit('Edit');}}
                                     {{Form::close() }}
                                 </dd>
