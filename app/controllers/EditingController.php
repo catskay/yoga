@@ -5,8 +5,16 @@ class EditingController extends BaseController {
 
 	public function showSelector()
 	{
-		// $selectedMethods = $_POST['data'];
-		// return View::make('selector') -> with('selectedMethods', $selectedMethods);
+		$selectedMethods = Input::get('methods');
+		echo '<script>alert ('.json_encode($selectedMethods).');</script>';
+		$array = array();
+		// foreach($selectedMethods as $meth){
+		// 	$method = Method::where('mid', '=', $meth)->get();
+		// 	$ssArray = array();
+		// 	$subsection = Subsection::where('ssid', '=', $method->ssid)->get();
+		// 	$section = Section::where('sid', '=', $subsection->sid)->get();
+		// $array[$] = array('method'=>$method, 'subsection'=>$subsection, 'section'=>$section);
+		// }
 
 		$sections = Section::all();
 		$arr = array();
