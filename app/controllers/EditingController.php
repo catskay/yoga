@@ -71,6 +71,22 @@ class EditingController extends BaseController {
 		$section = Section::where('sid', '=', $subsection->sid)->first();
 		$array = array('method'=>$method, 'subsection'=>$subsection, 'section'=>$section);
 
+		if($meth === '27'){
+			return View::make('editables/method27')->with('array', $array);
+		}
+		else if($meth === '26'){
+			return View::make('editables/method26')->with('array', $array);
+		}
+		else if($meth === '10'){
+			return View::make('editables/method10')->with('array', $array);
+		}
+		else if($meth === '23'){
+			return View::make('editables/method23')->with('array', $array);
+		}
+		else if($meth === '24'){
+			return View::make('editables/method24')->with('array', $array);
+		}
+
 		return View::make('edit')->with('array', $array);
 	}
 
