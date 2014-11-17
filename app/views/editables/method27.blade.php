@@ -24,7 +24,8 @@
             {{Form::open()}}
             {{Form::select('choose', array('Option1' => 'Option 1', 'Option2' => 'Option 2'), 'Option1', array('onchange' => 'change()', 'id' => 'options'));}}<br/>
             {{Form::textarea('text', " - Now gradually, you can move, as if you are waking from a restful sleep. &#13; - Bend your knees and pull them closer to your chest, rock sideways gently.&#13; -    Take your time; do not hurry.&#13; -   Then just turn onto your right side and curl into a fetal position.....feel the safety, comfort and protection of the womb of existence.&#13; -   Bring your intention into your awareness again. Change nothing.&#13; -   Every time you find yourself in reaction, you are empowered to replace it with your intention.&#13; -   Now you can gradually move and begin to sit up with your eyes closed.&#13; -   Continue to stay deep in this deep inner experience.&#13; -   Regardless of what you consciously recognize that has or has not changed, know that something deep within has shifted to connect you with your intention.&#13; -   Become aware of your body...and bring a deep sense of peace and contentment with you as you bring awareness back to the body...&#13;          Notice:&#13; -   How relaxed the body is... &#13; -   How soft the breath is...&#13; -   How quiet the heartbeat is...&#13; -   Be still...and be grateful.&#13; -   Know that you can easily enter here again and again.&#13; -   Now, you may gradually open your eyes. &#13;", ['value' => " - Now gradually, you can move, as if you are waking from a restful sleep. &#13; - Bend your knees and pull them closer to your chest, rock sideways gently.&#13; -    Take your time; do not hurry.&#13; -   Then just turn onto your right side and curl into a fetal position.....feel the safety, comfort and protection of the womb of existence.&#13; -   Bring your intention into your awareness again. Change nothing.&#13; -   Every time you find yourself in reaction, you are empowered to replace it with your intention.&#13; -   Now you can gradually move and begin to sit up with your eyes closed.&#13; -   Continue to stay deep in this deep inner experience.&#13; -   Regardless of what you consciously recognize that has or has not changed, know that something deep within has shifted to connect you with your intention.&#13; -   Become aware of your body...and bring a deep sense of peace and contentment with you as you bring awareness back to the body...&#13; Notice:&#13; -   How relaxed the body is... &#13; -   How soft the breath is...&#13; -   How quiet the heartbeat is...&#13; -   Be still...and be grateful.&#13; -   Know that you can easily enter here again and again.&#13; -   Now, you may gradually open your eyes. &#13;", 'size' => '120x15', 'id' => 'contents', 'readonly'])}}
-             {{Form::close()}}
+            <input type="hidden" name="meth" value={{$array['method']->mid}}>
+
         </div>
     </div>
     <script>
@@ -46,7 +47,7 @@
         </div>
         <div class="col-md-4">
             <div class="wrapper">
-                <a href="/yoga/public/selector"><button class="button-center">Section Summary</button></a>
+                <input class="button-center" type="submit" value="Section Summary">Section Summary</button></a>
             </div>
         </div>
         <div class="col-md-4">
@@ -54,6 +55,6 @@
         </div>
     </div>
 </div>
-
+{{Form::close()}}
 
 @stop

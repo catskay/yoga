@@ -181,6 +181,116 @@ class EditingController extends BaseController {
 		return Route::dispatch($request)->getContent();
 	}
 
+	public function doMethod10()
+	{
+		$array = Input::get('checkgroup');
+		$str = Input::get('text1');
+		$str = $str.' '.Input::get('text2');
+		foreach($array as $box){
+			$str = $str.' '.$box;
+		}
+
+		$str = $str.' '.Input::get('custom');
+
+		$str = $str.' '.Input::get('text3');
+
+		$chMethod = new ChosenMethod;
+		$chMethod->mid = 10;
+		//$chMethod->id = Session::get('scrId');
+		$chMethod->id = 1;
+		$chMethod->text = $str;
+		$chMethod->save();
+
+		//$chMethod = ChosenMethod::where('mid','=',10)->where('id','=',Session::get('scrId'))->first();
+		//$chMethod->text = $str;
+
+		$request = Request::create('selector', 'GET', array());
+		return Route::dispatch($request)->getContent();
+	}
+
+	public function doMethod26()
+	{
+		$array = Input::get('checkgroup');
+		$str = Input::get('text1');
+		$str = $str.' '.Input::get('text2');
+		foreach($array as $box){
+			$str = $str.' '.$box;
+		}
+
+		$str = $str.' '.Input::get('custom');
+
+		$str = $str.' '.Input::get('text3');
+
+		$chMethod = new ChosenMethod;
+		$chMethod->mid = 26;
+		//$chMethod->id = Session::get('scrId');
+		$chMethod->id = 1;
+		$chMethod->text = $str;
+		$chMethod->save();
+
+		//$chMethod = ChosenMethod::where('mid','=',26)->where('id','=',Session::get('scrId'))->first();
+		//$chMethod->text = $str;
+
+		$request = Request::create('selector', 'GET', array());
+		return Route::dispatch($request)->getContent();
+	}
+
+	public function doMethod23()
+	{
+		$str = Input::get('text');
+		
+		$chMethod = new ChosenMethod;
+		$chMethod->mid = 23;
+		//$chMethod->id = Session::get('scrId');
+		$chMethod->id = 1;
+		$chMethod->text = $str;
+		$chMethod->save();
+
+		//$chMethod = ChosenMethod::where('mid','=',23)->where('id','=',Session::get('scrId'))->first();
+		//$chMethod->text = $str;
+
+		$request = Request::create('selector', 'GET', array());
+		return Route::dispatch($request)->getContent();
+	}
+
+	public function doMethod24()
+	{
+		$str = Input::get('text1');
+		$str = $str.' '.Input::get('text2');
+
+		$chMethod = new ChosenMethod;
+		$chMethod->mid = 24;
+		//$chMethod->id = Session::get('scrId');
+		$chMethod->id = 1;
+		$chMethod->text = $str;
+		$chMethod->save();
+
+		//$chMethod = ChosenMethod::where('mid','=',24)->where('id','=',Session::get('scrId'))->first();
+		//$chMethod->text = $str;
+
+		$request = Request::create('selector', 'GET', array());
+		return Route::dispatch($request)->getContent();
+	}
+
+	public function doMethod27()
+	{
+		
+		$str = Input::get('text');
+
+		$chMethod = new ChosenMethod;
+		$chMethod->mid = 27;
+		//$chMethod->id = Session::get('scrId');
+		$chMethod->id = 1;
+		$chMethod->text = $str;
+		$chMethod->save();
+
+		//$chMethod = ChosenMethod::where('mid','=',27)->where('id','=',Session::get('scrId'))->first();
+		//$chMethod->text = $str;
+
+		$request = Request::create('selector', 'GET', array());
+		return Route::dispatch($request)->getContent();
+	}
+
 	/*public function showEdit()
 	{
 		$meth = Input::get('meth');
@@ -214,7 +324,7 @@ class EditingController extends BaseController {
         	return View::make('editables/method20')->with('array',$array);
         }
         else if($meth==='25'){
-        	return View::make('editables/ethod25')->with('array',$array);
+        	return View::make('editables/method25')->with('array',$array);
         }
 		else if($meth === '26'){
 			return View::make('editables/method26')->with('array', $array);

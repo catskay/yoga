@@ -27,9 +27,9 @@
 
             {{ Form::textarea('intention', null, ['size' => '120x3', 'placeholder' => 'Please enter your custom intention here.']) }}<br/>
             {{Form::textarea('text2', "   -   Repeat your intention now three times..........(pause)&#13; -   If you do not have an intention, just remain silent and let spirit, who knows what is best, do it for you...&#13; -   If you have self-defeating patterns or habits that are holding you back that you want to be freed from, make that your intention now.......(allow time).&#13; -   Allow it to go to the deepest levels of recognition with no hesitation.&#13; -   Know that your higher self recognizes, honors and accepts your intention.&#13; -   Have faith and trust that it has been heard and is being acted upon by a higher power of the source within you.&#13; -   There is no need for you to do anything about it...&#13; -   Bring your attention back to the center between the eyebrows and feel all the energies of your body from all meridians activated, purified and balanced.&#13; -   All channels are open and the life force is flowing freely, healing the body and calming the mind...open your heart and feel content...&#13; -   Just experience (....pause...).&#13;", ['size' => '120x13', 'id' => 'content2', 'readonly' ,'value' => "               -   Repeat your intention now three times..........(pause)&#13; -   If you do not have an intention, just remain silent and let spirit, who knows what is best, do it for you...&#13; -   If you have self-defeating patterns or habits that are holding you back that you want to be freed from, make that your intention now.......(allow time).&#13; -   Allow it to go to the deepest levels of recognition with no hesitation.&#13; -   Know that your higher self recognizes, honors and accepts your intention.&#13; -   Have faith and trust that it has been heard and is being acted upon by a higher power of the source within you.&#13; -   There is no need for you to do anything about it...&#13; -   Bring your attention back to the center between the eyebrows and feel all the energies of your body from all meridians activated, purified and balanced.&#13; -   All channels are open and the life force is flowing freely, healing the body and calming the mind...open your heart and feel content...&#13; -   Just experience (....pause...).&#13;"])}}
+            <input type="hidden" name="meth" value={{$array['method']->mid}}>
 
-
-            {{Form::close()}}
+            
         </div>
     </div>
     <script>
@@ -56,7 +56,7 @@
         </div>
         <div class="col-md-4">
             <div class="wrapper">
-                <a href="/yoga/public/selector"><button class="button-center">Section Summary</button></a>
+                <input class="button-center" type="submit" value="Section Summary">
             </div>
         </div>
         <div class="col-md-4">
@@ -65,5 +65,5 @@
     </div>
 </div>
 
-
+{{Form::close()}}
 @stop

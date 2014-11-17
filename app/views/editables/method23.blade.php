@@ -24,7 +24,7 @@
             {{Form::open(array('id' => 'optionSelection'))}}
             {{Form::select('choose', array('neutral' => 'Neutral','general' => 'General', 'yogic' => 'Yogic'), 'neutral', array('onchange' => 'change()', 'id' => 'options'));}}<br/>
             {{Form::textarea('text', '    Choose one of the techniques below that best suits your audience. &#13; Incorporate a few breaths of silence between each line or two, with a space of 8-10 breaths at the deepest point of your integration.&#13; -          Now allow yourself to enter the deepest state of letting go right now. &#13; -          Nothing to do or achieve.&#13; -          Open..empty.&#13; -          (pause)&#13; -          Feel yourself as a vast, spacious, sky of awareness.&#13; -          Rest into and as this space.&#13; -          (pause)&#13; -          Thoughts, images, sensations passing by like clouds on a clear blue sky.&#13; -          Be the space in which it is all happening. &#13;', ['size' => '120x15', 'value' => '    Choose one of the techniques below that best suits your audience. &#13; Incorporate a few breaths of silence between each line or two, with a space of 8-10 breaths at the deepest point of your integration.&#13; -          Now allow yourself to enter the deepest state of letting go right now. &#13; -          Nothing to do or achieve.&#13; -          Open..empty.&#13; -          (pause)&#13; -          Feel yourself as a vast, spacious, sky of awareness.&#13; -          Rest into and as this space.&#13; -          (pause)&#13; -          Thoughts, images, sensations passing by like clouds on a clear blue sky.&#13; -          Be the space in which it is all happening. &#13;', 'id' => 'contents', 'readonly'])}}
-           {{Form::close()}}
+            <input type="hidden" name="meth" value={{$array['method']->mid}}>
 
 
         </div>
@@ -54,7 +54,7 @@
         </div>
         <div class="col-md-4">
             <div class="wrapper">
-                <a href="/yoga/public/selector"><button class="button-center">Section Summary</button></a>
+                <input class="button-center" type = "submit" value="Section Summary">
             </div>
         </div>
         <div class="col-md-4">
@@ -62,6 +62,6 @@
         </div>
     </div>
 </div>
-
+{{Form::close()}}
 
 @stop

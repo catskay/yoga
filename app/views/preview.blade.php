@@ -124,6 +124,16 @@
 <?php
     Fpdf::AddPage('p','letter');
     Fpdf::SetFont('Arial','','14');
+    foreach($arr as $section => $subsections){
+        Fpdf::Write(10,$section);
+        foreach($subsections as $subsection => $methods){
+            Fpdf::Write(10,$subsection);
+            foreach($methods as $method){
+                Fpdf::Write(10,$method->mname);
+                Fpdf::Write(10,$method->text);
+            }
+        }
+    }
     Fpdf::Write(10,'I. Internalizing Awareness');
     //Fpdf::Cell(40,10,'Hello World!');
     Fpdf::Output('helloworld','F');

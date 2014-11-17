@@ -21,10 +21,10 @@
 
     <div class="panel panel-default">
         <div class="panel body">
-            {{Form::open()}}
+            {{Form::open(array('url'=>'method10'))}}
             {{Form::select('choose', array('general' => 'General', 'yogic' => 'Yogic'), 'general', array('onchange' => 'change()', 'id' => 'options'));}} <br/>
             {{ Form::textarea('text', 'As we enter this next phase of Yoga Nidra, remain as motionless as possible. If you need to move or make an adjustment, do so mindfully and return to stillness as soon as you are able.&#13; -    Resolve to remain awake, staying in touch with the sound of my voice.&#13; -    Simply allow your entire body to respond to my words directly and non-mentally.&#13; -    Allow any disturbances, external or internal, to draw you more deeply within.&#13; -    (pause)&#13; -    Now shift from thinking and doing to feeling and being.&#13; -    Do absolutely nothing from now on.&#13; -    (pause)&#13;', ['id' => 'contents', 'value' => 'As we enter this next phase of Yoga Nidra, remain as motionless as possible. If you need to move or make an adjustment, do so mindfully and return to stillness as soon as you are able.&#13; -    Resolve to remain awake, staying in touch with the sound of my voice.&#13; -    Simply allow your entire body to respond to my words directly and non-mentally.&#13; -    Allow any disturbances, external or internal, to draw you more deeply within.&#13; -    (pause)&#13; -    Now shift from thinking and doing to feeling and being.&#13; -    Do absolutely nothing from now on.&#13; -    (pause)&#13;', 'size' => '120x16', 'readonly']) }}
-            {{Form::close()}}
+            <input type="hidden" name="meth" value={{$array['method']->mid}}>
 
         </div>
     </div>
@@ -50,7 +50,7 @@
     </div>
     <div class="col-md-4">
         <div class="wrapper">
-            <a href="/yoga/public/selector"><button class="button-center">Section Summary</button></a>
+            <input class="button-center" type="submit" value="Section Summary">
         </div>
     </div>
     <div class="col-md-4">
@@ -58,6 +58,8 @@
     </div>
 </div>
 </div>
+
+{{Form::close()}}
 
 
 @stop

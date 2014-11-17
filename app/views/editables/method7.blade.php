@@ -58,9 +58,8 @@
                 <input type="checkbox" name="checkgroup[]" value="Feel your attention expanding to include your whole body. Feeling more, thinking less."> Feel your attention expanding to include your whole body. Feeling more, thinking less.<br>
                 <input type="checkbox" name="checkgroup[]" value="Experience the body as particles of energy suspended in space. Tingling…vibrating."> Experience the body as particles of energy suspended in space. Tingling…vibrating.<br>
                 <input type="checkbox" name="checkgroup[]" value="Release any struggle, any effort to make anything happen. Enter into a state of complete non-doing."> Release any struggle, any effort to make anything happen. Enter into a state of complete non-doing.<br>
-                <input type="checkbox" name="checkgroup[]" value="Let your attention lead you into total absorption."> Let your attention lead you into total absorption.<br>
-                <input type="submit" value="Section Summary" class="btn btn-lg btn-success btn-block">
-                
+                <input type="checkbox" name="checkgroup[]" value="Let your attention lead you into total absorption."> Let your attention lead you into total absorption.<br>                
+                <input type="hidden" name="meth" value={{$array['method']->mid}}>
             </div>
         </div>
 

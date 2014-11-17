@@ -21,7 +21,7 @@
  
     <div class="panel panel-default">
         <div class="panel body">
-            
+            Choose up to five images.<br>
             {{Form::open(array('url' => 'method20')) }}
             <form role="form" id="options" name="options" type="post">
                 <textarea name="text1" value="Resting in witness consciousness, allow yourself to receive the following  images and experiences.
@@ -68,6 +68,7 @@ Judge nothing, remaining unconditionally open and present to all that passes in 
                 <textarea name="text2" rows=1 cols = 100 value="And now be still.......still in that black space behind the forehead and observe what passes.......witnessing unattached to all that passes......if nothing appears, just be aware of that.....
                 Be totally present.....completely absorbed.....(pause 5-7 breaths)." readonly>And now be still.......still in that black space behind the forehead and observe what passes.......witnessing unattached to all that passes......if nothing appears, just be aware of that.....
                 Be totally present.....completely absorbed.....(pause 5-7 breaths).</textarea><br>
+                <input type="hidden" name="meth" value={{$array['method']->mid}}>
             </div>
         </div>
 

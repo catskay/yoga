@@ -21,7 +21,7 @@
  
     <div class="panel panel-default">
         <div class="panel body">
-            
+            Choose up to four pairs of opposites.<br>
             {{Form::open(array('url' => 'method19')) }}
             <form role="form">
                 <textarea name="text1" value="In this deep state of awareness, allow the following polar experiences and their 
@@ -44,7 +44,7 @@
                 Choose your own pair of opposites <input type="text" name="custom"><br>
                 <textarea name="text3" rows=1 cols = 100 value="...Gradually allow visualization and accompanying sensations to fade as you 
                 bring your attention back to the Third Eye." readonly>...Gradually allow visualization and accompanying sensations to fade as you bring your attention back to the Third Eye.</textarea><br>
-               
+               <input type="hidden" name="meth" value={{$array['method']->mid}}>
             </div>
         </div>
 

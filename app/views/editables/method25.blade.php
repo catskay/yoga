@@ -118,8 +118,7 @@
                 <input type="checkbox" name="checkgroup[]" value="I remain present and unattached to memories of the past and outcomes of the future."> I remain present and unattached to memories of the past and outcomes of the future.<br>
                 <input type="checkbox" name="checkgroup[]" value="I am a silent observer of all that is passing through body and mind."> I am a silent observer of all that is passing through body and mind.<br>
                 <input type="checkbox" name="checkgroup[]" value="I am the seer of all that is seen, unaffected by all that is in constant flux."> I am the seer of all that is seen, unaffected by all that is in constant flux.<br></br>
-                <input type="submit" value="Section Summary" class="btn btn-lg btn-success btn-block">
-                {{Form::close() }}
+                <input type="hidden" name="meth" value={{$array['method']->mid}}>
             </div>
         </div>
 
@@ -129,7 +128,7 @@
         </div>
         <div class="col-md-4">
             <div class="wrapper">
-                <a href="/yoga/public/selector"><button class="button-center">Section Summary</button></a>
+                <input class="button-center" type="submit" value="Section Summary">
             </div>
         </div>
         <div class="col-md-4">
@@ -138,5 +137,5 @@
     </div>
 </div>
  
- 
+{{Form::close() }}
 @stop
