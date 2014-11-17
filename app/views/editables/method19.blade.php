@@ -44,9 +44,7 @@
                 Choose your own pair of opposites <input type="text" name="custom"><br>
                 <textarea name="text3" rows=1 cols = 100 value="...Gradually allow visualization and accompanying sensations to fade as you 
                 bring your attention back to the Third Eye." readonly>...Gradually allow visualization and accompanying sensations to fade as you bring your attention back to the Third Eye.</textarea><br>
-
-                <input type="submit" value="Section Summary" class="btn btn-lg btn-success btn-block">
-                {{Form::close() }}
+               
             </div>
         </div>
 
@@ -56,7 +54,7 @@
         </div>
         <div class="col-md-4">
             <div class="wrapper">
-                <a href="/yoga/public/selector"><button class="button-center">Section Summary</button></a>
+                <input class="button-center" type="submit" value = "Section Summary">
             </div>
         </div>
         <div class="col-md-4">
@@ -64,6 +62,6 @@
         </div>
     </div>
 </div>
- 
+ {{Form::close() }}
  
 @stop

@@ -60,7 +60,7 @@
                 <input type="checkbox" name="checkgroup[]" value="Release any struggle, any effort to make anything happen. Enter into a state of complete non-doing."> Release any struggle, any effort to make anything happen. Enter into a state of complete non-doing.<br>
                 <input type="checkbox" name="checkgroup[]" value="Let your attention lead you into total absorption."> Let your attention lead you into total absorption.<br>
                 <input type="submit" value="Section Summary" class="btn btn-lg btn-success btn-block">
-                {{Form::close() }}
+                
             </div>
         </div>
 
@@ -70,7 +70,7 @@
         </div>
         <div class="col-md-4">
             <div class="wrapper">
-                <a href="/yoga/public/selector"><button class="button-center">Section Summary</button></a>
+                <input class="button-center" type="submit" value="Section Summary">
             </div>
         </div>
         <div class="col-md-4">
@@ -79,5 +79,5 @@
     </div>
 </div>
  
- 
+{{Form::close() }} 
 @stop

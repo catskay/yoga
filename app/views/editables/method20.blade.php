@@ -23,7 +23,7 @@
         <div class="panel body">
             
             {{Form::open(array('url' => 'method20')) }}
-            <form role="form">
+            <form role="form" id="options" name="options" type="post">
                 <textarea name="text1" value="Resting in witness consciousness, allow yourself to receive the following  images and experiences.
 Judge nothing, remaining unconditionally open and present to all that passes in the field of awareness." rows=5 cols=100 readonly>Resting in witness consciousness, allow yourself to receive the following  images and experiences.
 Judge nothing, remaining unconditionally open and present to all that passes in the field of awareness.</textarea><br>
@@ -66,28 +66,27 @@ Judge nothing, remaining unconditionally open and present to all that passes in 
                 <input type="checkbox" name="checkgroup[]" value="6-pointed star"> 6-pointed star<br>
                 Choose your own image <input type="text" name="custom"><br>
                 <textarea name="text2" rows=1 cols = 100 value="And now be still.......still in that black space behind the forehead and observe what passes.......witnessing unattached to all that passes......if nothing appears, just be aware of that.....
-Be totally present.....completely absorbed.....(pause 5-7 breaths)." readonly>And now be still.......still in that black space behind the forehead and observe what passes.......witnessing unattached to all that passes......if nothing appears, just be aware of that.....
-Be totally present.....completely absorbed.....(pause 5-7 breaths).</textarea><br>
-
-                <input type="submit" value="Section Summary" class="btn btn-lg btn-success btn-block">
-                {{Form::close() }}
+                Be totally present.....completely absorbed.....(pause 5-7 breaths)." readonly>And now be still.......still in that black space behind the forehead and observe what passes.......witnessing unattached to all that passes......if nothing appears, just be aware of that.....
+                Be totally present.....completely absorbed.....(pause 5-7 breaths).</textarea><br>
             </div>
         </div>
 
-    <div class="row">
-        <div class="col-md-4">
-            <button type="button" class="btn btn-danger">Previous</button>
-        </div>
-        <div class="col-md-4">
-            <div class="wrapper">
-                <a href="/yoga/public/selector"><button class="button-center">Section Summary</button></a>
+        <div class="row">
+            <div class="col-md-4">
+                <button type="button" class="btn btn-danger">Previous</button>
             </div>
-        </div>
-        <div class="col-md-4">
-            <button type="button" class="btn btn-danger" style="float:right">Next</button>
+            <div class="col-md-4">
+                <div class="wrapper">
+                    <input class="button-center" type="submit" value="Section Summary">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <button type="button" class="btn btn-danger" style="float:right">Next</button>
+            </div>
         </div>
     </div>
-</div>
- 
- 
-@stop
+    {{Form::close() }}
+
+
+
+    @stop

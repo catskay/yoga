@@ -39,7 +39,7 @@ Route::post('selector', array('uses' => 'EditingController@showEdit'));
 
 Route::post('method19', array('uses' => 'EditingController@doMethod19'));
 
-Route::post('method20', array('uses' => 'EditingController@doMethod20'));
+Route::post('method20', array('uses' => 'EditingController@doMethod20','as'=>'method20'));
 
 Route::post('method7', array('uses' => 'EditingController@doMethod7'));
 
