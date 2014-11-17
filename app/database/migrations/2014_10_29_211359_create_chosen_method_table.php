@@ -22,6 +22,8 @@ class CreateChosenMethodTable extends Migration {
 			$table->unsignedInteger('id');
 
 			$table->foreign('id')->references('id')->on('scripts');
+
+			$table->string('text',9000);
                         
             $table->timestamps();
 		});

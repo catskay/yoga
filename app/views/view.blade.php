@@ -12,7 +12,8 @@
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- MetisMenu CSS -->
+    <!-- Metis
+    Menu CSS -->
     <link href="css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
 
     <!-- DataTables CSS -->
@@ -78,7 +79,7 @@
     <!-- /.row -->
     <div class="row">
         <div class="col-lg-12">
-            <h2>Section Summary</h2>
+            <h2>View method</h2>
         </div>
     </div>
 
