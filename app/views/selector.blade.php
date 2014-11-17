@@ -101,7 +101,7 @@
 
                                     {{Form::open(array('action' => 'EditingController@showEdit')) }}
                                     {{Form::hidden('meth', $method->mid) }}
-                                    {{Form::submit('Edit');}}
+                                    {{Form::submit('Edit', array('class' => 'btn btn-edit-link'));}}
                                     {{Form::close() }}
                                 </dd>
                             @endforeach

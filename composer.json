@@ -7,6 +7,9 @@
 	"require": {
 		"laravel/framework": "4.2.*"
 	},
+	"require-dev": {
+    	"anouar/fpdf": "dev-master"
+	},
 	"autoload": {
 		"classmap": [
 			"app/commands",
@@ -34,4 +37,5 @@
 		"preferred-install": "dist"
 	},
 	"minimum-stability": "stable"
+	
 }

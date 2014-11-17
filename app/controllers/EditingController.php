@@ -308,6 +308,7 @@ class EditingController extends BaseController {
 		}
 
 		return View::make('edit')->with('array', $array);
+		return View::make('edit');
 	}
 
 	public function showView()
@@ -317,6 +318,17 @@ class EditingController extends BaseController {
 
 	public function showPreview()
 	{
-		return View::make('preview');
+		$sections = Section::all();
+		$arr = array();
+		foreach($sections as $section){
+			$subsections = Subsection::where('sid','=',$section->sid)->get();
+			$ssArr = array();
+			foreach($subsections as $subsection){
+				$methods = Method::where('ssid','=',$subsection->ssid)->get();
+				$ssArr[$subsection->ssname] = $methods;
+			}
+			$arr[$section->sname] = $ssArr;
+		}
+		return View::make('preview')->with('arr',$arr);
 	}
 }

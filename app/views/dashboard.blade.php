@@ -54,11 +54,7 @@
         <!-- /.navbar-header -->
 
         <ul class="nav navbar-top-links navbar-right">
-            </li>
-            <li> Welcome, {{$array['name']}}
-                
-                
-                </li>
+            <li> Welcome, {{$array['name']}}</li>
             <!-- /.dropdown -->
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -79,66 +75,66 @@
 </div>  
 
 <div id="page-wrapper">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">Instruction List</h1>
-                    <a href="/yoga/public/selection2">  <button type="button" class="btn btn-danger" style="float:right">CREATE NEW</button> </a>
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-          
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                    <thead>
-                                        <tr>
-                                            <th>File Name</th>
-                                            <th>Last Edited Date</th>
-                                            <th>Notes</th>
-                                            <th>Options</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        
-                                    	@foreach($array['scripts'] as $script)
-                                         <tr class="odd gradeX">
-                                            <td>{{$script->name}}</td>
-                                            <td>{{$script->date}}</td>
-                                            <td>{{$script->notes}}</td>
-                                            <td> <div class="btn-group">
-                                              <button type="button" id="download" class="btn btn-default">Download</button>
-                                              <button type="button" id="print" class="btn btn-default">Print</button>
-                                              <button type="button" id="save" class="btn btn-default">Edit</button>
-                                            </div></td>                                    
-                                            </tr>
-                                       </tr>
-                                       @endforeach
-                                       
-                                       
-                                       
-                                    </tbody>
-                                </table>
-                            </div>
-                            <!-- /.table-responsive -->
-                            <div class="well">
-                                <h4>Additional Info</h4>
-                                <p>Add information about the site or ... </p>
-                             
-                            </div>
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Instruction List</h1>
+            <a href="/yoga/public/selection2">  <button type="button" class="btn btn-danger" style="float:right">CREATE NEW</button> </a>
         </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+  
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                            <thead>
+                                <tr>
+                                    <th>File Name</th>
+                                    <th>Last Edited Date</th>
+                                    <th>Notes</th>
+                                    <th>Options</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                            	@foreach($array['scripts'] as $script)
+                                 <tr class="odd gradeX">
+                                    <td>{{$script->name}}</td>
+                                    <td>{{$script->date}}</td>
+                                    <td>{{$script->notes}}</td>
+                                    <td> <div class="btn-group">
+                                      <button type="button" id="download" class="btn btn-default">Download</button>
+                                      <button type="button" id="print" class="btn btn-default">Print</button>
+                                      <button type="button" id="save" class="btn btn-default">Edit</button>
+                                    </div></td>                                    
+                                    </tr>
+                               </tr>
+                               @endforeach
+                               
+                               
+                               
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                    <div class="well">
+                        <h4>Additional Info</h4>
+                        <p>Add information about the site or ... </p>
+                     
+                    </div>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+</div>
         <!-- /#page-wrapper -->
 
  <!-- jQuery Version 1.11.0 -->

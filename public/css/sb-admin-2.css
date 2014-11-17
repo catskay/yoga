@@ -29,6 +29,7 @@ body {
 
 .navbar-top-links li {
     display: inline-block;
+    color: #f2dfb5;
 }
 
 .navbar-top-links li:last-child {
@@ -394,22 +395,6 @@ table.dataTable thead .sorting:after {
     border-color: #ac2925;
 }
 
-
-pIndent1{
-    display: block;
-    margin-left: 25px;
-}
-
-pIndent2{
-    display: block;
-    margin-left: 40px;
-}
-
-pIndent3{
-    display: block;
-    margin-left: 55px;
-}
-
 pSmall{
     display: block;
     font-size: small;
@@ -424,3 +409,12 @@ pLarge{
     display: block;
     font-size: large;
 }
+
+.btn-edit-link{
+    background-color: transparent;
+    color: #cc0000;
+    position: relative;
+    top: -27px;
+    right: -400px;
+}
+

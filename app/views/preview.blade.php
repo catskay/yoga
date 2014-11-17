@@ -83,8 +83,11 @@
 
     <div class="col-md-8">
         <div class="panel panel-default">
+
+            <iframe frameborder="0" src="/yoga/public/helloworld" width="100%" height="500"></iframe>
+
+                
             
-           
         </div>
     </div>
 
@@ -92,11 +95,13 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <h1 style="color:#cc0000 ">Font Size</h1>
-                <pSmall>Small</pSmall>
+
+                <button type="button" class="btn btn-default" id="small" onclick="setFontSmall()">Small</button>
                 <pMedium>Medium</pMedium>
                 <pLarge>Large</pLarge>
             </div>
         </div>
+
 
         <div class="panel panel-default">
             <div class="panel-body">
@@ -114,6 +119,22 @@
 
 </div>
 
+
+
+<?php
+    Fpdf::AddPage('p','letter');
+    Fpdf::SetFont('Arial','','14');
+    Fpdf::Write(10,'I. Internalizing Awareness');
+    //Fpdf::Cell(40,10,'Hello World!');
+    Fpdf::Output('helloworld','F');
+    exit;
+
+    function setFontSmall(){
+        Fpdf::SetFontSize(20);
+        Fpdf::Output('helloworld','F');
+        exit;
+    }
+?>
 
 
 <!-- jQuery Version 1.11.0 -->

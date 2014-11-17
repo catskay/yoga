@@ -7,6 +7,10 @@ composer.lock
 Thumbs.db
 database.php
 app/config/database.php
+<<<<<<< Updated upstream
 app/config/database.php
 
 app/config/database.php
+=======
+
+>>>>>>> Stashed changes

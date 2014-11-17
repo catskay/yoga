@@ -28,10 +28,6 @@
 
         </select>
 
-    </div>
-
-    <p id="test" onclick="printResults()">Hello Friend</p>
-
     <script>
 
     function printResults(){
