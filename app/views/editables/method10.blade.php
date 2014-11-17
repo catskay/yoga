@@ -22,7 +22,7 @@
     <div class="panel panel-default">
         <div class="panel body">
             {{Form::open()}}
-            {{Form::select('choose', array('general' => 'General', 'yogic' => 'Yogic'), 'HigherSelf', array('onchange' => 'change()', 'id' => 'options'));}}
+            {{Form::select('choose', array('general' => 'General', 'yogic' => 'Yogic'), 'general', array('onchange' => 'change()', 'id' => 'options'));}}
             {{Form::close()}}
 
             <p id="contents">

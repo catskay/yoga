@@ -245,17 +245,30 @@ class EditingController extends BaseController {
         $array = array('method'=>$method, 'subsection'=>$subsection, 'section'=>$section);
 
         if($meth==='7'){
-        	return View::make('method7')->with('array',$array);
+        	return View::make('editables/method7')->with('array',$array);
         }
-        if($meth==='19'){
-        	return View::make('method19')->with('array',$array);
+        else if($meth==='19'){
+        	return View::make('editables/method19')->with('array',$array);
         }
-        if($meth==='20'){
-        	return View::make('method20')->with('array',$array);
+        else if($meth==='20'){
+        	return View::make('editables/method20')->with('array',$array);
         }
-        if($meth==='25'){
-        	return View::make('method25')->with('array',$array);
+        else if($meth==='25'){
+        	return View::make('editables/ethod25')->with('array',$array);
         }
+		else if($meth === '26'){
+			return View::make('editables/method26')->with('array', $array);
+		}
+		else if($meth === '10'){
+			return View::make('editables/method10')->with('array', $array);
+		}
+		else if($meth === '23'){
+			return View::make('editables/method23')->with('array', $array);
+		}
+		else if($meth === '24'){
+			return View::make('editables/method24')->with('array', $array);
+		}
+
 
  
         return View::make('edit')->with('array',$array);
@@ -270,18 +283,17 @@ class EditingController extends BaseController {
         $array = array('method'=>$method, 'subsection'=>$subsection, 'section'=>$section);
 
         if($meth==='7'){
-        	return View::make('method7')->with('array',$array);
+        	return View::make('editables/method7')->with('array',$array);
         }
         else if($meth==='19'){
-        	return View::make('method19')->with('array',$array);
+        	return View::make('editables/method19')->with('array',$array);
         }
         else if($meth==='20'){
-        	return View::make('method20')->with('array',$array);
+        	return View::make('editables/method20')->with('array',$array);
         }
         else if($meth==='25'){
-        	return View::make('method25')->with('array',$array);
+        	return View::make('editables/ethod25')->with('array',$array);
         }
- 
 		else if($meth === '26'){
 			return View::make('editables/method26')->with('array', $array);
 		}
