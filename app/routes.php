@@ -32,14 +32,14 @@ Route::get('selection', array('uses' => 'EditingController@showSelect'));
 Route::get('selection2', array('uses' => 'EditingController@showSelect2'));
 Route::post('selection2', array('uses' => 'EditingController@showSelector', 'as' => 'selector'));
 
+Route::get('edit', array('uses' => 'EditingController@showEdit'));
+Route::post('edit', array('uses' => 'EditingController@showEdit'));
+
 
 Route::get('temp', array('uses' => 'EditingController@showTemp'));
 
 Route::post('selector', array('uses' => 'EditingController@showSelector'));
 
-Route::post('get',array('uses' => 'EditingController@showEdit'));
-
-Route::post('edit',array('uses' => 'EditingController@showEdit'));
 
 Route::post('method19', array('uses' => 'EditingController@doMethod19'));
 

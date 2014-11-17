@@ -25,10 +25,10 @@
     <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <script type="text/javascript" src="jquery/jquery-1.7.1.min.js"></script>
-    <script type="text/javascript" src="jspdf.js"></script>
+  <!--  <script type="text/javascript" src="jspdf.js"></script>
     <script type="text/javascript" src="jspdf.plugin.standard_fonts_metrics.js"></script> 
     <script type="text/javascript" src="jspdf.plugin.split_text_to_size.js"></script>               
-    <script type="text/javascript" src="jspdf.plugin.from_html.js"></script>
+    <script type="text/javascript" src="jspdf.plugin.from_html.js"></script>-->
     
 </head>
 <body>
