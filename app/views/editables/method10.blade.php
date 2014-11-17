@@ -23,21 +23,10 @@
         <div class="panel body">
             {{Form::open()}}
             {{Form::select('choose', array('general' => 'General', 'yogic' => 'Yogic'), 'general', array('onchange' => 'change()', 'id' => 'options'));}}
-            {{Form::close()}}
-
-            <p id="contents">
-As we enter this next phase of Yoga Nidra, remain as motionless as possible. If you need to move or make an adjustment, do so mindfully and return to stillness as soon as you are able.<br/>
-·    Resolve to remain awake, staying in touch with the sound of my voice.<br/>
-·    Simply allow your entire body to respond to my words directly and non-mentally.<br/>
-·    Allow any disturbances, external or internal, to draw you more deeply within.<br/>
-·    (pause)<br/>
-·    Now shift from thinking and doing to feeling and being.<br/>
-·    Do absolutely nothing from now on.<br/>
-·    (pause)<br/>
-
-            </p>
-           
-
+            
+{{ Form::textarea('text', As we enter this next phase of Yoga Nidra, remain as motionless as possible. If you need to move or make an adjustment, do so mindfully and return to stillness as soon as you are able.\n ·    Resolve to remain awake, staying in touch with the sound of my voice.\n ·    Simply allow your entire body to respond to my words directly and non-mentally.\n ·    Allow any disturbances, external or internal, to draw you more deeply within.\n ·    (pause)\n ·    Now shift from thinking and doing to feeling and being.\n ·    Do absolutely nothing from now on.\n ·    (pause)\n, ['id' => 'contents', 'value' => 'As we enter this next phase of Yoga Nidra, remain as motionless as possible. If you need to move or make an adjustment, do so mindfully and return to stillness as soon as you are able.\n ·    Resolve to remain awake, staying in touch with the sound of my voice.\n ·    Simply allow your entire body to respond to my words directly and non-mentally.\n ·    Allow any disturbances, external or internal, to draw you more deeply within.\n ·    (pause)\n ·    Now shift from thinking and doing to feeling and being.\n ·    Do absolutely nothing from now on.\n ·    (pause)\n']) }}
+                   
+{{Form::close()}}
 
         </div>
     </div>

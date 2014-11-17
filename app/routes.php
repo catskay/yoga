@@ -28,10 +28,10 @@ Route::get('logout', array('uses' => 'HomeController@doLogout'));
 Route::get('selector', array('uses' => 'EditingController@showSelector', 'as' => 'selector'));
 
 
-Route::post('selection2', array('uses' => 'EditingController@showSelector', 'as' => 'selector'));
-
 Route::get('selection', array('uses' => 'EditingController@showSelect'));
 Route::get('selection2', array('uses' => 'EditingController@showSelect2'));
+Route::post('selection2', array('uses' => 'EditingController@showSelector', 'as' => 'selector'));
+
 
 Route::get('temp', array('uses' => 'EditingController@showTemp'));
 
