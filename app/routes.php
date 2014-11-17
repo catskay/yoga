@@ -25,14 +25,22 @@ Route::post('login', array('uses' => 'HomeController@doLogin'));
 Route::get('createnew', array('uses' => 'HomeController@showCreateNew'));
 Route::get('logout', array('uses' => 'HomeController@doLogout'));
 
-Route::get('selector', array('uses' => 'EditingController@showSelector'));
+Route::get('selector', array('uses' => 'EditingController@showSelector', 'as' => 'selector'));
+
+
+Route::post('selector', array('uses' => 'EditingController@showSelector', 'as' => 'selector'));
 
 Route::get('selection', array('uses' => 'EditingController@showSelect'));
 Route::get('selection2', array('uses' => 'EditingController@showSelect2'));
 
 Route::get('temp', array('uses' => 'EditingController@showTemp'));
 
-Route::get('edit', array('uses' => 'EditingController@showEdit'));
+Route::post('edit', array('uses' => 'EditingController@showEdit'));
+
+Route::get('edit', function()
+{
+	return View::make('edit');
+});
 
 Route::get('method19', array('uses' => 'EditingController@showMethod19'));
 Route::post('method19', array('uses' => 'EditingController@doMethod19'));

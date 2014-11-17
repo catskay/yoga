@@ -98,10 +98,10 @@
                             @foreach($methods as $method)
                                 <dd>
                                     {{$method->mname}}
-                                    {{Form::open(array('url' => 'selector')) }}
-                                    <form role="form">
-                                        <input name="meth" type="hidden" value={{$method->mid}}/>
-                                        <input type="submit" value="Edit" class="btn btn-lg btn-success btn-block">
+
+                                    {{Form::open(array('action' => 'EditingController@showEdit')) }}
+                                    {{Form::hidden('meth', $method->mid) }}
+                                    {{Form::submit('Edit');}}
                                     {{Form::close() }}
                                 </dd>
                             @endforeach
