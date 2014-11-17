@@ -84,16 +84,6 @@ class EditingController extends BaseController {
 		return View::make('summary');
 	}
 
-	public function showMethod19()
-	{
-		$meth = 19;
-		$method = Method::where('mid', '=', $meth)->first();
-        $subsection = Subsection::where('ssid', '=', $method->ssid)->first();
-        $section = Section::where('sid', '=', $subsection->sid)->first();
-        $array = array('method'=>$method, 'subsection'=>$subsection, 'section'=>$section);
-		return View::make('method19')->with('array',$array);
-	}
-
 	public function doMethod19()
 	{
 		$array = Input::get('checkgroup');
@@ -119,16 +109,6 @@ class EditingController extends BaseController {
 
 		$request = Request::create('selector', 'GET', array());
 		return Route::dispatch($request)->getContent();
-	}
-
-	public function showMethod20()
-	{
-		$meth = 20;
-		$method = Method::where('mid', '=', $meth)->first();
-        $subsection = Subsection::where('ssid', '=', $method->ssid)->first();
-        $section = Section::where('sid', '=', $subsection->sid)->first();
-        $array = array('method'=>$method, 'subsection'=>$subsection, 'section'=>$section);
-		return View::make('method20')->with('array',$array);
 	}
 
 	public function doMethod20()
@@ -157,16 +137,6 @@ class EditingController extends BaseController {
 		return Route::dispatch($request)->getContent();
 	}
 
-	public function showMethod7()
-	{
-		$meth = 7;
-		$method = Method::where('mid', '=', $meth)->first();
-        $subsection = Subsection::where('ssid', '=', $method->ssid)->first();
-        $section = Section::where('sid', '=', $subsection->sid)->first();
-        $array = array('method'=>$method, 'subsection'=>$subsection, 'section'=>$section);
-		return View::make('method7')->with('array',$array);
-	}
-
 	public function doMethod7()
 	{
 		$array = Input::get('checkgroup');
@@ -187,16 +157,6 @@ class EditingController extends BaseController {
 
 		$request = Request::create('selector', 'GET', array());
 		return Route::dispatch($request)->getContent();
-	}
-
-	public function showMethod25()
-	{
-		$meth = 25;
-		$method = Method::where('mid', '=', $meth)->first();
-        $subsection = Subsection::where('ssid', '=', $method->ssid)->first();
-        $section = Section::where('sid', '=', $subsection->sid)->first();
-        $array = array('method'=>$method, 'subsection'=>$subsection, 'section'=>$section);
-		return View::make('method25')->with('array',$array);
 	}
 
 	public function doMethod25()
