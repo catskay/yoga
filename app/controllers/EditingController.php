@@ -6,16 +6,42 @@ class EditingController extends BaseController {
 
 	public function showSelector()
 	{
-		$selectedMethods = Input::get('methods');
-		echo '<script>alert ('.json_encode($selectedMethods).');</script>';
-		$array = array();
-		// foreach($selectedMethods as $meth){
-		// 	$method = Method::where('mid', '=', $meth)->get();
-		// 	$ssArray = array();
-		// 	$subsection = Subsection::where('ssid', '=', $method->ssid)->get();
-		// 	$section = Section::where('sid', '=', $subsection->sid)->get();
-		// $array[$] = array('method'=>$method, 'subsection'=>$subsection, 'section'=>$section);
+
+		$methList = Input::get('methodList');
+		$methListArray = explode(',', $methList);
+
+		$script = new Script;
+		$script->name = 'placeholder';
+		$script->notes = 'placeholder';
+		$script->uid = Auth::user()->uid;
+		$script->date = date('Y-m-d');
+		$script->font_size = 'medium';
+		$script->save();
+		Session::put('scrId',$script->id);
+
+		foreach($methListArray as $id){
+			$chMethod = new ChosenMethod;
+			$chMethod->mid = $id;
+			$chMethod->id = $script->id;
+			$chMethod->save();
+		}
+
+
+
+  //       $sections = Section::all();
+		// $arr = array();
+		// foreach($methListArray as $methodid){
+		// 	$method = Method::where('mid', '=', $methodid)->get();
+		// 	$subsections = Subsection::where('ssid','=',$method->ssid)->get();
+		// 	$ssArr = array();
+		// 	foreach($subsections as $subsection){
+  //       		$sections = Section::where('sid', '=', $subsection->sid)->get();
+		// 		$ssArr[$subsection->ssname] = $sections;
+		// 	}
+		// 	$arr[$method->mname] = $ssArr;
 		// }
+		// return View::make('selector')->with('arr',$arr);
+
 
 		$sections = Section::all();
 		$arr = array();
