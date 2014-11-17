@@ -268,6 +268,9 @@ class EditingController extends BaseController {
 		else if($meth === '24'){
 			return View::make('editables/method24')->with('array', $array);
 		}
+		else if($meth === '27'){
+			return View::make('editables/method27')->with('array', $array);
+		}
 
 
  
