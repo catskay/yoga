@@ -10,21 +10,21 @@ class EditingController extends BaseController {
 		$methList = Input::get('methodList');
 		$methListArray = explode(',', $methList);
 
-		$script = new Script;
-		$script->name = 'placeholder';
-		$script->notes = 'placeholder';
-		$script->uid = Auth::user()->uid;
-		$script->date = date('Y-m-d');
-		$script->font_size = 'medium';
-		$script->save();
-		Session::put('scrId',$script->id);
+		// $script = new Script;
+		// $script->name = 'placeholder';
+		// $script->notes = 'placeholder';
+		// $script->uid = Auth::user()->uid;
+		// $script->date = date('Y-m-d');
+		// $script->font_size = 'medium';
+		// $script->save();
+		// Session::put('scrId',$script->id);
 
-		foreach($methListArray as $id){
-			$chMethod = new ChosenMethod;
-			$chMethod->mid = $id;
-			$chMethod->id = $script->id;
-			$chMethod->save();
-		}
+		// foreach($methListArray as $id){
+		// 	$chMethod = new ChosenMethod;
+		// 	$chMethod->mid = $id;
+		// 	$chMethod->id = $script->id;
+		// 	$chMethod->save();
+		// }
 
 
 
@@ -209,16 +209,8 @@ class EditingController extends BaseController {
 
 	public function doMethod10()
 	{
-		$array = Input::get('checkgroup');
-		$str = Input::get('text1');
-		$str = $str.' '.Input::get('text2');
-		foreach($array as $box){
-			$str = $str.' '.$box;
-		}
+		$str = Input::get('text');
 
-		$str = $str.' '.Input::get('custom');
-
-		$str = $str.' '.Input::get('text3');
 
 		$chMethod = new ChosenMethod;
 		$chMethod->mid = 10;
@@ -236,16 +228,7 @@ class EditingController extends BaseController {
 
 	public function doMethod26()
 	{
-		$array = Input::get('checkgroup');
-		$str = Input::get('text1');
-		$str = $str.' '.Input::get('text2');
-		foreach($array as $box){
-			$str = $str.' '.$box;
-		}
-
-		$str = $str.' '.Input::get('custom');
-
-		$str = $str.' '.Input::get('text3');
+		$str = Input::get('text');
 
 		$chMethod = new ChosenMethod;
 		$chMethod->mid = 26;
