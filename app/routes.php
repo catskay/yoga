@@ -25,12 +25,12 @@ Route::post('login', array('uses' => 'HomeController@doLogin'));
 Route::get('createnew', array('uses' => 'HomeController@showCreateNew'));
 Route::get('logout', array('uses' => 'HomeController@doLogout'));
 
-Route::get('selector', array('uses' => 'EditingController@showSelector', 'as' => 'selector'));
+Route::get('selector', array('uses' => 'EditingController@showSelector','as'=>'selector'));
 
 
 Route::get('selection', array('uses' => 'EditingController@showSelect'));
 Route::get('selection2', array('uses' => 'EditingController@showSelect2'));
-Route::post('selection2', array('uses' => 'EditingController@showSelector', 'as' => 'selector'));
+Route::post('selection2', array('uses' => 'EditingController@showSelector'));
 
 Route::get('edit', array('uses' => 'EditingController@showEdit'));
 Route::post('edit', array('uses' => 'EditingController@showEdit'));
@@ -46,6 +46,8 @@ Route::post('method19', array('uses' => 'EditingController@doMethod19'));
 Route::post('method20', array('uses' => 'EditingController@doMethod20'));
 
 Route::post('method7', array('uses' => 'EditingController@doMethod7'));
+
+Route::post('method25',array('uses' => 'EditingController@doMethod25'));
 
 Route::post('method10', array('uses' => 'EditingController@doMethod10'));
 

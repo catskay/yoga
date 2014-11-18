@@ -21,7 +21,7 @@
 
     <div class="panel panel-default">
         <div class="panel body">
-            {{Form::open()}}
+            {{Form::open(array('url' => 'method24'))}}
             {{Form::select('choose', array('general' => 'General', 'yogic' => 'Yogic'), 'general', array('onchange' => 'change()', 'id' => 'options'));}}<br/>
             {{Form::textarea('text1', "  -   Here your intention and your affirmations are actualized and fulfilled with effortless ease. &#13;Now bring your intention into your awareness…", ['size' => '120x3', 'id' => 'content1', 'readonly','value' => " -   Here your intention and your affirmations are actualized and fulfilled with effortless ease.&#13;Now bring your intention into your awareness…"])}}<br/>
 
