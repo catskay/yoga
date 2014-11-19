@@ -10,7 +10,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-7">
+        <div class="col-lg-12">
             <select id='optgroupp' multiple='multiple'>
                 @foreach($arr as $section => $subsections)
                 @foreach($subsections as $subsection => $methods)
@@ -42,11 +42,17 @@
     </script>
 
     <div class="row">
+        <p></p>
+    </div>
+
+    <div class="row">
         <div class="col-lg-12 col-md-offset-10">
            
           {{Form::open(array('action' => 'EditingController@showSelector')); }}
           {{Form::hidden('methodList', '', array('id' => 'hidden')); }}
-         <a href="/yoga/public/selector">   <button type="submit"  onclick = "getResults()" class="btn btn-danger">Continue</button></a> 
+         <a href="/yoga/public/selector">   
+            <button type="submit"  onclick = "getResults()" class="btn btn-danger">Continue</button>
+         </a> 
 
           <!-- {{Form::submit( 'Continue', array('class' => 'btn btn-edit-link'));}} -->
           {{Form::close(); }}
@@ -59,6 +65,8 @@
 
 <p id="test">
 </p>
+@stop
+
 <script>
 function getResults2() {
  $.post(
@@ -110,5 +118,5 @@ function getResults2() {
 
 </script>
 
-@stop
+
 

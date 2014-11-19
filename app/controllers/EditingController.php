@@ -2,8 +2,6 @@
 
 class EditingController extends BaseController {
 
-
-
 	public function showSelector()
 	{
 		if(is_null(Session::get('arr'))){
@@ -69,8 +67,6 @@ class EditingController extends BaseController {
 
 	public function showSelect2()
 	{
-		
-
 		$sections = Section::all();
 		$arr = array();
 		foreach($sections as $section){
