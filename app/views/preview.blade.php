@@ -23,12 +23,6 @@
 
     <!-- Custom Fonts -->
     <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <script type="text/javascript" src="jquery/jquery-1.7.1.min.js"></script>
-  <!--  <script type="text/javascript" src="jspdf.js"></script>
-    <script type="text/javascript" src="jspdf.plugin.standard_fonts_metrics.js"></script> 
-    <script type="text/javascript" src="jspdf.plugin.split_text_to_size.js"></script>               
-    <script type="text/javascript" src="jspdf.plugin.from_html.js"></script>-->
     
 </head>
 <body>
@@ -123,19 +117,35 @@
 
 <?php
     Fpdf::AddPage('p','letter');
-    Fpdf::SetFont('Arial','','14');
     foreach($arr as $section => $subsections){
+
+        Fpdf::SetFont('Arial','B','14');
         Fpdf::Write(10,$section);
+
         foreach($subsections as $subsection => $methods){
+
+            Fpdf::SetFont('Arial','','14');
+            
+            /* How to set font color: would have to determine which subsection it is and set color one at a time
+            if($subsection ==='A. Quiet/Centering'){
+                Fpdf::SetTextColor('242','51','95');
+            }
+            else if ($subsection ==='Physical Relaxation'){
+                Fpdf::SetTextColor('119','198','237');
+            }*/
+
+            Fpdf::SetTextColor('0','0','0');
             Fpdf::Write(10,$subsection);
+
             foreach($methods as $method){
+
                 Fpdf::Write(10,$method->mname);
+                Fpdf::SetFont('Arial','','12');
+                Fpdf::SetTextColor('0','0','0');
                 Fpdf::Write(10,$method->text);
             }
         }
     }
-    Fpdf::Write(10,'I. Internalizing Awareness');
-    //Fpdf::Cell(40,10,'Hello World!');
     Fpdf::Output('helloworld','F');
     exit;
 

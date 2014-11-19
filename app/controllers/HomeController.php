@@ -86,12 +86,12 @@ class HomeController extends BaseController {
 	}
 
 	 public function loadDashboard(){
-	 		if(Auth::check()){
-            	$name = Auth::user()->name;
-            	$scripts = Script::where('uid','=',Auth::user()->uid)->get();
-            	$array = array('scripts'=>$scripts,'name'=>$name);
-            	return View::make('dashboard')->with('array',$array);
-        	}
-        }
+ 		if(Auth::check()){
+        	$name = Auth::user()->name;
+        	$scripts = Script::where('uid','=',Auth::user()->uid)->get();
+        	$array = array('scripts'=>$scripts,'name'=>$name);
+        	return View::make('dashboard')->with('array',$array);
+    	}
+    }
 
 }
