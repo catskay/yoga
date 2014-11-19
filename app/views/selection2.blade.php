@@ -82,7 +82,6 @@ function getResults2() {
 
     function getResults() {
         var results = $('#optgroupp').val().join();
-        alert(results);
         document.getElementById('hidden').value = results;
 
 
