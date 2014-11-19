@@ -10,6 +10,7 @@ class EditingController extends BaseController {
 		$methList = Input::get('methodList');
 		$methListArray = explode(',', $methList);
 
+
 		// $script = new Script;
 		// $script->name = 'placeholder';
 		// $script->notes = 'placeholder';
@@ -27,23 +28,38 @@ class EditingController extends BaseController {
 		// }
 
 
+		$script = new Script;
+		$script->name = 'placeholder';
+		$script->notes = 'placeholder';
+		$script->uid = Auth::user()->uid;
+		$script->date = date('Y-m-d');
+		$script->font_size = 'medium';
+		$script->save();
+		Session::put('scrId',$script->id);
 
-  //       $sections = Section::all();
-		// $arr = array();
-		// foreach($methListArray as $methodid){
-		// 	$method = Method::where('mid', '=', $methodid)->get();
-		// 	$subsections = Subsection::where('ssid','=',$method->ssid)->get();
-		// 	$ssArr = array();
-		// 	foreach($subsections as $subsection){
-  //       		$sections = Section::where('sid', '=', $subsection->sid)->get();
-		// 		$ssArr[$subsection->ssname] = $sections;
-		// 	}
-		// 	$arr[$method->mname] = $ssArr;
-		// }
-		// return View::make('selector')->with('arr',$arr);
+		/*foreach($methListArray as $id){
+			$chMethod = new ChosenMethod;
+			$chMethod->mid = $id;
+			$chMethod->id = $script->id;
+			$chMethod->text = Method::where('mid','=',$id)->first()->text;
+			$chMethod->save();
+		}*/
 
 
-		$sections = Section::all();
+        /* $sections = Section::all();
+		 $arr = array();
+		 foreach($methListArray as $methodid){
+		 	$method = Method::where('mid', '=', $methodid)->first();
+		 	$subsections = Subsection::where('ssid','=',$method->ssid)->get();
+			$ssArr = array();
+		 	foreach($subsections as $subsection){
+         		$sections = Section::where('sid', '=', $subsection->sid)->get();
+		 		$ssArr[$subsection->ssname] = $sections;
+		 	}
+		 	$arr[$method->mname] = $ssArr;
+		 }*/
+
+		 $sections = Section::all();
 		$arr = array();
 		foreach($sections as $section){
 			$subsections = Subsection::where('sid','=',$section->sid)->get();
@@ -54,7 +70,7 @@ class EditingController extends BaseController {
 			}
 			$arr[$section->sname] = $ssArr;
 		}
-		return View::make('selector')->with('arr',$arr);
+		 return View::make('selector')->with('arr',$arr);
 	}
 
 
@@ -209,9 +225,12 @@ class EditingController extends BaseController {
 
 	public function doMethod10()
 	{
+
 		$str = Input::get('text');
 
-
+		
+		$str = Input::get('text');
+		
 		$chMethod = new ChosenMethod;
 		$chMethod->mid = 10;
 		//$chMethod->id = Session::get('scrId');
