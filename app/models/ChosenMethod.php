@@ -15,6 +15,8 @@ class ChosenMethod extends Eloquent implements UserInterface, RemindableInterfac
 	 * @var string
 	 */
 	protected $table = 'chosen_methods';
+	protected $primaryKey = 'cid';
+	//public $incrementing = false;
 
 	
 	

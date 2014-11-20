@@ -21,39 +21,45 @@ class EditingController extends BaseController {
 				$chMethod = new ChosenMethod;
 				$chMethod->mid = $id;
 				$chMethod->id = $script->id;
-				$chMethod->text = Method::where('mid','=',$id)->first()->text;
+				$method = Method::where('mid','=',$id)->first();
+				$chMethod->text = $method->text;
+				$chMethod->ssid = $method->ssid;
+				$chMethod->mname = $method->mname;
 				$chMethod->save();
 			}
-
-			$arr = array();
-			$ssArr = array();
-			$currSsid = 0;
-			$currSid = 0;
-			foreach($methListArray as $methodid){
-				$method = Method::where('mid', '=', $methodid)->first();
-				$subsection = Subsection::where('ssid','=',$method->ssid)->first();
-				if($subsection->sid<>$currSid){
-					$ssArr = array();
-					$currSid = $subsection->sid;
-				}
-				if($method->ssid===$currSsid){
-					array_push($ssArr[$subsection->ssname],$method);
-				}
-				else{
-					$ssArr[$subsection->ssname] = array($method);
-					$currSsid = $method->ssid;
-				}
-
-				$section = Section::where('sid','=',$subsection->sid)->first();
-
-				$arr[$section->sname] = $ssArr;
-			}
-
-			Session::put('arr',$arr);
 		}
 		else{
-			$arr = Session::get('arr');
+			$methods = ChosenMethod::where('id','=',Session::get('scrId'))->get();
+			$methListArray = array();
+			foreach($methods as $method){
+				array_push($methListArray, $method->mid);
+			}
 		}
+		$arr = array();
+		$ssArr = array();
+		$currSsid = 0;
+		$currSid = 0;
+		foreach($methListArray as $methodid){
+			$method = ChosenMethod::where('mid', '=', $methodid)->where('id','=',Session::get('scrId'))->first();
+			$subsection = Subsection::where('ssid','=',$method->ssid)->first();
+			if($subsection->sid<>$currSid){
+				$ssArr = array();
+				$currSid = $subsection->sid;
+			}
+			if($method->ssid===$currSsid){
+				array_push($ssArr[$subsection->ssname],$method);
+			}
+			else{
+				$ssArr[$subsection->ssname] = array($method);
+				$currSsid = $method->ssid;
+			}
+
+			$section = Section::where('sid','=',$subsection->sid)->first();
+
+			$arr[$section->sname] = $ssArr;
+		}
+
+		Session::put('arr',$arr);
 
 		return View::make('selector')->with('arr',$arr);
 	}
@@ -67,6 +73,10 @@ class EditingController extends BaseController {
 
 	public function showSelect2()
 	{
+		//ChosenMethod::where('id','=',Session::get('scrId'))->delete();
+		//Script::where('id','=',Session::get('scrId'))->delete();
+		//Session::flush();
+
 		$sections = Section::all();
 		$arr = array();
 		foreach($sections as $section){
@@ -113,16 +123,16 @@ class EditingController extends BaseController {
 	{
 		$array = Input::get('checkgroup');
 		$str = Input::get('text1');
-		$str = $str.' '.Input::get('text2');
+		$str = $str.'&#13;'.Input::get('text2');
 		foreach($array as $box){
-			$str = $str.' '.$box;
+			$str = $str.'&#13;'.$box;
 		}
 
-		$str = $str.' '.Input::get('custom');
+		$str = $str.'&#13;'.Input::get('custom');
 
-		$str = $str.' '.Input::get('text3');
+		$str = $str.'&#13;'.Input::get('text3');
 
-		$chMethod = ChosenMethod::where('mid','=',19)->where('id','=',Session::get('scrId'))->first();
+		$chMethod = ChosenMethod::where('id','=',Session::get('scrId'))->where('mid','=',19)->first();
 		$chMethod->text = $str;
 		$chMethod->save();
 
@@ -135,12 +145,12 @@ class EditingController extends BaseController {
 		$array = Input::get('checkgroup');
 		$str = Input::get('text1');
 		foreach($array as $box){
-			$str = $str.' '.$box;
+			$str = $str.'&#13;'.$box;
 		}
 
-		$str = $str.' '.Input::get('custom');
+		$str = $str.'&#13;'.Input::get('custom');
 
-		$str = $str.' '.Input::get('text2');
+		$str = $str.'&#13;'.Input::get('text2');
 
 		$chMethod = ChosenMethod::where('mid','=',20)->where('id','=',Session::get('scrId'))->first();
 		$chMethod->text = $str;
@@ -155,7 +165,7 @@ class EditingController extends BaseController {
 		$array = Input::get('checkgroup');
 		$str = '';
 		foreach($array as $box){
-			$str = $str.' '.$box;
+			$str = $str.'&#13;'.$box;
 		}
 
 		$chMethod = ChosenMethod::where('mid','=',7)->where('id','=',Session::get('scrId'))->first();
@@ -171,7 +181,7 @@ class EditingController extends BaseController {
 		$array = Input::get('checkgroup');
 		$str = Input::get('text1');
 		foreach($array as $box){
-			$str = $str.' '.$box;
+			$str = $str.'&#13;'.$box;
 		}
 
 		$chMethod = ChosenMethod::where('mid','=',25)->where('id','=',Session::get('scrId'))->first();
@@ -222,7 +232,7 @@ class EditingController extends BaseController {
 	public function doMethod24()
 	{
 		$str = Input::get('text1');
-		$str = $str.' '.Input::get('text2');
+		$str = $str.'&#13;'.Input::get('text2');
 
 		$chMethod = ChosenMethod::where('mid','=',24)->where('id','=',Session::get('scrId'))->first();
 		$chMethod->text = $str;

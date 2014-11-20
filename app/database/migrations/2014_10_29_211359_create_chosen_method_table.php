@@ -14,6 +14,7 @@ class CreateChosenMethodTable extends Migration {
 	{
 		Schema::create('chosen_methods', function(Blueprint $table)
 		{
+			$table->increments('cid');
 			
 			$table->unsignedInteger('mid');
 
@@ -22,6 +23,12 @@ class CreateChosenMethodTable extends Migration {
 			$table->unsignedInteger('id');
 
 			$table->foreign('id')->references('id')->on('scripts');
+
+			$table->unsignedInteger('ssid');
+
+			$table->foreign('ssid')->references('ssid')->on('subsections');
+
+			$table->string('mname',50);
 
 			$table->string('text',9000);
                         

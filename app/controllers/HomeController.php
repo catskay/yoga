@@ -38,6 +38,7 @@ class HomeController extends BaseController {
 
 	public function doLogin()
 	{
+		Session::flush();
 		// validate the info, create rules for the inputs
 		$rules = array(
 			'email'    => 'required|email', // make sure the email is an actual email
@@ -82,6 +83,7 @@ class HomeController extends BaseController {
         public function doLogout()
 	{
 		Auth::logout(); // log the user out of our application
+		Session::flush();
 		return Redirect::to('login'); // redirect the user to the login screen
 	}
 
