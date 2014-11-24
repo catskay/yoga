@@ -83,6 +83,7 @@ class HomeController extends BaseController {
         public function doLogout()
 	{
 		Auth::logout(); // log the user out of our application
+		Session::flush();
 		return Redirect::to('login'); // redirect the user to the login screen
 	}
 

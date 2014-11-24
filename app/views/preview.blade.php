@@ -127,7 +127,7 @@
     foreach($arr as $section => $subsections){
 
         Fpdf::SetFont('Arial','B','14');
-        Fpdf::Write(10,$section);
+        Fpdf::Write(10,html_entity_decode($section));
 
         foreach($subsections as $subsection => $methods){
 
@@ -142,11 +142,11 @@
             }*/
 
             Fpdf::SetTextColor('0','0','0');
-            Fpdf::Write(10,$subsection);
+            Fpdf::Write(10,html_entity_decode($subsection));
 
             foreach($methods as $method){
 
-                Fpdf::Write(10,$method->mname);
+                Fpdf::Write(10,html_entity_decode($method->mname));
                 Fpdf::SetFont('Arial','','12');
                 Fpdf::SetTextColor('0','0','0');
                 Fpdf::Write(10,$method->text);
