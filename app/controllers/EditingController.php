@@ -25,35 +25,17 @@ class EditingController extends BaseController {
 				$chMethod->save();
 			}
 
-		$methList = Input::get('methodList');
-		$methListArray = explode(',', $methList);
+			$methList = Input::get('methodList');
+			$methListArray = explode(',', $methList);
 
-
-		// $script = new Script;
-		// $script->name = 'placeholder';
-		// $script->notes = 'placeholder';
-		// $script->uid = Auth::user()->uid;
-		// $script->date = date('Y-m-d');
-		// $script->font_size = 'medium';
-		// $script->save();
-		// Session::put('scrId',$script->id);
-
-		// foreach($methListArray as $id){
-		// 	$chMethod = new ChosenMethod;
-		// 	$chMethod->mid = $id;
-		// 	$chMethod->id = $script->id;
-		// 	$chMethod->save();
-		// }
-
-
-		$script = new Script;
-		$script->name = 'placeholder';
-		$script->notes = 'placeholder';
-		$script->uid = Auth::user()->uid;
-		$script->date = date('Y-m-d');
-		$script->font_size = 'medium';
-		$script->save();
-		Session::put('scrId',$script->id);
+			$script = new Script;
+			$script->name = 'placeholder';
+			$script->notes = 'placeholder';
+			$script->uid = Auth::user()->uid;
+			$script->date = date('Y-m-d');
+			$script->font_size = 'medium';
+			$script->save();
+			Session::put('scrId',$script->id);
 
 		/*foreach($methListArray as $id){
 			$chMethod = new ChosenMethod;
@@ -77,35 +59,31 @@ class EditingController extends BaseController {
 		 	$arr[$method->mname] = $ssArr;
 		 }*/
 
-		 $sections = Section::all();
-		$arr = array();
-		foreach($sections as $section){
-			$subsections = Subsection::where('sid','=',$section->sid)->get();
-			$arr = array();
-			$ssArr = array();
-			$currSsid = 0;
-			$currSid = 0;
-			foreach($methListArray as $methodid){
-				$method = Method::where('mid', '=', $methodid)->first();
-				$subsection = Subsection::where('ssid','=',$method->ssid)->first();
-				if($subsection->sid<>$currSid){
-					$ssArr = array();
-					$currSid = $subsection->sid;
-				}
-				if($method->ssid===$currSsid){
-					array_push($ssArr[$subsection->ssname],$method);
-				}
-				else{
-					$ssArr[$subsection->ssname] = array($method);
-					$currSsid = $method->ssid;
-				}
+		 $arr = array();
+		 $ssArr = array();
+		 $currSsid = 0;
+		 $currSid = 0;
+		 foreach($methListArray as $methodid){
+		 	$method = Method::where('mid', '=', $methodid)->first();
+		 	$subsection = Subsection::where('ssid','=',$method->ssid)->first();
+		 	if($subsection->sid<>$currSid){
+		 		$ssArr = array();
+		 		$currSid = $subsection->sid;
+		 	}
+		 	if($method->ssid===$currSsid){
+		 		array_push($ssArr[$subsection->ssname],$method);
+		 	}
+		 	else{
+		 		$ssArr[$subsection->ssname] = array($method);
+		 		$currSsid = $method->ssid;
+		 	}
 
-				$section = Section::where('sid','=',$subsection->sid)->first();
+		 	$section = Section::where('sid','=',$subsection->sid)->first();
 
-				$arr[$section->sname] = $ssArr;
-			}
+		 	$arr[$section->sname] = $ssArr;
+		 }
 
-			Session::put('arr',$arr);
+		 Session::put('arr',$arr);
 		}
 		else{
 			$arr = Session::get('arr');
@@ -113,6 +91,7 @@ class EditingController extends BaseController {
 
 		return View::make('selector')->with('arr',$arr);
 	}
+
 
 
 	public function showSelect()
@@ -123,6 +102,9 @@ class EditingController extends BaseController {
 
 	public function showSelect2()
 	{
+		$methList = Input::get('methodList');
+		$methListArray = explode(',', $methList);
+
 		$sections = Section::all();
 		$arr = array();
 		foreach($sections as $section){
@@ -134,9 +116,9 @@ class EditingController extends BaseController {
 			}
 			$arr[$section->sname] = $ssArr;
 		}
-		return View::make('selection2')->with('arr',$arr);
+		return View::make('selection2')->with('arr',$arr)->with('methList', $methListArray);
 	}
-	
+
 	public function showTemp()
 	{
 		return View::make('temp');
@@ -243,9 +225,9 @@ class EditingController extends BaseController {
 
 		$str = Input::get('text');
 
-		
+
 		$str = Input::get('text');
-		
+
 		$chMethod = ChosenMethod::where('mid','=',10)->where('id','=',Session::get('scrId'))->first();
 		$chMethod->text = $str;
 		$chMethod->save();
@@ -263,7 +245,7 @@ class EditingController extends BaseController {
 		$chMethod->mid = 26;
 		//$chMethod->id = Session::get('scrId');
 		$chMethod->id = 1;
-		
+
 		$chMethod = ChosenMethod::where('mid','=',26)->where('id','=',Session::get('scrId'))->first();
 		$chMethod->text = $str;
 		$chMethod->save();
@@ -275,7 +257,7 @@ class EditingController extends BaseController {
 	public function doMethod23()
 	{
 		$str = Input::get('text');
-		
+
 		$chMethod = ChosenMethod::where('mid','=',23)->where('id','=',Session::get('scrId'))->first();
 		$chMethod->text = $str;
 		$chMethod->save();
@@ -299,7 +281,7 @@ class EditingController extends BaseController {
 
 	public function doMethod27()
 	{
-		
+
 		$str = Input::get('text');
 
 		$chMethod = ChosenMethod::where('mid','=',27)->where('id','=',Session::get('scrId'))->first();
@@ -311,25 +293,25 @@ class EditingController extends BaseController {
 	}
 
 	public function showEdit()
-    {
-        $meth = Input::get('meth');
-        $method = Method::where('mid', '=', $meth)->first();
-        $subsection = Subsection::where('ssid', '=', $method->ssid)->first();
-        $section = Section::where('sid', '=', $subsection->sid)->first();
-        $array = array('method'=>$method, 'subsection'=>$subsection, 'section'=>$section);
+	{
+		$meth = Input::get('meth');
+		$method = Method::where('mid', '=', $meth)->first();
+		$subsection = Subsection::where('ssid', '=', $method->ssid)->first();
+		$section = Section::where('sid', '=', $subsection->sid)->first();
+		$array = array('method'=>$method, 'subsection'=>$subsection, 'section'=>$section);
 
-        if($meth==='7'){
-        	return View::make('editables/method7')->with('array',$array);
-        }
-        else if($meth==='19'){
-        	return View::make('editables/method19')->with('array',$array);
-        }
-        else if($meth==='20'){
-        	return View::make('editables/method20')->with('array',$array);
-        }
-        else if($meth==='25'){
-        	return View::make('editables/method25')->with('array',$array);
-        }
+		if($meth==='7'){
+			return View::make('editables/method7')->with('array',$array);
+		}
+		else if($meth==='19'){
+			return View::make('editables/method19')->with('array',$array);
+		}
+		else if($meth==='20'){
+			return View::make('editables/method20')->with('array',$array);
+		}
+		else if($meth==='25'){
+			return View::make('editables/method25')->with('array',$array);
+		}
 		else if($meth === '26'){
 			return View::make('editables/method26')->with('array', $array);
 		}
@@ -347,9 +329,9 @@ class EditingController extends BaseController {
 		}
 
 
- 
-        return View::make('edit')->with('array',$array);
-    }
+
+		return View::make('edit')->with('array',$array);
+	}
 
 	public function showView()
 	{
@@ -359,7 +341,7 @@ class EditingController extends BaseController {
 	public function showPreview()
 	{
 		$arr = Session::get('arr');
-		
+
 		return View::make('preview')->with('arr',$arr);
 	}
 }

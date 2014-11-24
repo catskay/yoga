@@ -89,10 +89,11 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <h1 style="color:#cc0000 ">Font Size</h1>
-
-                <button type="button" class="btn btn-default" id="small" onclick="setFontSmall()">Small</button>
+                {{Form::open()}}
+                <button type="submit" name = "small" class="btn btn-default" id="small">Small</button>
                 <pMedium>Medium</pMedium>
                 <pLarge>Large</pLarge>
+                {{Form::close()}}
             </div>
         </div>
 
@@ -116,6 +117,12 @@
 
 
 <?php
+    if(isset($_POST['small'])) {
+    // form submitted, now we can look at the data that came through
+    // the value inside the brackets comes from the name attribute of the input field. (just like submit above)
+    $font = $_POST['small'];
+    print_r($font);
+  }
     Fpdf::AddPage('p','letter');
     foreach($arr as $section => $subsections){
 

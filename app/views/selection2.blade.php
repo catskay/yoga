@@ -16,7 +16,13 @@
                 @foreach($subsections as $subsection => $methods)
                 <optgroup label={{$subsection}}>
                     @foreach($methods as $method)
+                        @foreach($methList as $selectedMeth)
+                         @if($selectedMeth === $method->mid)
+                    <option title = {{$section}} value = {{$method->mid}} selected>{{$method->mname}}</option>
+                        @else
                     <option title = {{$section}} value = {{$method->mid}}>{{$method->mname}}</option>
+                        @endif
+                        @endforeach
                     @endforeach
                 </optgroup>
                 @endforeach
