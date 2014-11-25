@@ -62,6 +62,7 @@ Route::post('method27', array('uses' => 'EditingController@doMethod27'));
 Route::get('view', array('uses' => 'EditingController@showView'));
 
 Route::get('preview', array('uses' => 'EditingController@showPreview'));
+Route::post('preview', array('uses' => 'EditingController@showPreview'));
 
 // route to process the form
 Route::get('summary', array('uses' => 'EditingController@showSummary'));
@@ -69,6 +70,8 @@ Route::get('summary', array('uses' => 'EditingController@showSummary'));
 Route::get('logout', array('uses' => 'HomeController@doLogout'));
 
 Route::get('dashboard',array('uses'=> 'HomeController@loadDashboard'));
+Route::post('dashboard',array('uses'=> 'HomeController@loadDashboard'));
+
 Route::get('/', function()
 {
 	return View::make('login');
