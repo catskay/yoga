@@ -30,7 +30,11 @@
 
                                     {{Form::open(array('action' => 'EditingController@showEdit')) }}
                                     {{Form::hidden('meth', $method->mid) }}
-                                    {{Form::submit('Edit', array('class' => 'btn btn-edit-link'));}}
+                                    @if($method->editable === 'true')
+                                        {{Form::submit('Edit', array('class' => 'btn btn-edit-link'));}}
+                                    @else
+                                        {{Form::submit('View', array('class' => 'btn btn-edit-link'));}}
+                                    @endif
                                     {{Form::close() }}
                                 </dd>
                             @endforeach

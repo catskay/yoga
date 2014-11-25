@@ -31,6 +31,8 @@ class CreateChosenMethodTable extends Migration {
 			$table->string('mname',50);
 
 			$table->string('text',9000);
+
+			$table->string('editable',10);
                         
             $table->timestamps();
 		});

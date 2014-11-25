@@ -151,7 +151,8 @@
                 Fpdf::Write(10,html_entity_decode($method->mname));
                 Fpdf::SetFont('Arial','','12');
                 Fpdf::SetTextColor('0','0','0');
-                Fpdf::Write(10,$method->text);
+                echo $method->text;
+                Fpdf::Write(10,utf8_decode(html_entity_decode($method->text)));
             }
         }
     }
