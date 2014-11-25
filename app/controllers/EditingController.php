@@ -166,7 +166,7 @@ class EditingController extends BaseController {
 		$chMethod->text = $str;
 		$chMethod->save();
 
-		$request = Request::create('selector', 'GET', array());
+		$request = Request::create('edit', 'POST', array());
 		return Route::dispatch($request)->getContent();
 	}
 
@@ -294,29 +294,51 @@ class EditingController extends BaseController {
 
 	public function showEdit()
 	{
+
+		
+
 		if(Input::has('meth')){
+			echo "<script>alert('hello')</script>";
 			$meth = Input::get('meth');
 		}
 		elseif(Input::get('submitButton')==='Previous'){
-			$meth = Input::get('mid')-1;
+			$meth = Input::get('mid');
 			$methList = Session::get('methList');
+			$index = array_search($meth,$methList);
+			$index--;
+			
+			if($index < 0){
+				$request = Request::create('selector', 'GET', array());
+				return Route::dispatch($request)->getContent();
+			}
+			else{
+				$meth = $methList[$index];
+			}
+			
 			
 		}
 		elseif(Input::get('submitButton')==='Next'){
-			$meth = Input::get('mid')+1;
+			$meth = Input::get('mid');
+			$methList = Session::get('methList');
+			$index = array_search($meth,$methList);
+			$index++;
+			if($index > count($methList)-1){
+				$request = Request::create('selector', 'GET', array());
+				return Route::dispatch($request)->getContent();
+			}
+			else{
+				$meth = $methList[$index];
+			}
 		}
 		else{
-			$request = Request::create('selector', 'GET', array());
-			return Route::dispatch($request)->getContent();
-		}
-
-		if($meth === 0 || $meth === 28){
 			$request = Request::create('selector', 'GET', array());
 			return Route::dispatch($request)->getContent();
 		}
 		
 		
 		$meth = ''.$meth;
+
+		//echo "<script>alert('".$meth."')</script>";
 
 		$method = Method::where('mid', '=', $meth)->first();
 		$subsection = Subsection::where('ssid', '=', $method->ssid)->first();
