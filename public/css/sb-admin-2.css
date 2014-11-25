@@ -395,20 +395,27 @@ table.dataTable thead .sorting:after {
     border-color: #ac2925;
 }
 
-pSmall{
-    display: block;
+.btn-size-small{
+    background-color: transparent;
     font-size: small;
+    position: relative;
+    top: 15px;
 }
 
-pMedium{
-    display: block;
+.btn-size-medium{
+    background-color: transparent;
     font-size: medium;
+    position: relative;
+    top: 10px;
 }
 
-pLarge{
-    display: block;
+.btn-size-large{
+    background-color: transparent;
     font-size: large;
+    position: relative;
+    top: 5px;
 }
+
 
 .btn-edit-link{
     background-color: transparent;
