@@ -62,6 +62,7 @@ Route::post('method27', array('uses' => 'EditingController@doMethod27'));
 Route::get('view', array('uses' => 'EditingController@showView'));
 
 Route::get('preview', array('uses' => 'EditingController@showPreview'));
+Route::post('preview', array('uses' => 'EditingController@showPreview'));
 
 // route to process the form
 Route::get('summary', array('uses' => 'EditingController@showSummary'));

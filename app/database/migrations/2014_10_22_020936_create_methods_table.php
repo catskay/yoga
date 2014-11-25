@@ -20,6 +20,8 @@ class CreateMethodsTable extends Migration {
 			$table->unsignedInteger('ssid');
 			$table->foreign('ssid')->references('ssid')->on('subsections');
 			$table->string('text', 9000);
+
+			$table->string('editable',10);
                         
             $table->timestamps();
 		});

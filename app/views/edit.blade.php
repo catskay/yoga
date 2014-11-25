@@ -24,7 +24,9 @@
             <p>{{$array['method']->text}}</p>
         </div>
     </div>
-
+<?php
+echo $array['method']->text;
+?>
     <div class="row">
         <div class="col-md-4">
             <button type="button" class="btn btn-danger">Previous</button> 
