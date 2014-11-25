@@ -24,23 +24,28 @@
             <p>{{$array['method']->text}}</p>
         </div>
     </div>
-<?php
-echo $array['method']->text;
-?>
+    {{Form::open(array('url' => 'edit')) }}
+    <form role="form" id="options" name="options" type="post">
+    <input type="hidden" name="mid" value={{$array['method']->mid}}>
     <div class="row">
         <div class="col-md-4">
-            <button type="button" class="btn btn-danger">Previous</button> 
+            <input type="submit" class="btn btn-danger" name="submitButton" value="Previous"> 
         </div>
         <div class="col-md-4">
             <div class="wrapper">
-                <a href="/yoga/public/selector"><button class="button-center">Section Summary</button></a>
-            </div>
+                <input type="submit" class="button-center" name="submitButton" value="Section Sumary">
         </div>
         <div class="col-md-4">
-            <button type="button" class="btn btn-danger" style="float:right">Next</button>
+            <input type="submit" class="btn btn-danger" style="float:right" name="submitButton" value="Next">
         </div>
     </div>
 </div>
+{{Form::close()}}
 
+<script>
+function next(){
+    document.getElementById("mid").value = 
+}
+</script>
 
 @stop

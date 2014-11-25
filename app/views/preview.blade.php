@@ -143,7 +143,12 @@
                 Fpdf::SetTextColor('119','198','237');
             }*/
 
-            Fpdf::SetTextColor('0','0','0');
+            $ss = Subsection::where('ssname','=',$subsection)->first();
+            $r = $ss->r;
+            $g = $ss->g;
+            $b = $ss->b;
+
+            Fpdf::SetTextColor($r,$g,$b);
             Fpdf::Write(10,html_entity_decode($subsection));
 
             foreach($methods as $method){

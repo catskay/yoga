@@ -266,7 +266,30 @@ class EditingController extends BaseController {
 
 	public function showEdit()
 	{
-		$meth = Input::get('meth');
+		if(Input::has('meth')){
+			$meth = Input::get('meth');
+		}
+		elseif(Input::get('submitButton')==='Previous'){
+			$meth = Input::get('mid')-1;
+			$methList = Session::get('methList');
+			
+		}
+		elseif(Input::get('submitButton')==='Next'){
+			$meth = Input::get('mid')+1;
+		}
+		else{
+			$request = Request::create('selector', 'GET', array());
+			return Route::dispatch($request)->getContent();
+		}
+
+		if($meth === 0 || $meth === 28){
+			$request = Request::create('selector', 'GET', array());
+			return Route::dispatch($request)->getContent();
+		}
+		
+		
+		$meth = ''.$meth;
+
 		$method = Method::where('mid', '=', $meth)->first();
 		$subsection = Subsection::where('ssid', '=', $method->ssid)->first();
 		$section = Section::where('sid', '=', $subsection->sid)->first();
