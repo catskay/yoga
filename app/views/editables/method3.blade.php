@@ -29,7 +29,7 @@ Mrityorma amritam gamaya    Lead me from the timebound state of consciousness to
 &#13;
 Statement of Purpose could be something like:&#13;
 During this time, I will participate wholeheartedly in this process and trust that whatever issues are in the way of my full realization will be released spontaneously and effortlessly. I let go of any struggle or effort to make anything happen.
-", ['size' => '120x10', 'readonly']}}><br/>
+", ['size' => '120x10', 'readonly'])}}><br/>
            {{Form::textarea('purpose', null,['placeholder' => 'Please enter your statement of purpose.', 'size' => '120x5'])}}
         </div>
     </div>
