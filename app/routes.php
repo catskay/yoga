@@ -45,6 +45,10 @@ Route::post('method19', array('uses' => 'EditingController@doMethod19'));
 
 Route::post('method20', array('uses' => 'EditingController@doMethod20'));
 
+Route::post('method2', array('uses' => 'EditingController@doMethod2'));
+
+Route::post('method3', array('uses' => 'EditingController@doMethod3'));
+
 Route::post('method7', array('uses' => 'EditingController@doMethod7'));
 
 Route::post('method25',array('uses' => 'EditingController@doMethod25'));

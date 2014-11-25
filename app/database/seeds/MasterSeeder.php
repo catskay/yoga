@@ -20,8 +20,12 @@ class MasterSeeder extends Seeder
 
 	public function run()
 	{
+		$rs = array(204, 33, 134, 141, 140, 29, 215, 204, 34, 204, 20, 147);
+		$gs = array(0, 146, 36, 119, 28, 39, 71, 10, 147, 144, 90, 200);
+		$bs = array(107, 209, 113, 28, 36, 100, 32, 32, 87, 179, 136, 225);
+
 		$currSid = -1;
-		$currSSid = -1;
+		$currSSid = 0;
 		$currSname = '';
 		$currSSname = '';
 		$text = '';
@@ -43,15 +47,15 @@ class MasterSeeder extends Seeder
 			$next = $this->nextLine($file);
 			if(strcmp($next,$currSSname)!=0){
 				$currSSname = $next;
-				Subsection::create(array('ssname' => $currSSname, 'sid' => $currSid));
-				$currSSid = Subsection::where('ssname','=',$currSSname)->first()->ssid;
+				$currSSid++;
+				Subsection::create(array('ssname' => $currSSname, 'sid' => $currSid, 'r' => $rs[$currSSid-1], 'g' => $gs[$currSSid-1], 'b' => $bs[$currSSid-1]));
 			}
 			
 			$next = $this->nextLine($file);
 			$mname = $next;
 			$next = $this->nextLine($file);
 			while(strcmp(trim($next), '~')!=0){
-				$text = $text.'&#10;'.$next;
+				$text = $text.$next;
 				$next = $this->nextLine($file);
 			}
 			if($mcount === 2 || $mcount === 3 || $mcount === 7 || $mcount === 10 || $mcount === 19 || $mcount === 20 || $mcount === 23 || $mcount === 24 || $mcount === 25 || $mcount === 26 || $mcount === 27){

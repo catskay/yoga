@@ -19,7 +19,10 @@ class CreateSubsectionsTable extends Migration {
             $table->string('ssname', 100);
 			$table->unsignedInteger('sid');
 			$table->foreign('sid')->references('sid')->on('sections');
-                        
+            $table->unsignedInteger('r');
+            $table->unsignedInteger('g');
+            $table->unsignedInteger('b');
+
             $table->timestamps();
 		});
 	}
