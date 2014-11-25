@@ -70,6 +70,8 @@ Route::get('summary', array('uses' => 'EditingController@showSummary'));
 Route::get('logout', array('uses' => 'HomeController@doLogout'));
 
 Route::get('dashboard',array('uses'=> 'HomeController@loadDashboard'));
+Route::post('dashboard',array('uses'=> 'HomeController@loadDashboard'));
+
 Route::get('/', function()
 {
 	return View::make('login');

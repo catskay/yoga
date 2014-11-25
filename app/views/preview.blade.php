@@ -100,13 +100,15 @@
 
         <div class="panel panel-default">
             <div class="panel-body">
+                 {{Form::open(array('action' => 'HomeController@loadDashboard'))}}
                 <div class="form-group">
                     <label>Title</label>
-                    <input class="form-control">
+                    <input class="form-control" name = "title">
                     <label>Notes</label>
-                    <textarea class="form-control" rows="3"></textarea>
+                    <textarea class="form-control" rows="3" name = "notes"></textarea>
                 </div>
                 <button type="submit" class="btn btn-danger btn-lg">Save</button>
+            {{Form::close()}}
             </div>
         </div>
 

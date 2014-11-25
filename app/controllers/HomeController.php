@@ -19,8 +19,8 @@ class HomeController extends BaseController {
 	{
 		return View::make('hello');
 	}
-        
-        public function showLogin()
+
+	public function showLogin()
 	{
 		// show the form
 		return View::make('login');
@@ -43,7 +43,7 @@ class HomeController extends BaseController {
 		$rules = array(
 			'email'    => 'required|email', // make sure the email is an actual email
 			'password' => 'required|alphaNum|min:3' // password can only be alphanumeric and has to be greater than 3 characters
-		);
+			);
 
 		// run the validation rules on the inputs from the form
 		$validator = Validator::make(Input::all(), $rules);
@@ -53,47 +53,58 @@ class HomeController extends BaseController {
 			return Redirect::to('login')
 				->withErrors($validator) // send back all errors to the login form
 				->withInput(Input::except('password')); // send back the input (not the password) so that we can repopulate the form
-		} else {
+			} else {
 
 			// create our user data for the authentication
-			$userdata = array(
-				'email' 	=> Input::get('email'),
-				'password' 	=> Input::get('password')
-			);
+				$userdata = array(
+					'email' 	=> Input::get('email'),
+					'password' 	=> Input::get('password')
+					);
 
 			// attempt to do the login
-			if (Auth::attempt($userdata)) {
-				
+				if (Auth::attempt($userdata)) {
+
 				// validation successful!
 				// redirect them to the secure section or whatever
 				// return Redirect::to('secure');
-				
-                return Redirect::to('dashboard');
 
-			} else {	 	
+					return Redirect::to('dashboard');
+
+				} else {	 	
 
 				// validation not successful, send back to form	
-				return Redirect::to('login');
+					return Redirect::to('login');
+
+				}
 
 			}
-
 		}
-	}
-        
-        public function doLogout()
-	{
+
+		public function doLogout()
+		{
 		Auth::logout(); // log the user out of our application
 		Session::flush();
 		return Redirect::to('login'); // redirect the user to the login screen
 	}
 
-	 public function loadDashboard(){
- 		if(Auth::check()){
-        	$name = Auth::user()->name;
-        	$scripts = Script::where('uid','=',Auth::user()->uid)->get();
-        	$array = array('scripts'=>$scripts,'name'=>$name);
-        	return View::make('dashboard')->with('array',$array);
-    	}
-    }
+	public function loadDashboard(){
+		if (Input::has('title')){
+			$title = Input::get('title');
+		$notes = Input::get('notes');
+		$script = new Script;
+		$script->name = $title;
+		$script->notes = $notes;
+		$script->uid = Auth::user()->uid;
+		$script->date = date('Y-m-d');
+		$script->font_size = 'medium';
+		$script->save();
+	}
+	if(Auth::check()){
+		$name = Auth::user()->name;
+		$scripts = Script::where('uid','=',Auth::user()->uid)->get();
+		$array = array('scripts'=>$scripts,'name'=>$name);
+		return View::make('dashboard')->with('array',$array);
+	}
+}
 
 }
