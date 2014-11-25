@@ -34,11 +34,10 @@
             <input type="submit" class="btn btn-danger" name="submitButton" value="Previous"> 
         </div>
         <div class="col-md-4">
-            <div class="wrapper">
-                <input type="submit" class="button-center" name="submitButton" value="Section Sumary">
+            <input type="submit" class="button-center" name="submitButton" value="Section Summary">
         </div>
         <div class="col-md-4">
-            <input type="submit" class="btn btn-danger" style="float:right" name="submitButton" value="Next">
+            <input type="submit" class="btn btn-danger"  name="submitButton" value="Next">
         </div>
     </div>
 </div>
