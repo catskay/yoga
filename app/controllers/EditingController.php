@@ -160,6 +160,34 @@ class EditingController extends BaseController {
 		return Route::dispatch($request)->getContent();
 	}
 
+	public function doMethod2()
+	{
+		$str = Input::get('text');
+		$intent = Input::get('intention');
+		$str .= $intent;
+
+		$chMethod = ChosenMethod::where('mid','=',2)->where('id','=',Session::get('scrId'))->first();
+		$chMethod->text = $str;
+		$chMethod->save();
+
+		$request = Request::create('selector', 'GET', array());
+		return Route::dispatch($request)->getContent();
+	}
+
+		public function doMethod3()
+	{
+		$str = Input::get('text');
+		$intent = Input::get('intention');
+		$str .= $intent;
+
+		$chMethod = ChosenMethod::where('mid','=',3)->where('id','=',Session::get('scrId'))->first();
+		$chMethod->text = $str;
+		$chMethod->save();
+
+		$request = Request::create('selector', 'GET', array());
+		return Route::dispatch($request)->getContent();
+	}
+
 	public function doMethod7()
 	{
 		$array = Input::get('checkgroup');
@@ -288,6 +316,12 @@ class EditingController extends BaseController {
 		}
 		else if($meth === '27'){
 			return View::make('editables/method27')->with('array', $array);
+		}
+		else if($meth === '2'){
+			return View::make('editables/method2')->with('array', $array);
+		}
+		else if($meth === '3'){
+			return View::make('editables/method3')->with('array', $array);
 		}
 
 
