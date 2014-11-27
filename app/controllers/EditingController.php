@@ -298,7 +298,6 @@ class EditingController extends BaseController {
 		
 
 		if(Input::has('meth')){
-			echo "<script>alert('hello')</script>";
 			$meth = Input::get('meth');
 		}
 		elseif(Input::get('submitButton')==='Previous'){

@@ -49,7 +49,6 @@
             <input type="submit" class="btn btn-danger" name="submitButton" value="Previous"> 
         </div>
         <div class="col-md-4">
-            <div class="wrapper">
                 <input type="submit" class="button-center" name="submitButton" value="Section Sumary">
         </div>
         <div class="col-md-4">
