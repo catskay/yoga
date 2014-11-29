@@ -166,7 +166,7 @@ class EditingController extends BaseController {
 		$chMethod->text = $str;
 		$chMethod->save();
 
-		$request = Request::create('edit', 'POST', array());
+		$request = Request::create('selector', 'GET', array());
 		return Route::dispatch($request)->getContent();
 	}
 
@@ -294,9 +294,6 @@ class EditingController extends BaseController {
 
 	public function showEdit()
 	{
-
-		
-
 		if(Input::has('meth')){
 			$meth = Input::get('meth');
 		}
