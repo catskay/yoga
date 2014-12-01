@@ -27,7 +27,7 @@
 
 
 <center>{{ HTML::image('img/amrit-yoga-logo.gif') }}</center>
-		<center><h1>Login to the YOGA WORLD!</h1>
+		<center><h1>Login to Yoga Nidra Scripts</h1>
 				
 <div class="container">
         <div class="row">

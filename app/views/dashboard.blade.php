@@ -49,12 +49,6 @@
                             </tbody>
                         </table>
                     </div>
-                    <!-- /.table-responsive -->
-                    <div class="well">
-                        <h4>Additional Info</h4>
-                        <p>Add information about the site or ... </p>
-                     
-                    </div>
                 </div>
                 <!-- /.panel-body -->
             </div>
