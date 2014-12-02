@@ -25,9 +25,16 @@
                     <h3>{{$section}}</h3>
                     <dl>
                         @foreach($subsections as $subsection => $methods)
-                        <dt> {{$subsection}}</dt>
+                        <?php 
+                        $sub = Subsection::where("ssname", "=", $subsection)->first();  
+                        $r = $sub->r;
+                        $g = $sub->g;
+                        $b = $sub->b;
+                        $str = '"color:rgb('.$r.','.$g.','.$b.')"';
+                        ?>
+                        <dt style= {{$str}}> {{$subsection}}</dt>
                         @foreach($methods as $method)
-                        <dd>
+                        <dd style= {{$str}}>
                             <button type="button" class="btn btn-primary btn-xs" data-toggle="collapse" 
                             data-target="#item{{$method->mid}}" onclick="render()" name="buttons">+</button>
                         {{$method->mname}}

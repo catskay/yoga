@@ -133,13 +133,14 @@
 
       if ($optgroup.length > 0){
         var optgroupLabel = $optgroup.attr('label'),
+            optgroupColor = $optgroup.attr('color'),
             optgroupId = that.sanitize(optgroupLabel),
             $selectableOptgroup = that.$selectableUl.find('#optgroup-selectable-'+optgroupId),
             $selectionOptgroup = that.$selectionUl.find('#optgroup-selection-'+optgroupId);
 
         if ($selectableOptgroup.length === 0){
           var optgroupContainerTpl = '<li class="ms-optgroup-container"></li>',
-              optgroupTpl = '<ul class="ms-optgroup"><li class="ms-optgroup-label"><span>'+optgroupLabel+'</span></li></ul>';
+              optgroupTpl = '<ul class="ms-optgroup"><li class="ms-optgroup-label" style="'+optgroupColor+'"><span>'+optgroupLabel+'</span></li></ul>';
 
           $selectableOptgroup = $(optgroupContainerTpl);
           $selectionOptgroup = $(optgroupContainerTpl);

@@ -14,12 +14,20 @@
             <select id='optgroupp' multiple='multiple'>
                 @foreach($arr as $section => $subsections)
                 @foreach($subsections as $subsection => $methods)
-                <optgroup label={{$subsection}}>
+                        <?php 
+                        $sub = Subsection::where("ssname", "=", $subsection)->first();  
+                        $r = $sub->r;
+                        $g = $sub->g;
+                        $b = $sub->b;
+                        $str = '"color:rgb('.$r.','.$g.','.$b.')"';
+                        $str2 = '"'.$section.'<br>'.$subsection.'"';
+                        ?>
+                 <optgroup label={{$str2}} color={{$str}}>
                     @foreach($methods as $method)
                          @if(in_array($method->mid,$methList))
-                    <option title = {{$section}} value = {{$method->mid}} selected>{{$method->mname}}</option>
+                    <option style={{$str}} title = {{$section}} value = {{$method->mid}} selected>{{$method->mname}}</option>
                         @else
-                    <option title = {{$section}} value = {{$method->mid}}>{{$method->mname}}</option>
+                    <option style={{$str}} title = {{$section}} value = {{$method->mid}}>{{$method->mname}}</option>
                         @endif
                     @endforeach
                 </optgroup>

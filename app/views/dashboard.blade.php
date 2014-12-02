@@ -35,11 +35,15 @@
                                     <td>{{$script->name}}</td>
                                     <td>{{$script->date}}</td>
                                     <td>{{$script->notes}}</td>
+                                    {{Form::open()}}
+                                    {{Form::hidden('script', $script->id)}}
                                     <td> <div class="btn-group">
-                                      <button type="button" id="download" class="btn btn-default">Download</button>
-                                      <button type="button" id="print" class="btn btn-default">Print</button>
-                                      <button type="button" id="save" class="btn btn-default">Edit</button>
-                                    </div></td>                                    
+                                      <button type="submit" name="actions" value = "Download"class="btn btn-default">
+                                      <button type="submit" name="actions" value = "Print" class="btn btn-default">
+                                      <button type="submit" name="actions" value = "Edit" class="btn btn-default">
+                                     <button type="submit" name="actions"  value = "Delete" class="btn btn-default" >
+                                    </div></td>     
+                                    {{Form::close()}}                               
                                     </tr>
                                </tr>
                                @endforeach
