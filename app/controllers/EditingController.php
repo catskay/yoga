@@ -67,6 +67,19 @@ class EditingController extends BaseController {
 		return View::make('selector')->with('arr',$arr);
 	}
 
+	public function getEditables(){
+		$methList = Session::get('methList');
+		$editables = array();
+		foreach($methList as $meth){
+			$method = Method::where('mid','=',$meth)->first();
+			if($method->editable === 'true'){
+				array_push($editables,$meth);
+			}
+			
+		}
+		return $editables;
+	}
+
 
 
 	public function showSelect()
@@ -146,7 +159,7 @@ class EditingController extends BaseController {
 		$chMethod->text = $str;
 		$chMethod->save();
 
-		$request = Request::create('selector', 'GET', array());
+		$request = Request::create('edit', 'POST', array());
 		return Route::dispatch($request)->getContent();
 	}
 
@@ -166,7 +179,7 @@ class EditingController extends BaseController {
 		$chMethod->text = $str;
 		$chMethod->save();
 
-		$request = Request::create('selector', 'GET', array());
+		$request = Request::create('edit', 'POST', array());
 		return Route::dispatch($request)->getContent();
 	}
 
@@ -180,7 +193,7 @@ class EditingController extends BaseController {
 		$chMethod->text = $str;
 		$chMethod->save();
 
-		$request = Request::create('selector', 'GET', array());
+		$request = Request::create('edit', 'POST', array());
 		return Route::dispatch($request)->getContent();
 	}
 
@@ -194,7 +207,7 @@ class EditingController extends BaseController {
 		$chMethod->text = $str;
 		$chMethod->save();
 
-		$request = Request::create('selector', 'GET', array());
+		$request = Request::create('edit', 'POST', array());
 		return Route::dispatch($request)->getContent();
 	}
 
@@ -210,7 +223,7 @@ class EditingController extends BaseController {
 		$chMethod->text = $str;
 		$chMethod->save();
 
-		$request = Request::create('selector', 'GET', array());
+		$request = Request::create('edit', 'POST', array());
 		return Route::dispatch($request)->getContent();
 	}
 
@@ -226,7 +239,7 @@ class EditingController extends BaseController {
 		$chMethod->text = $str;
 		$chMethod->save();
 
-		$request = Request::create('selector', 'GET', array());
+		$request = Request::create('edit', 'POST', array());
 		return Route::dispatch($request)->getContent();
 	}
 
@@ -238,7 +251,7 @@ class EditingController extends BaseController {
 		$chMethod->text = $str;
 		$chMethod->save();
 
-		$request = Request::create('selector', 'GET', array());
+		$request = Request::create('edit', 'POST', array());
 		return Route::dispatch($request)->getContent();
 	}
 
@@ -250,7 +263,7 @@ class EditingController extends BaseController {
 		$chMethod->text = $str;
 		$chMethod->save();
 
-		$request = Request::create('selector', 'GET', array());
+		$request = Request::create('edit', 'POST', array());
 		return Route::dispatch($request)->getContent();
 	}
 
@@ -262,7 +275,7 @@ class EditingController extends BaseController {
 		$chMethod->text = $str;
 		$chMethod->save();
 
-		$request = Request::create('selector', 'GET', array());
+		$request = Request::create('edit', 'POST', array());
 		return Route::dispatch($request)->getContent();
 	}
 
@@ -275,7 +288,7 @@ class EditingController extends BaseController {
 		$chMethod->text = $str;
 		$chMethod->save();
 
-		$request = Request::create('selector', 'GET', array());
+		$request = Request::create('edit', 'POST', array());
 		return Route::dispatch($request)->getContent();
 	}
 
@@ -288,18 +301,19 @@ class EditingController extends BaseController {
 		$chMethod->text = $str;
 		$chMethod->save();
 
-		$request = Request::create('selector', 'GET', array());
+		$request = Request::create('edit', 'POST', array());
 		return Route::dispatch($request)->getContent();
 	}
 
 	public function showEdit()
 	{
-		if(Input::has('meth')){
-			$meth = Input::get('meth');
+		if(Input::get('submitButton')==='Section Summary'){
+			$request = Request::create('selector', 'GET', array());
+			return Route::dispatch($request)->getContent();
 		}
 		elseif(Input::get('submitButton')==='Previous'){
 			$meth = Input::get('mid');
-			$methList = Session::get('methList');
+			$methList = $this->getEditables();
 			$index = array_search($meth,$methList);
 			$index--;
 			
@@ -315,7 +329,7 @@ class EditingController extends BaseController {
 		}
 		elseif(Input::get('submitButton')==='Next'){
 			$meth = Input::get('mid');
-			$methList = Session::get('methList');
+			$methList = $this->getEditables();
 			$index = array_search($meth,$methList);
 			$index++;
 			if($index > count($methList)-1){
@@ -327,8 +341,7 @@ class EditingController extends BaseController {
 			}
 		}
 		else{
-			$request = Request::create('selector', 'GET', array());
-			return Route::dispatch($request)->getContent();
+			$meth = Input::get('meth');
 		}
 		
 		
