@@ -29,38 +29,38 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                
+
                             	@foreach($array['scripts'] as $script)
-                                 <tr class="odd gradeX">
-                                    <td>{{$script->name}}</td>
-                                    <td>{{$script->date}}</td>
-                                    <td>{{$script->notes}}</td>
-                                    {{Form::open()}}
-                                    {{Form::hidden('script', $script->id)}}
-                                    <td> <div class="btn-group">
-                                      <button type="submit" name="actions" value = "Download"class="btn btn-default">
-                                      <button type="submit" name="actions" value = "Print" class="btn btn-default">
-                                      <button type="submit" name="actions" value = "Edit" class="btn btn-default">
-                                     <button type="submit" name="actions"  value = "Delete" class="btn btn-default" >
-                                    </div></td>     
-                                    {{Form::close()}}                               
-                                    </tr>
-                               </tr>
-                               @endforeach
-                               
-                               
-                               
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <!-- /.panel-body -->
-            </div>
-            <!-- /.panel -->
-        </div>
-        <!-- /.col-lg-12 -->
-    </div>
-    <!-- /.row -->
+                               <tr class="odd gradeX">
+                                <td>{{$script->name}}</td>
+                                <td>{{$script->date}}</td>
+                                <td>{{$script->notes}}</td>
+                                {{Form::open(array('action' => 'HomeController@loadDashboard'))}}
+                                {{Form::hidden('script', $script->id)}}
+                                <td> <div class="btn-group">
+                                    <button type="submit" name="actions" value = "Download"class="btn btn-default">Download</button>
+                                      <button type="submit" name="actions" value = "Print" class="btn btn-default">Print</button>
+                                      <button type="submit" name="actions" value = "Edit" class="btn btn-default">Edit</button>
+                                      <button type="submit" name="actions"  value = "Delete" class="btn btn-default" >Delete</button>
+                              </div></td>     
+                              {{Form::close()}}                               
+                          </tr>
+                      </tr>
+                      @endforeach
+
+
+
+                  </tbody>
+              </table>
+          </div>
+      </div>
+      <!-- /.panel-body -->
+  </div>
+  <!-- /.panel -->
 </div>
-        <!-- /#page-wrapper -->
+<!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+</div>
+<!-- /#page-wrapper -->
 @stop

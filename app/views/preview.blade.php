@@ -12,11 +12,7 @@
 
     <div class="col-md-8">
         <div class="panel panel-default">
-
             <iframe frameborder="0" src="/yoga/public/script" width="100%" height="500"></iframe>
-
-                
-            
         </div>
     </div>
 
@@ -60,6 +56,7 @@
 
 </div>
 
+    <script src="js/bootbox.min.js" type="text/javascript"></script>
 @stop
 
 

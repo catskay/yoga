@@ -20,6 +20,11 @@ class HomeController extends BaseController {
 		return View::make('hello');
 	}
 
+		public function showTest()
+	{
+		return View::make('test');
+	}
+
 	public function showLogin()
 	{
 		// show the form
@@ -88,23 +93,40 @@ class HomeController extends BaseController {
 	}
 
 	public function loadDashboard(){
+		if(!empty($_POST['title'])){
 		if (Input::has('title')){
 			$title = Input::get('title');
-		$notes = Input::get('notes');
-		$script = new Script;
-		$script->name = $title;
-		$script->notes = $notes;
-		$script->uid = Auth::user()->uid;
-		$script->date = date('Y-m-d');
-		$script->font_size = 'medium';
-		$script->save();
+			$notes = Input::get('notes');
+			$script = Script::where('id','=',Session::get('scrId'))->first();
+			$script->name = $title;
+			$script->notes = $notes;
+
+			$script->save();
+		}
+		else{
+			echo "<script>bootbox.alert('Please enter a title.');</script>";
+			$request = Request::create('preview', 'GET', array());
+			return Route::dispatch($request)->getContent();
+		}
 	}
-	if(Auth::check()){
-		$name = Auth::user()->name;
-		$scripts = Script::where('uid','=',Auth::user()->uid)->get();
-		$array = array('scripts'=>$scripts,'name'=>$name);
-		return View::make('dashboard')->with('array',$array);
+		if(Auth::check()){
+			$name = Auth::user()->name;
+			if(Input::has('script')){
+				$scriptid = Input::get('script');
+				if(Input::get('actions') === "Delete"){
+				ChosenMethod::where('id', '=', $scriptid)->delete();
+				Script::where('id', '=', $scriptid)->delete();
+				}
+			}
+			$scripts = Script::where('uid','=',Auth::user()->uid)->get();
+			$emptyScript = Script::where('name','=','placeholder')->first();
+			if(!is_null($emptyScript)){
+			ChosenMethod::where('id','=',$emptyScript->id)->delete();
+			Script::where('name','=','placeholder')->delete();
+			}
+			$array = array('scripts'=>$scripts,'name'=>$name);
+			return View::make('dashboard')->with('array',$array);
+		}
 	}
-}
 
 }
