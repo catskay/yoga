@@ -395,7 +395,7 @@ table.dataTable thead .sorting:after {
     border-color: #ac2925;
 }
 
-.btn-size-small1{
+.btn-size-small{
     background-color: transparent;
     font-size: small;
     position: relative;

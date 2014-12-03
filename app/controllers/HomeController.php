@@ -80,31 +80,30 @@ class HomeController extends BaseController {
 			}
 		}
 
-		public function doLogout()
-		{
-		Auth::logout(); // log the user out of our application
-		Session::flush();
-		return Redirect::to('login'); // redirect the user to the login screen
-	}
+		public function doLogout(){
+			Auth::logout(); // log the user out of our application
+			Session::flush();
+			return Redirect::to('login'); // redirect the user to the login screen
+		}
 
 	public function loadDashboard(){
 		if (Input::has('title')){
 			$title = Input::get('title');
-		$notes = Input::get('notes');
-		$script = new Script;
-		$script->name = $title;
-		$script->notes = $notes;
-		$script->uid = Auth::user()->uid;
-		$script->date = date('Y-m-d');
-		$script->font_size = 'medium';
-		$script->save();
+			$notes = Input::get('notes');
+			$script = new Script;
+			$script->name = $title;
+			$script->notes = $notes;
+			$script->uid = Auth::user()->uid;
+			$script->date = date('Y-m-d');
+			$script->font_size = 'medium';
+			$script->save();
+		}
+		if(Auth::check()){
+			$name = Auth::user()->name;
+			$scripts = Script::where('uid','=',Auth::user()->uid)->get();
+			$array = array('scripts'=>$scripts,'name'=>$name);
+			return View::make('dashboard')->with('array',$array);
+		}
 	}
-	if(Auth::check()){
-		$name = Auth::user()->name;
-		$scripts = Script::where('uid','=',Auth::user()->uid)->get();
-		$array = array('scripts'=>$scripts,'name'=>$name);
-		return View::make('dashboard')->with('array',$array);
-	}
-}
 
 }

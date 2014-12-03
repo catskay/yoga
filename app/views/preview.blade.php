@@ -26,7 +26,7 @@
                 <h1 style="color:#cc0000 ">Font Size</h1>
                 {{Form::open(array('url' => 'preview')) }}
                 {{Form::hidden('fontSize', 'small') }}
-                {{Form::submit('Small', array('class' => 'btn btn-size-small1'));}}
+                {{Form::submit('Small', array('class' => 'btn btn-size-small'));}}
                 {{Form::close() }}
                 
                 {{Form::open(array('url' => 'preview')) }}

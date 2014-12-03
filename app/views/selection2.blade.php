@@ -11,7 +11,7 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <select id='optgroupp' multiple='multiple'>
+           <select id='optgroupp' multiple='multiple'>
                 @foreach($arr as $section => $subsections)
                 @foreach($subsections as $subsection => $methods)
                         <?php 
@@ -36,6 +36,14 @@
                 @endforeach
 
             </select>
+
+            <!-- <select id='optgroupp' multiple='multiple'>
+                <optgroup label="I. Internalizing Awareness <br> A. Quieting/Centering">
+
+                   <option style="color:#FF00FF">1. Om</option>
+                    <option </option>
+                </optgroup>
+            </select>-->
         </div>
 
     </select>
