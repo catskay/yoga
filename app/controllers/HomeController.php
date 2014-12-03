@@ -85,12 +85,11 @@ class HomeController extends BaseController {
 			}
 		}
 
-		public function doLogout()
-		{
-		Auth::logout(); // log the user out of our application
-		Session::flush();
-		return Redirect::to('login'); // redirect the user to the login screen
-	}
+		public function doLogout(){
+			Auth::logout(); // log the user out of our application
+			Session::flush();
+			return Redirect::to('login'); // redirect the user to the login screen
+		}
 
 	public function loadDashboard(){
 		if(!empty($_POST['title'])){
@@ -124,6 +123,10 @@ class HomeController extends BaseController {
 			ChosenMethod::where('id','=',$emptyScript->id)->delete();
 			Script::where('name','=','placeholder')->delete();
 			}
+		}
+		if(Auth::check()){
+			$name = Auth::user()->name;
+			$scripts = Script::where('uid','=',Auth::user()->uid)->get();
 			$array = array('scripts'=>$scripts,'name'=>$name);
 			return View::make('dashboard')->with('array',$array);
 		}
