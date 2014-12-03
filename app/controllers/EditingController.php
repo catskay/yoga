@@ -4,7 +4,7 @@ class EditingController extends BaseController {
 
 	public function showSelector()
 	{
-		if(is_null(Session::get('arr'))){
+		if(is_null(Session::get('arr')) && is_null(Session::get('scrId'))){
 			$methList = Input::get('methodList');
 			$methListArray = explode(',', $methList);
 			Session::put('methList',$methListArray);
@@ -30,13 +30,16 @@ class EditingController extends BaseController {
 				$chMethod->save();
 			}
 		}
+		elseif(!is_null(Session::get('methList'))){
+			$methListArray = Session::get('methList');
+		}
 		else{
-			/*$methods = ChosenMethod::where('id','=',Session::get('scrId'))->get();
+			$methods = ChosenMethod::where('id','=',Session::get('scrId'))->get();
 			$methListArray = array();
 			foreach($methods as $method){
 				array_push($methListArray, $method->mid);
-			}*/
-			$methListArray = Session::get('methList');
+			}
+			Session::put('methList',$methListArray);
 		}
 		$arr = array();
 		$ssArr = array();
