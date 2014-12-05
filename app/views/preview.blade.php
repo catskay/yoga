@@ -13,6 +13,8 @@
     <div class="col-md-8">
         <div class="panel panel-default">
             <iframe frameborder="0" src={{"script_".Session::get('scrId').".pdf"}} width="100%" height="500"></iframe>
+
+            
         </div>
     </div>
 

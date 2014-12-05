@@ -54,6 +54,7 @@
             <!-- /.navbar-header -->
 
             <ul class="nav navbar-top-links navbar-right">
+                <li> Welcome, {{$array['name']}}</li>
                 <!--name goes here-->
                 <!-- /.dropdown -->
                 <li class="dropdown">
@@ -113,6 +114,8 @@
         $('#dataTables-example').dataTable();
     });
     </script>
+
+    
 
 </body>
 </html>

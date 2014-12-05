@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">Instruction List</h1>
-            <a href="/yoga/public/selection2">  <button type="button" class="btn btn-danger" style="float:right">CREATE NEW</button> </a>
+            <a href="selection2">  <button type="button" class="btn btn-danger" style="float:right">CREATE NEW</button> </a>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -39,7 +39,7 @@
                                 {{Form::hidden('script', $script->id)}}
                                 <td> <div class="btn-group">
                                     <button type="submit" name="actions" value = "Download"class="btn btn-default">Download</button>
-                                      <button type="submit" name="actions" value = "Print" class="btn btn-default">Print</button>
+                                      <a href="printpdf({{$script->id}})"><button type="submit" name="actions" value = "Print" class="btn btn-default">Print</button></a>
                                       <button type="submit" name="actions" value = "Edit" class="btn btn-default">Edit</button>
                                       <button type="submit" name="actions"  value = "Delete" class="btn btn-default" >Delete</button>
                               </div></td>     
@@ -47,8 +47,6 @@
                           </tr>
                       </tr>
                       @endforeach
-
-
 
                   </tbody>
               </table>
@@ -59,8 +57,6 @@
   <!-- /.panel -->
 </div>
 <!-- /.col-lg-12 -->
-</div>
-<!-- /.row -->
-</div>
-<!-- /#page-wrapper -->
+
+
 @stop
