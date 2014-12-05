@@ -10,8 +10,8 @@ class EditingController extends BaseController {
 			Session::put('methList',$methListArray);
 
 			$script = new Script;
-			$script->name = 'placeholder';
-			$script->notes = 'placeholder';
+			$script->name = 'notitle';
+			$script->notes = '';
 			$script->uid = Auth::user()->uid;
 			$script->date = date('Y-m-d');
 			$script->font_size = 'medium';
@@ -189,8 +189,6 @@ class EditingController extends BaseController {
 	public function doMethod2()
 	{
 		$str = Input::get('text');
-		$intent = Input::get('intention');
-		$str .= $intent;
 
 		$chMethod = ChosenMethod::where('mid','=',2)->where('id','=',Session::get('scrId'))->first();
 		$chMethod->text = $str;
@@ -200,7 +198,7 @@ class EditingController extends BaseController {
 		return Route::dispatch($request)->getContent();
 	}
 
-		public function doMethod3()
+	public function doMethod3()
 	{
 		$str = Input::get('text');
 		$intent = Input::get('intention');
@@ -249,6 +247,7 @@ class EditingController extends BaseController {
 	public function doMethod10()
 	{
 		$str = Input::get('text');
+		$str = $str.'&#10;'.Input::get('intention');
 
 		$chMethod = ChosenMethod::where('mid','=',10)->where('id','=',Session::get('scrId'))->first();
 		$chMethod->text = $str;
@@ -285,7 +284,8 @@ class EditingController extends BaseController {
 	public function doMethod24()
 	{
 		$str = Input::get('text1');
-		$str = $str.' \n '.Input::get('text2');
+		$str = $str.'&#10;'.Input::get('intention');
+		$str = $str.'&#10;'.Input::get('text2');
 
 		$chMethod = ChosenMethod::where('mid','=',24)->where('id','=',Session::get('scrId'))->first();
 		$chMethod->text = $str;
@@ -304,6 +304,16 @@ class EditingController extends BaseController {
 		$chMethod->text = $str;
 		$chMethod->save();
 
+		$request = Request::create('edit', 'POST', array());
+		return Route::dispatch($request)->getContent();
+	}
+
+	public function doMethod1()
+	{
+		$str = Input::get('text');
+		$chMethod = ChosenMethod::where('mid','=',1)->where('id','=',Session::get('scrId'))->first();
+		$chMethod->text = $str;
+		$chMethod->save();
 		$request = Request::create('edit', 'POST', array());
 		return Route::dispatch($request)->getContent();
 	}
@@ -390,6 +400,9 @@ class EditingController extends BaseController {
 		else if($meth === '3'){
 			return View::make('editables/method3')->with('array', $array);
 		}
+		else if($meth === '1'){
+			return View::make('editables/method1')->with('array', $array);
+		}
 
 
 
@@ -407,113 +420,135 @@ class EditingController extends BaseController {
 		$arr = Session::get('arr');
 
 		if(isset($_POST['small'])) {
-			// form submitted, now we can look at the data that came through
-			// the value inside the brackets comes from the name attribute of the input field. (just like submit above)
 			$font = $_POST['small'];
 			print_r($font);
 		}
 
 		if($fontSize === 'large'){
 			Fpdf::AddPage('p','letter');
-	    	foreach($arr as $section => $subsections){
+			foreach($arr as $section => $subsections){
 
-		        Fpdf::SetFont('Arial','B','20');
-		        Fpdf::Write(10,html_entity_decode($section));
 
-		        foreach($subsections as $subsection => $methods){
+				Fpdf::SetFont('Arial','B','20');
+				Fpdf::Write(10,html_entity_decode($section));
 
-		            Fpdf::SetFont('Arial','','18');
-		            
-		            $ss = Subsection::where('ssname','=',$subsection)->first();
-		            $r = $ss->r;
-		            $g = $ss->g;
-		            $b = $ss->b;
+				foreach($subsections as $subsection => $methods){
 
-            		Fpdf::SetTextColor($r,$g,$b);
-		            Fpdf::Write('10',html_entity_decode($subsection));
+					Fpdf::SetFont('Arial','B','18');
 
-		            foreach($methods as $method){
+					$ss = Subsection::where('ssname','=',$subsection)->first();
+					$r = $ss->r;
+					$g = $ss->g;
+					$b = $ss->b;
 
-		                Fpdf::MultiCell('0','5',html_entity_decode($method->mname));
-		                Fpdf::SetFont('Arial','','16');
-		                Fpdf::SetTextColor('0','0','0');
-		                Fpdf::MultiCell('0','7',$method->text);
-		                Fpdf::Ln();
-		                $yPos=Fpdf::GetY();
-		                Fpdf::Line('10',$yPos,'200',$yPos);
-		                Fpdf::Ln();
-		            }
-		        }
-	    	}
-	    }	
-	    else if($fontSize ==='medium'){
-	    	Fpdf::AddPage('p','letter');
-		    foreach($arr as $section => $subsections){
+					Fpdf::SetTextColor($r,$g,$b);
+					Fpdf::SetX(15); 
+					Fpdf::MultiCell('0','10',html_entity_decode($subsection));
 
-		        Fpdf::SetFont('Arial','B','18');
-		        Fpdf::Write(10,html_entity_decode($section));
 
-		        foreach($subsections as $subsection => $methods){
+					foreach($methods as $method){
+						Fpdf::SetTextColor($r,$g,$b);
+						Fpdf::SetFont('Arial','B','16');
+						Fpdf::SetX(18);
+						Fpdf::MultiCell('0','5',html_entity_decode($method->mname));
+						Fpdf::Ln();
+						Fpdf::SetFont('Arial','','16');
+						Fpdf::SetTextColor('0','0','0');
+						Fpdf::SetX(20); 
+						Fpdf::MultiCell('0','7',html_entity_decode($method->text));
+						Fpdf::Ln();
+						$yPos=Fpdf::GetY();
+						Fpdf::Line('10',$yPos,'200',$yPos);
+						Fpdf::Ln();
+					}
+				}
+			}
+		}	
+		else if($fontSize ==='medium'){
+			Fpdf::AddPage('p','letter');
+			foreach($arr as $section => $subsections){
 
-		            Fpdf::SetFont('Arial','','16');
-		            
-		            $ss = Subsection::where('ssname','=',$subsection)->first();
-		            $r = $ss->r;
-		            $g = $ss->g;
-		            $b = $ss->b;
+				Fpdf::SetFont('Arial','B','18');
+				Fpdf::Write(10,html_entity_decode($section));
 
-            		Fpdf::SetTextColor($r,$g,$b);
-		            Fpdf::Write('10',html_entity_decode($subsection));
+				foreach($subsections as $subsection => $methods){
 
-		            foreach($methods as $method){
+					Fpdf::SetFont('Arial','B','16');
 
-		                Fpdf::MultiCell('0','5',html_entity_decode($method->mname));
-		                Fpdf::SetFont('Arial','','14');
-		                Fpdf::SetTextColor('0','0','0');
-		                Fpdf::MultiCell('0','6',$method->text);
-		                Fpdf::Ln();
-		                $yPos=Fpdf::GetY();
-		                Fpdf::Line('10',$yPos,'200',$yPos);
-		                Fpdf::Ln();
-		            }
-		        }
-		    }
+					$ss = Subsection::where('ssname','=',$subsection)->first();
+					$r = $ss->r;
+					$g = $ss->g;
+					$b = $ss->b;
+
+					Fpdf::SetTextColor($r,$g,$b);
+					Fpdf::SetX(15); 
+					Fpdf::MultiCell('0','10',html_entity_decode($subsection));
+
+
+					foreach($methods as $method){
+						Fpdf::SetTextColor($r,$g,$b);
+						Fpdf::SetFont('Arial','B','14');
+						Fpdf::SetX(18); 
+						Fpdf::MultiCell('0','5',html_entity_decode($method->mname));
+						Fpdf::Ln();
+						Fpdf::SetFont('Arial','','14');
+						Fpdf::SetTextColor('0','0','0');
+						Fpdf::SetX(20); 
+						Fpdf::MultiCell('0','6',html_entity_decode($method->text));
+						Fpdf::Ln();
+						$yPos=Fpdf::GetY();
+						Fpdf::Line('10',$yPos,'200',$yPos);
+						Fpdf::Ln();
+					}
+				}
+			}
 		}
 		else{
 			Fpdf::AddPage('p','letter');
-		    foreach($arr as $section => $subsections){
+			foreach($arr as $section => $subsections){
 
-		        Fpdf::SetFont('Arial','B','16');
-		        Fpdf::Write(10,html_entity_decode($section));
+				Fpdf::SetFont('Arial','B','16');
+				Fpdf::Write(10,html_entity_decode($section));
 
-		        foreach($subsections as $subsection => $methods){
+				foreach($subsections as $subsection => $methods){
 
-		            Fpdf::SetFont('Arial','','14');
-		            
-		            $ss = Subsection::where('ssname','=',$subsection)->first();
-		            $r = $ss->r;
-		            $g = $ss->g;
-		            $b = $ss->b;
+					Fpdf::SetFont('Arial','B','14');
 
-            		Fpdf::SetTextColor($r,$g,$b);
-		            Fpdf::Write('10',html_entity_decode($subsection));
+					$ss = Subsection::where('ssname','=',$subsection)->first();
+					$r = $ss->r;
+					$g = $ss->g;
+					$b = $ss->b;
 
-		            foreach($methods as $method){
+					Fpdf::SetTextColor($r,$g,$b);
+					Fpdf::SetX(15); 
+					Fpdf::Write('10',html_entity_decode($subsection));
 
-		                Fpdf::MultiCell('0','5',html_entity_decode($method->mname));
-		                Fpdf::SetFont('Arial','','12');
-		                Fpdf::SetTextColor('0','0','0');
-		                Fpdf::MultiCell('0','5',$method->text);
-		                Fpdf::Ln();
-		                $yPos=Fpdf::GetY();
-		                Fpdf::Line('10',$yPos,'200',$yPos);
-		                Fpdf::Ln();
-		            }
-		        }
-		    }
-		}
-	    
-	    Fpdf::Output('script','F');
+
+					foreach($methods as $method){
+						Fpdf::SetTextColor($r,$g,$b);
+						Fpdf::SetFont('Arial','B','14');
+						Fpdf::SetX(18); 
+						Fpdf::MultiCell('0','5',html_entity_decode($method->mname));
+						Fpdf::Ln();
+						Fpdf::SetFont('Arial','','12');
+						Fpdf::SetTextColor('0','0','0');
+						Fpdf::SetX(20); 
+						$text = $method->text;
+						Fpdf::MultiCell('0','5',html_entity_decode($text));
+						Fpdf::Ln();
+						$yPos=Fpdf::GetY();
+						Fpdf::Line('10',$yPos,'200',$yPos);
+						Fpdf::Ln();
+					}
+				}
+			}
+ 	Fpdf::SetY(-15);
+    // Select Arial italic 8
+    Fpdf::SetFont('Arial','I',8);
+    // Print centered page number
+    Fpdf::Cell(0,10,'Page '.Fpdf::PageNo(),0,0,'C');		}
+
+		Fpdf::Output('script_'.Session::get('scrId').'.pdf','F');
 		return View::make('preview')->with('arr',$arr);
 	}
 }

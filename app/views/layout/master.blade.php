@@ -31,7 +31,6 @@
     <link href="css/multi-select.css" media="screen" rel="stylesheet" type="text/css">
     <link href="css/application.css" media="screen" rel="stylesheet" type="text/css">
 
-
 </head>
 <body>
     <table>

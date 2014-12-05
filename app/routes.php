@@ -63,6 +63,8 @@ Route::post('method26', array('uses' => 'EditingController@doMethod26'));
 
 Route::post('method27', array('uses' => 'EditingController@doMethod27'));
 
+Route::post('method1', array('uses' => 'EditingController@doMethod1'));
+
 Route::get('view', array('uses' => 'EditingController@showView'));
 
 Route::get('preview', array('uses' => 'EditingController@showPreview'));

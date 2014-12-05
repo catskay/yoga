@@ -20,7 +20,7 @@ class HomeController extends BaseController {
 		return View::make('hello');
 	}
 
-		public function showTest()
+	public function showTest()
 	{
 		return View::make('test');
 	}
@@ -91,75 +91,66 @@ class HomeController extends BaseController {
 			return Redirect::to('login'); // redirect the user to the login screen
 		}
 
-	public function loadDashboard(){
-		if(!empty($_POST)){
-		if (Input::has('title')){
-			echo "<script>alert('lala');</script>";
-			$title = Input::get('title');
-			$notes = Input::get('notes');
-			$script = Script::where('id','=',Session::get('scrId'))->first();
-			$script->name = $title;
-			$script->notes = $notes;
+		public function loadDashboard(){
+			if(isset($_POST['title'])){
+				$title = null;
+				if (Input::has('title')){
+					echo "<script>alert('hastitle');</script>";
+					$title = Input::get('title');
+					$notes = Input::get('notes');
+					$script = Script::where('id','=',Session::get('scrId'))->first();
+					$script->name = $title;
+					$script->notes = $notes;
 
-			$script->save();
+					$script->save();
 
-			Session::forget('scrId');
+					Session::forget('scrId');
 					Session::forget('arr');
 					Session::forget('methList');
-		}
-		else{
-			echo "<script>bootbox.alert('Please enter a title.');</script>";
-			$request = Request::create('preview', 'GET', array());
-			return Route::dispatch($request)->getContent();
-		}
-	}
-	else{
-					echo "<script>alert('kao');</script>";
-
-	}
-		if(Auth::check()){
-			$name = Auth::user()->name;
-			if(Input::has('script')){
-				$scriptid = Input::get('script');
-				if(Input::get('actions') === "Delete"){
-				ChosenMethod::where('id', '=', $scriptid)->delete();
-				Script::where('id', '=', $scriptid)->delete();
 				}
-
+				else if(is_null($title)){
+					echo "<script>alert('Please enter a title!')</script>";
+					$request = Request::create('preview', 'GET', array());
+					return Route::dispatch($request)->getContent();
+				}
 			}
-			elseif(!is_null(Session::get('arr'))){
-				echo "<script>bootbox.alert('Please enter a title.');</script>";
-				$request = Request::create('preview', 'GET', array());
-				return Route::dispatch($request)->getContent();
+			else{
+				// echo "<script>alert('no post');</script>";
 			}
-			if(Auth::check()){
-				$name = Auth::user()->name;
-				if(Input::has('script')){
-					$scriptid = Input::get('script');
-					if(Input::get('actions') === "Delete"){
-						ChosenMethod::where('id', '=', $scriptid)->delete();
-						Script::where('id', '=', $scriptid)->delete();
+				// elseif(!is_null(Session::get('arr'))){
+				// 	echo "<script>bootbox.alert('Please enter a title.');</script>";
+				// 	$request = Request::create('preview', 'GET', array());
+				// 	return Route::dispatch($request)->getContent();
+				// }
+				if(Auth::check()){
+					$name = Auth::user()->name;
+					if(Input::has('script')){
+						$scriptid = Input::get('script');
+						$currScript = Script::where('id', '=', $scriptid)->first();
+						$scriptname = $currScript->name;
+						Session::put('scrName', $scriptname);
+						if(Input::get('actions') === "Delete"){
+							ChosenMethod::where('id', '=', $scriptid)->delete();
+							Script::where('id', '=', $scriptid)->delete();
+						}
+						if(Input::get('actions') === "Edit"){
+							Session::put('scrId',$scriptid);
+							$request = Request::create('selector', 'GET', array());
+							return Route::dispatch($request)->getContent();
+						}
+						if(Input::get('actions') === "Download"){
+							$pathToFile = 'script_'.$scriptid.'.pdf';
+							return Response::download($pathToFile);
+						}
 					}
-					if(Input::get('actions') === "Edit"){
-						Session::put('scrId',$scriptid);
-						$request = Request::create('selector', 'GET', array());
-						return Route::dispatch($request)->getContent();
+					$scripts = Script::where('uid','=',Auth::user()->uid)->get();
+					$emptyScript = Script::where('name','=','placeholder')->first();
+					if(!is_null($emptyScript)){
+						ChosenMethod::where('id','=',$emptyScript->id)->delete();
+						Script::where('name','=','placeholder')->delete();
 					}
-
+					$array = array('scripts'=>$scripts,'name'=>$name);
+					return View::make('dashboard')->with('array',$array);
 				}
-				$scripts = Script::where('uid','=',Auth::user()->uid)->get();
-				$emptyScript = Script::where('name','=','placeholder')->first();
-				if(!is_null($emptyScript)){
-					ChosenMethod::where('id','=',$emptyScript->id)->delete();
-					Script::where('name','=','placeholder')->delete();
-				}
-			}
-			if(Auth::check()){
-				$name = Auth::user()->name;
-				$scripts = Script::where('uid','=',Auth::user()->uid)->get();
-				$array = array('scripts'=>$scripts,'name'=>$name);
-				return View::make('dashboard')->with('array',$array);
-			}
 		}
-
 	}

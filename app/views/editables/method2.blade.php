@@ -22,8 +22,7 @@
     <div class="panel panel-default">
         <div class="panel body">
             {{Form::open(array('url' => 'method2'))}}
-           {{Form::textarea('text', 'Close your eyes and quiet your mind. Be still.&#13; Let go of all thoughts, worry and tension.&#13; Give yourself fully to a higher power. Relax, trust and let go... Breathe in fully and exhale with a deep sigh...&#13; And again, breathe in fully and exhale with a deep sigh... And let go even more....&#13; Feel a deep sense of contentment and peace in your heart.&#13; ', ['readonly', 'size' => '120x5'])}} <input type="hidden" name="meth" value={{$array['method']->mid}}><br/>
-           {{Form::textarea('intention', null,['placeholder' => 'Please enter your intention here.', 'size' => '120x5'])}}
+           {{Form::textarea('text', ' - Close your eyes and quiet your mind. Be still.&#13;  - Let go of all thoughts, worry and tension.&#13; - Give yourself fully to a higher power. Relax, trust and let go... Breathe in fully and exhale with a deep sigh...&#13;  - And again, breathe in fully and exhale with a deep sigh... And let go even more....&#13;  - Feel a deep sense of contentment and peace in your heart.&#13; ', ['readonly', 'size' => '120x5'])}} <input type="hidden" name="meth" value={{$array['method']->mid}}><br/>
         </div>
     </div>
     <script>

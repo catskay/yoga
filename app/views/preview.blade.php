@@ -12,7 +12,7 @@
 
     <div class="col-md-8">
         <div class="panel panel-default">
-            <iframe frameborder="0" src="/yoga/public/script" width="100%" height="500"></iframe>
+            <iframe frameborder="0" src={{"script_".Session::get('scrId').".pdf"}} width="100%" height="500"></iframe>
         </div>
     </div>
 
@@ -42,10 +42,10 @@
             <div class="panel-body">
                  {{Form::open(array('action' => 'HomeController@loadDashboard'))}}
                 <div class="form-group">
-                    <label>Title</label>
-                    <input class="form-control" name = "title">
+                    <label>Title<font color='red'>*</font></label>
+                    {{Form::input('text', 'title', null, ['class'=>'form-control', 'placeholder'=>'Please enter a title.'])}}
                     <label>Notes</label>
-                    <textarea class="form-control" rows="3" name = "notes"></textarea>
+                     {{Form::textarea('notes', null, ['class'=>'form-control', 'rows'=> '5', 'placeholder'=>'comments on the script...'])}}
                 </div>
                 <button type="submit" class="btn btn-danger btn-lg">Save</button>
             {{Form::close()}}
@@ -55,12 +55,6 @@
     </div>
 
 </div>
-
-<script>
-function hello(){
-    bootbox.alert("lolo");
-}
-</script>
 
     <script src="js/bootbox.min.js" type="text/javascript"></script>
 @stop
