@@ -42,11 +42,6 @@ class HomeController extends BaseController {
 		return View::make('dashboard');
 	}
 
-	public function showCreateNew()
-	{
-		return View::make('createnew');
-	}
-
 	public function doLogin()
 	{
 		Session::flush();
@@ -101,7 +96,6 @@ class HomeController extends BaseController {
 			if(isset($_POST['title'])){
 				$title = null;
 				if (Input::has('title')){
-					echo "<script>alert('hastitle');</script>";
 					$title = Input::get('title');
 					$notes = Input::get('notes');
 					$script = Script::where('id','=',Session::get('scrId'))->first();

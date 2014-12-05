@@ -65,9 +65,13 @@ class EditingController extends BaseController {
 			$arr[$section->sname] = $ssArr;
 		}
 
-		Session::put('arr',$arr);
+		if(Auth::check()){
+			$name = Auth::user()->name;
+		}
+		$namearr = array('name'=>$name);
 
-		return View::make('selector')->with('arr',$arr);
+		Session::put('arr',$arr);
+		return View::make('selector')->with('arr',$arr)->with('namearr',$namearr);
 	}
 
 	public function getEditables(){
@@ -114,7 +118,13 @@ class EditingController extends BaseController {
 			}
 			$arr[$section->sname] = $ssArr;
 		}
-		return View::make('selection2')->with('arr',$arr)->with('methList', $methListArray);
+
+		if(Auth::check()){
+			$name = Auth::user()->name;
+		}
+		$namearr = array('name'=>$name);
+
+		return View::make('selection2')->with('arr',$arr)->with('methList', $methListArray)->with('namearr',$namearr);
 	}
 
 	public function showTemp()
@@ -404,8 +414,6 @@ class EditingController extends BaseController {
 			return View::make('editables/method1')->with('array', $array);
 		}
 
-
-
 		return View::make('edit')->with('array',$array);
 	}
 
@@ -550,6 +558,12 @@ class EditingController extends BaseController {
 		}
 
 		Fpdf::Output('script_'.Session::get('scrId').'.pdf','F');
-		return View::make('preview')->with('arr',$arr);
+
+		if(Auth::check()){
+			$name = Auth::user()->name;
+		}
+		$namearr = array('name'=>$name);
+
+		return View::make('preview')->with('arr',$arr)->with('namearr',$namearr);
 	}
 }

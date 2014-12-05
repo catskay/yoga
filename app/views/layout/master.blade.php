@@ -31,6 +31,7 @@
     <link href="css/multi-select.css" media="screen" rel="stylesheet" type="text/css">
     <link href="css/application.css" media="screen" rel="stylesheet" type="text/css">
 
+
 </head>
 <body>
     <table>
@@ -79,21 +80,6 @@
         @yield('content')
 
 
-    <!-- jQuery Version 1.11.0 -->
-    {{ HTML::script('js/jquery-1.11.0.js')}}
-
-    <!-- Bootstrap Core JavaScript -->
-    {{ HTML::script('js/bootstrap.min.js') }}
-
-    <!-- Metis Menu Plugin JavaScript -->
-    {{ HTML::script('js/plugins/metisMenu/metisMenu.min.js') }}
-
-    <!-- DataTables JavaScript -->
-    {{ HTML::script('js/plugins/dataTables/jquery.dataTables.js') }}
-    {{ HTML::script('js/plugins/dataTables/dataTables.bootstrap.js') }}
-
-    <!-- Custom Theme JavaScript -->
-    {{ HTML::script('js/sb-admin-2.js') }}
     
 
     <!-- Bootstrap Core JavaScript -->
