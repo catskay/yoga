@@ -39,7 +39,6 @@
                                 {{Form::hidden('script', $script->id)}}
                                 <td> <div class="btn-group">
                                     <button type="submit" name="actions" value = "Download"class="btn btn-default">Download</button>
-                                      <button type="submit" name="actions" value = "Print" class="btn btn-default">Print</button>
                                       <button type="submit" name="actions" value = "Edit" class="btn btn-default">Edit</button>
                                       <button type="submit" name="actions"  value = "Delete" class="btn btn-default" >Delete</button>
                               </div></td>     

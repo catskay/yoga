@@ -38,6 +38,11 @@ class UserTableSeeder extends Seeder
 			'email'    => 'steve@goarmy.com',
 			'password' => Hash::make('cap'),
 		));
+                 User::create(array(
+			'name'     => 'Anita Tosten',
+			'email'    => 'anita@pocopaper.com',
+			'password' => Hash::make('yogayoga'),
+		));
 	}
 
 }
