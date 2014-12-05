@@ -21,7 +21,7 @@
  
     <div class="panel panel-default">
         <div class="panel body">
-            
+            Select one or two phrases.<br></br>
             {{Form::open(array('url' => 'method7')) }}
             <form role="form">
                 <input type="checkbox" name="checkgroup[]" value="Submerge yourself into the sensations that are present in the posture."> Submerge yourself into the sensations that are present in the posture.<br>
