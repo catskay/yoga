@@ -6,6 +6,11 @@ class EditingController extends BaseController {
 	{
 		if(is_null(Session::get('arr')) && is_null(Session::get('scrId'))){
 			$methList = Input::get('methodList');
+			if($methList===""){
+				echo "<script>alert('You did not select any method!');</script>";
+				$request = Request::create('selection2', 'GET', array());
+				return Route::dispatch($request)->getContent();
+			}
 			$methListArray = explode(',', $methList);
 			Session::put('methList',$methListArray);
 
