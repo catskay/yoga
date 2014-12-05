@@ -58,7 +58,7 @@ class MasterSeeder extends Seeder
 				$text = $text.$next;
 				$next = $this->nextLine($file);
 			}
-			if($mcount === 2 || $mcount === 3 || $mcount === 7 || $mcount === 10 || $mcount === 19 || $mcount === 20 || $mcount === 23 || $mcount === 24 || $mcount === 25 || $mcount === 26 || $mcount === 27){
+			if($mcount === 1 || $mcount === 3 || $mcount === 7 || $mcount === 10 || $mcount === 19 || $mcount === 20 || $mcount === 23 || $mcount === 24 || $mcount === 25 || $mcount === 26 || $mcount === 27){
 				$editable = 'true';
 			}
 			else{
