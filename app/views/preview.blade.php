@@ -22,7 +22,7 @@
                 <h1 style="color:#cc0000 ">Font Size</h1>
                 {{Form::open(array('url' => 'preview')) }}
                 {{Form::hidden('fontSize', 'small') }}
-                {{Form::submit('Small', array('class' => 'btn btn-size-small'));}}
+                {{Form::submit('Small', array('class' => 'btn btn-size-small2'));}}
                 {{Form::close() }}
                 
                 {{Form::open(array('url' => 'preview')) }}
@@ -55,6 +55,12 @@
     </div>
 
 </div>
+
+<script>
+function hello(){
+    bootbox.alert("lolo");
+}
+</script>
 
     <script src="js/bootbox.min.js" type="text/javascript"></script>
 @stop

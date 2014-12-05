@@ -91,20 +91,39 @@ class HomeController extends BaseController {
 			return Redirect::to('login'); // redirect the user to the login screen
 		}
 
-		public function loadDashboard(){
-			if(!empty($_POST['title'])){
-				if (Input::has('title')){
-					$title = Input::get('title');
-					$notes = Input::get('notes');
-					$script = Script::where('id','=',Session::get('scrId'))->first();
-					$script->name = $title;
-					$script->notes = $notes;
+	public function loadDashboard(){
+		if(!empty($_POST)){
+		if (Input::has('title')){
+			echo "<script>alert('lala');</script>";
+			$title = Input::get('title');
+			$notes = Input::get('notes');
+			$script = Script::where('id','=',Session::get('scrId'))->first();
+			$script->name = $title;
+			$script->notes = $notes;
 
-					$script->save();
+			$script->save();
 
-					Session::forget('scrId');
+			Session::forget('scrId');
 					Session::forget('arr');
 					Session::forget('methList');
+		}
+		else{
+			echo "<script>bootbox.alert('Please enter a title.');</script>";
+			$request = Request::create('preview', 'GET', array());
+			return Route::dispatch($request)->getContent();
+		}
+	}
+	else{
+					echo "<script>alert('kao');</script>";
+
+	}
+		if(Auth::check()){
+			$name = Auth::user()->name;
+			if(Input::has('script')){
+				$scriptid = Input::get('script');
+				if(Input::get('actions') === "Delete"){
+				ChosenMethod::where('id', '=', $scriptid)->delete();
+				Script::where('id', '=', $scriptid)->delete();
 				}
 
 			}

@@ -6,8 +6,7 @@
 
 
     <!-- CSS dependencies -->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 
               <div class=col-md-2>
                   <!-- <p><a href="#" data-bb="alert" class="bb-trigger btn btn-primary btn-lg btn-block">Run example</a></p> -->
@@ -16,6 +15,10 @@
  
 
 <script>
+function hello() {
+  bootbox.alert("hello ");
+}
+</script>
 
     <!-- JS dependencies -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
@@ -26,6 +29,5 @@
     <script src="js/bootbox.js"></script>
 
     <!-- put all demo code in one place -->
-    <script src="js/demos.js"></script>
 </body>
 </html>
