@@ -547,11 +547,12 @@ class EditingController extends BaseController {
 					}
 				}
 			}
- 	Fpdf::SetY(-15);
-    // Select Arial italic 8
-    Fpdf::SetFont('Arial','I',8);
-    // Print centered page number
-    Fpdf::Cell(0,10,'Page '.Fpdf::PageNo(),0,0,'C');		}
+		 	Fpdf::SetY(-15);
+		    // Select Arial italic 8
+		    Fpdf::SetFont('Arial','I',8);
+		    // Print centered page number
+		    Fpdf::Cell(0,10,'Page '.Fpdf::PageNo(),0,0,'C');		
+		}
 
 		Fpdf::Output('script_'.Session::get('scrId').'.pdf','F');
 		return View::make('preview')->with('arr',$arr);

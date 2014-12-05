@@ -33,6 +33,12 @@ class HomeController extends BaseController {
 
 	public function showDashboard()
 	{
+		/*$todo = Input::get('userAction');
+		$thisscript= Input::get('script');
+
+		if($todo === 'download'){
+
+		}*/
 		return View::make('dashboard');
 	}
 
