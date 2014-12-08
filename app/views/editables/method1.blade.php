@@ -23,7 +23,7 @@
         <div class="panel body">
             {{Form::open(array('url' => 'method1'))}}
             {{Form::select('choose', array('Option1' => 'Option 1', 'Option2' => 'Option 2'), 'Option1', array('onchange' => 'change()', 'id' => 'options'));}}<br/>
-            {{Form::textarea('text', "-   Close your eyes and allow your attention to turn inward.&#13; -   Bring your attention to the breath.&#13; -   Feel the body beginning to relax with each progressive exhalation.&#13; -   Let's take a deep breath in together and chant the sound of Om.&#13; -   (Om)&#13; -   Allow the vibrational impact of the sound to bring outwardly focused attention inward.&#13; ", 'size' => '120x15', 'id' => 'contents', 'readonly'])}}
+            {{Form::textarea('text', "-   Close your eyes and allow your attention to turn inward.&#13; -   Bring your attention to the breath.&#13; -   Feel the body beginning to relax with each progressive exhalation.&#13; -   Let's take a deep breath in together and chant the sound of Om.&#13; -   (Om)&#13; -   Allow the vibrational impact of the sound to bring outwardly focused attention inward.&#13; ", ['size' => '120x15', 'id' => 'contents', 'readonly'])}}
             <input type="hidden" name="meth" value={{$array['method']->mid}}>
 
         </div>
