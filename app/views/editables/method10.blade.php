@@ -24,7 +24,11 @@
             {{Form::open(array('url'=>'method10'))}}
             {{Form::select('choose', array('general' => 'General', 'yogic' => 'Yogic'), 'general', array('onchange' => 'change()', 'id' => 'options'));}} <br/>
             {{ Form::textarea('text', 'As we enter this next phase of Yoga Nidra, remain as motionless as possible. If you need to move or make an adjustment, do so mindfully and return to stillness as soon as you are able.&#13; -    Resolve to remain awake, staying in touch with the sound of my voice.&#13; -    Simply allow your entire body to respond to my words directly and non-mentally.&#13; -    Allow any disturbances, external or internal, to draw you more deeply within.&#13; -    (pause)&#13; -    Now shift from thinking and doing to feeling and being.&#13; -    Do absolutely nothing from now on.&#13; -    (pause)&#13;', ['id' => 'contents', 'value' => 'As we enter this next phase of Yoga Nidra, remain as motionless as possible. If you need to move or make an adjustment, do so mindfully and return to stillness as soon as you are able.&#13; -    Resolve to remain awake, staying in touch with the sound of my voice.&#13; -    Simply allow your entire body to respond to my words directly and non-mentally.&#13; -    Allow any disturbances, external or internal, to draw you more deeply within.&#13; -    (pause)&#13; -    Now shift from thinking and doing to feeling and being.&#13; -    Do absolutely nothing from now on.&#13; -    (pause)&#13;', 'size' => '120x11', 'readonly']) }}
-            {{Form::textarea('intention', null,['placeholder' => 'Please enter your intention here.', 'size' => '120x5'])}}
+            @if(is_null(Session::get('intention')))
+                {{Form::textarea('intention', null,['placeholder' => 'Please enter your intention here.', 'size' => '120x5'])}}
+            @else
+                {{Form::textarea('intention', Session::get('intention'),['size' => '120x5'])}}
+            @endif
             <input type="hidden" name="meth" value={{$array['method']->mid}}>
 
         </div>

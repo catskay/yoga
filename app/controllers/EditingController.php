@@ -92,14 +92,6 @@ class EditingController extends BaseController {
 		return $editables;
 	}
 
-
-
-	public function showSelect()
-	{
-		$methods = Method::all();
-		return View::make('selection')->with('methods',$methods);
-	}
-
 	public function showSelect2()
 	{
 		ChosenMethod::where('id','=',Session::get('scrId'))->delete();
@@ -113,6 +105,7 @@ class EditingController extends BaseController {
 		}
 
 		$sections = Section::all();
+		$keywords = array();
 		$arr = array();
 		foreach($sections as $section){
 			$subsections = Subsection::where('sid','=',$section->sid)->get();
@@ -120,6 +113,17 @@ class EditingController extends BaseController {
 			foreach($subsections as $subsection){
 				$methods = Method::where('ssid','=',$subsection->ssid)->get();
 				$ssArr[$subsection->ssname] = $methods;
+				foreach($methods as $method){
+					$methKeywords = Keyword::where('mid','=',$method->mid)->get();
+					$str = '';
+					foreach($methKeywords as $keyword){
+						$str = $str.$keyword->kname.'&#10;';
+					}
+					if($str === ''){
+						$str = 'No&#32;notes';
+					}
+					$keywords[$method->mid]=$str;
+				}
 			}
 			$arr[$section->sname] = $ssArr;
 		}
@@ -129,35 +133,7 @@ class EditingController extends BaseController {
 		}
 		$namearr = array('name'=>$name);
 
-		return View::make('selection2')->with('arr',$arr)->with('methList', $methListArray)->with('namearr',$namearr);
-	}
-
-	public function showTemp()
-	{
-		return View::make('temp');
-	}
-
-
-	public function showSummary()
-	{
-		$arr = $_SERVER['array'];
-		echo "<script>alert('".$arr."');</script>";
-		$script = new Script;
-		$script->name = 'placeholder';
-		$script->notes = 'placeholder';
-		$script->uid = Auth::user()->uid;
-		$script->date = date('Y-m-d');
-		$script->font_size = 'medium';
-		$script->save();
-		Session::put('scrId',$script->id);
-
-		foreach($arr as $id){
-			$chMethod = new ChosenMethod;
-			$chMethod->mid = $id;
-			$chMethod->id = $script->id;
-			$chMethod->save();
-		}
-		return View::make('summary');
+		return View::make('selection2')->with('arr',$arr)->with('methList', $methListArray)->with('namearr',$namearr)->with('keywords',$keywords);
 	}
 
 	public function doMethod19()
@@ -264,6 +240,8 @@ class EditingController extends BaseController {
 		$str = Input::get('text');
 		$str = $str.'&#10;'.Input::get('intention');
 
+		Session::put('intention',Input::get('intention'));
+
 		$chMethod = ChosenMethod::where('mid','=',10)->where('id','=',Session::get('scrId'))->first();
 		$chMethod->text = $str;
 		$chMethod->save();
@@ -301,6 +279,8 @@ class EditingController extends BaseController {
 		$str = Input::get('text1');
 		$str = $str.'&#10;'.Input::get('intention');
 		$str = $str.'&#10;'.Input::get('text2');
+
+		Session::put('intention',Input::get('intention'));
 
 		$chMethod = ChosenMethod::where('mid','=',24)->where('id','=',Session::get('scrId'))->first();
 		$chMethod->text = $str;
@@ -420,11 +400,6 @@ class EditingController extends BaseController {
 		}
 
 		return View::make('edit')->with('array',$array);
-	}
-
-	public function showView()
-	{
-		return View::make('view');
 	}
 
 	public function showPreview()

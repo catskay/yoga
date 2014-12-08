@@ -107,6 +107,7 @@ class HomeController extends BaseController {
 					Session::forget('scrId');
 					Session::forget('arr');
 					Session::forget('methList');
+					Session::forget('intention');
 				}
 				else if(is_null($title)){
 					echo "<script>alert('Please enter a title!')</script>";

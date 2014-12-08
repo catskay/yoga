@@ -25,9 +25,9 @@
                  <optgroup label={{$str2}} color={{$str}}>
                     @foreach($methods as $method)
                          @if(in_array($method->mid,$methList))
-                    <option style={{$str}} title = {{$section}} value = {{$method->mid}} selected>{{$method->mname}}</option>
+                    <option style={{$str}} title = {{$keywords[$method->mid]}} value = {{$method->mid}} selected>{{$method->mname}}</option>
                         @else
-                    <option style={{$str}} title = {{$section}} value = {{$method->mid}}>{{$method->mname}}</option>
+                    <option style={{$str}} title = {{$keywords[$method->mid]}} value = {{$method->mid}}>{{$method->mname}}</option>
                         @endif
                     @endforeach
                 </optgroup>
