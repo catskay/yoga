@@ -25,11 +25,13 @@
     <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
     <link rel=stylesheet type="text/css" href="css/layout.css">
     <link href="css/multi-select.css" media="screen" rel="stylesheet" type="text/css">
     <link href="css/application.css" media="screen" rel="stylesheet" type="text/css">
+
+    <link href="css/custom.css" rel="stylesheet" type="text/css">
+
 
 
 </head>
@@ -78,23 +80,6 @@
 
 
         @yield('content')
-
-
-    <!-- jQuery Version 1.11.0 -->
-    {{ HTML::script('js/jquery-1.11.0.js')}}
-
-    <!-- Bootstrap Core JavaScript -->
-    {{ HTML::script('js/bootstrap.min.js') }}
-
-    <!-- Metis Menu Plugin JavaScript -->
-    {{ HTML::script('js/plugins/metisMenu/metisMenu.min.js') }}
-
-    <!-- DataTables JavaScript -->
-    {{ HTML::script('js/plugins/dataTables/jquery.dataTables.js') }}
-    {{ HTML::script('js/plugins/dataTables/dataTables.bootstrap.js') }}
-
-    <!-- Custom Theme JavaScript -->
-    {{ HTML::script('js/sb-admin-2.js') }}
     
 
     <!-- Bootstrap Core JavaScript -->
@@ -103,10 +88,15 @@
     <!-- Custom Theme JavaScript -->
     <script src="js/sb-admin-2.js"></script>
 
+    <script src="js/jquery-1.11.0.js"></script>
     <script src="js/jquery.tinysort.js" type="text/javascript"></script>
     <script src="js/jquery.quicksearch.js" type="text/javascript"></script>
     <script src="js/jquery.multi-select.js" type="text/javascript"></script>
     <script src="js/application.js" type="text/javascript"></script>
+
+    <script src="js/plugins/metisMenu/metisMenu.min.js"></script>
+    <script src="js/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="js/plugins/dataTables/dataTables.bootstrap.js"></script>
 
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script>
