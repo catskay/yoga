@@ -60,19 +60,11 @@
         </table>
     </div>
 
-
-<<<<<<< Updated upstream:app/views/summary.blade.php
-<div class="row">
-    <div class="col-lg-12">
-        <a href="/yoga/public/selection">  <button type="button" class="btn btn-danger" style="float:left">Back</button> </a>
-        <a href="/yoga/public/preview"> <button type="button" class="btn btn-danger" style="float:right">Document Preview</button> </a>
-=======
     <div class="row">
         <div class="col-lg-12">
-            <a href="selection2">  <button type="button" class="btn btn-danger" style="float:left">Back</button> </a>
+            <a href="selection">  <button type="button" class="btn btn-danger" style="float:left">Back</button> </a>
             <a href="preview"> <button type="button" class="btn btn-danger" style="float:right">Document Preview</button> </a>
         </div>
->>>>>>> Stashed changes:app/views/selector.blade.php
     </div>
 </div>
 

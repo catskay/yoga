@@ -47,17 +47,10 @@
                         <div class="modal-content">
                           <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-<<<<<<< Updated upstream
-                          </div>
-                          <div class="modal-body">
-                            <h4> Are you sure you want to delete {{$script->name}}?</h4>
-=======
                             <h4 class="modal-title" id="myModalLabel"></h4>
                           </div>
                           <div class="modal-body">
-                            <h4>Are you sure you want to delete {{$script->id}} {{$script->name}}?</h4>
-                            <button type="submit" name="actions" value="Delete" class="btn btn-danger">Delete</button>
->>>>>>> Stashed changes
+                            <h4>Are you sure you want to delete  {{$script->name}}?</h4>
                           </div>
                           <div class="modal-footer">
                              {{Form::open(array('action' => 'HomeController@loadDashboard'))}}
