@@ -25,7 +25,7 @@
             {{Form::open(array('url' => 'method25')) }}
             <form role="form">
                 <textarea name="text1" value="Allow your entire self to respond spontaneously and effortlessly to what I say...." rows=1 cols=100 readonly>Allow your entire self to respond spontaneously and effortlessly to what I say....</textarea><br>
-                General Affirmations:<br></br>
+                General Affirmations:<br>
                 <input type="checkbox" name="checkgroup[]" value="I am released from my self-image to explore, expand and experience the infinite potential unfolding from within me."> I am released from my self-image to explore, expand and experience the infinite potential unfolding from within me.<br>
                 <input type="checkbox" name="checkgroup[]" value="My source is silent stillness. I rest in peace."> My source is silent stillness. I rest in peace.<br>
                 <input type="checkbox" name="checkgroup[]" value="I am the non-participative observer, separate from my thoughts and emotions that come and go."> I am the non-participative observer, separate from my thoughts and emotions that come and go.<br>
@@ -58,8 +58,8 @@
                 <input type="checkbox" name="checkgroup[]" value="I allow love to come to me knowing that I am already whole."> I allow love to come to me knowing that I am already whole.<br>
                 <input type="checkbox" name="checkgroup[]" value="I recognize my unique place in the fabric of existence."> I recognize my unique place in the fabric of existence.<br>
                 <input type="checkbox" name="checkgroup[]" value="I withdraw from habits that no longer serve me."> I withdraw from habits that no longer serve me.<br>
-                <input type="checkbox" name="checkgroup[]" value="As I care for myself I am caring for others."> As I care for myself I am caring for others.<br></br>
-                Health and Healing Affirmations:<br></br>
+                <input type="checkbox" name="checkgroup[]" value="As I care for myself I am caring for others."> As I care for myself I am caring for others.<br><br>
+                Health and Healing Affirmations:<br>
                 <input type="checkbox" name="checkgroup[]" value="I return to the innate wisdom of my body to heal itself. I remain in restful awareness."> I return to the innate wisdom of my body to heal itself. I remain in restful awareness.<br>
                 <input type="checkbox" name="checkgroup[]" value="I relax so completely and let go so fully that the inner healing blueprint of my body functions freely and optimally."> I relax so completely and let go so fully that the inner healing blueprint of my body functions freely and optimally.<br>
                 <input type="checkbox" name="checkgroup[]" value="I am linked to the self- healing cosmic power of prana, restoring my health and wellbeing."> I am linked to the self- healing cosmic power of prana, restoring my health and wellbeing.<br>
@@ -94,8 +94,8 @@
                 <input type="checkbox" name="checkgroup[]" value="I allow the root of any symptoms to be dissolved at this time."> I allow the root of any symptoms to be dissolved at this time.<br>
                 <input type="checkbox" name="checkgroup[]" value="With each breath, the healing force in my body becomes stronger."> With each breath, the healing force in my body becomes stronger.<br>
                 <input type="checkbox" name="checkgroup[]" value="I reconnect with my inner source of healing."> I reconnect with my inner source of healing.<br>
-                <input type="checkbox" name="checkgroup[]" value="I am completely relaxed and at peace in my body, my mind, my heart, and my soul."> I am completely relaxed and at peace in my body, my mind, my heart, and my soul.<br></br>
-                Spiritual Affirmations:<br></br>
+                <input type="checkbox" name="checkgroup[]" value="I am completely relaxed and at peace in my body, my mind, my heart, and my soul."> I am completely relaxed and at peace in my body, my mind, my heart, and my soul.<br><br>
+                Spiritual Affirmations:<br>
                 <input type="checkbox" name="checkgroup[]" value="I am the seer, the witness of all that is seen, unaffected by all that is in perpetual change."> I am the seer, the witness of all that is seen, unaffected by all that is in perpetual change.<br>
                 <input type="checkbox" name="checkgroup[]" value="In silent witness I am at peace in the midst of chaos. I am stillness in action. I remain changeless in the midst of change."> In silent witness I am at peace in the midst of chaos. I am stillness in action. I remain changeless in the midst of change.<br>
                 <input type="checkbox" name="checkgroup[]" value="I experience all events of my life undistorted by my personal bias. I am at peace with myself as I am and the world as it is."> I experience all events of my life undistorted by my personal bias. I am at peace with myself as I am and the world as it is.<br>
@@ -117,7 +117,7 @@
                 <input type="checkbox" name="checkgroup[]" value="I open my heart completely and surrender fully to what is."> I open my heart completely and surrender fully to what is.<br>
                 <input type="checkbox" name="checkgroup[]" value="I remain present and unattached to memories of the past and outcomes of the future."> I remain present and unattached to memories of the past and outcomes of the future.<br>
                 <input type="checkbox" name="checkgroup[]" value="I am a silent observer of all that is passing through body and mind."> I am a silent observer of all that is passing through body and mind.<br>
-                <input type="checkbox" name="checkgroup[]" value="I am the seer of all that is seen, unaffected by all that is in constant flux."> I am the seer of all that is seen, unaffected by all that is in constant flux.<br></br>
+                <input type="checkbox" name="checkgroup[]" value="I am the seer of all that is seen, unaffected by all that is in constant flux."> I am the seer of all that is seen, unaffected by all that is in constant flux.<br><br>
                 <input type="hidden" name="meth" value={{$array['method']->mid}}>
             </div>
         </div>

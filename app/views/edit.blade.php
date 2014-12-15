@@ -43,10 +43,4 @@
 </div>
 {{Form::close()}}
 
-<script>
-function next(){
-    document.getElementById("mid").value = 
-}
-</script>
-
 @stop

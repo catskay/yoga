@@ -44,7 +44,7 @@
             <div class="panel-body">
                  {{Form::open(array('action' => 'HomeController@loadDashboard'))}}
                 <div class="form-group">
-                    <label>Title<font color='red'>*</font></label>
+                    <label>Title</label><p class='font-red'>*</p>
                     {{Form::input('text', 'title', null, ['class'=>'form-control', 'placeholder'=>'Please enter a title.'])}}
                     <label>Notes</label>
                      {{Form::textarea('notes', null, ['class'=>'form-control', 'rows'=> '5', 'placeholder'=>'comments on the script...'])}}

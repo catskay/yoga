@@ -7,26 +7,6 @@
             <h1 class="page-header">Method Selection</h1>
         </div>
 
-<<<<<<< Updated upstream
-=======
-    <div class="row">
-        <div class="col-md-7">
-          <select multiple="multiple" size="10" name="duallistbox_demo2" class="demo2">
-                
-            @foreach($methods as $method)
-                <option>{{$method->mname}}</option>
-            @endforeach
-
-        </select>
-        <script>
-        var demo2 = $('.demo2').bootstrapDualListbox({
-          nonSelectedListLabel: 'Methods Available:',
-          selectedListLabel: 'Methods Selected:',
-          preserveSelectionOnMove: 'moved',
-          moveOnSelect: false
-        });
-        </script>
->>>>>>> Stashed changes
     </div>
 
     <div class="row">
@@ -56,30 +36,10 @@
                 @endforeach
 
             </select>
-
-            <!-- <select id='optgroupp' multiple='multiple'>
-                <optgroup label="I. Internalizing Awareness <br> A. Quieting/Centering">
-
-                   <option style="color:#FF00FF">1. Om</option>
-                    <option </option>
-                </optgroup>
-            </select>-->
         </div>
+    </div>
 
-    </select>
-
-    <script>
-
-    function printResults(){
-
-        var arr = $('#optgroupp').val();        
-        alert(arr);
-
-
-        return false;
-    }
-
-    </script>
+    
 
     <div class="row">
         <p></p>
@@ -88,9 +48,9 @@
     <div class="row">
         <div class="col-lg-12 col-md-offset-10">
            
-          {{Form::open(array('action' => 'EditingController@showSummary')); }}
+          {{Form::open(array('action' => 'EditingController@showSelector')); }}
           {{Form::hidden('methodList', '', array('id' => 'hidden')); }}
-         <a href="summary">
+         <a href="/yoga/public/selector">   
             <button type="submit"  onclick = "getResults()" class="btn btn-danger">Continue</button>
          </a> 
 
@@ -103,15 +63,24 @@
     </div>
 </div>
 
-<p id="test">
-</p>
+
+
+
 @stop
 
 <script>
-    function getResults() {
-        var results = $('#optgroupp').val().join();
-        document.getElementById('hidden').value = results;
 
+function printResults(){
+    var arr = $('#optgroupp').val();        
+    alert(arr);
+
+    return false;
+}
+
+
+function getResults() {
+    var results = $('#optgroupp').val().join();
+    document.getElementById('hidden').value = results;
 }
 
 </script>
