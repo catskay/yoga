@@ -5,7 +5,7 @@
   <div class="row">
     <div class="col-lg-12">
       <h1 class="page-header">Instruction List</h1>
-      <a href="selection2">  <button type="button" class="btn btn-danger" style="float:right">CREATE NEW</button> </a>
+      <a href="selection">  <button type="button" class="btn btn-danger" style="float:right">CREATE NEW</button> </a>
     </div>
     <!-- /.col-lg-12 -->
   </div>
@@ -39,6 +39,7 @@
                   <td> <div class="btn-group">
                     <button type="submit" name="actions" value="Download" class="btn btn-default">Download</button>
                     <button type="submit" name="actions" value="Edit" class="btn btn-default">Edit</button>
+                    {{Form::close()}}   
                     <a href={{"#".$script->id}} role="button" class="btn btn-default" data-toggle="modal">Delete</a>
                   </div></td> 
                     <div class="modal fade" id={{$script->id}} tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -46,18 +47,20 @@
                         <div class="modal-content">
                           <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                            <h4 class="modal-title" id="myModalLabel">Are you sure you want to delete {{$script->id}} {{$script->name}}?</h4>
                           </div>
                           <div class="modal-body">
-                            <button type="submit" name="actions" value="Delete" class="btn btn-danger">Delete</button>
+                            <h4> Are you sure you want to delete {{$script->name}}?</h4>
                           </div>
                           <div class="modal-footer">
+                             {{Form::open(array('action' => 'HomeController@loadDashboard'))}}
+                            {{Form::hidden('script', $script->id)}}
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="submit" name="actions" value="Delete" class="btn btn-danger">Delete</button>
+                            {{Form::close()}}  
                           </div>
                         </div>
                       </div>
-                    </div>
-                    {{Form::close()}}                            
+                    </div>                         
                   </tr>
                 @endforeach
               </tbody>

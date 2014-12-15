@@ -1,139 +1,100 @@
-<!doctype html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+@extends('layout.named')
 
-    <title>Dashboard</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- MetisMenu CSS -->
-    <link href="css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
-
-    <!-- DataTables CSS -->
-    <link href="css/plugins/dataTables.bootstrap.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="css/sb-admin-2.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-
-    <script src="js/jquery.bootstrap-duallistbox.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-duallistbox.css">
-
-    <link rel=stylesheet type="text/css" href="css/layout.css">
-
-</head>
-<body>
-<table>
-    <tr>
-        <td>{{ HTML::image('img/amrit-yoga-logo.gif') }}</td>
-    </tr>
-</table>                            
-
- <div id="wrapper">
-    <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/yoga/public/dashboard">Dashboard</a>
-        </div>
-        <!-- /.navbar-header -->
-
-        <ul class="nav navbar-top-links navbar-right">
-            <!-- /.dropdown -->
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-user">
-                    <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a></li>
-                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a></li>
-                    <li class="divider"></li>
-                    <li><a href="login"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
-                </ul>
-                <!-- /.dropdown-user -->
-            </li>
-            <!-- /.dropdown -->
-        </ul>
-        <!-- /.navbar-top-links -->
-    </nav>
-</div>  
-
+@section('content')
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">Method Selection</h1>
         </div>
-        <!-- /.col-lg-12 -->
-    </div>
 
-    <div class="row">
-        <div class="col-md-7">
-          <select multiple="multiple" size="10" name="duallistbox_demo2" class="demo2">
-                
-            @foreach($methods as $method)
-                <option>{{$method->mname}}</option>
-            @endforeach
-
-        </select>
-        <script>
-        var demo2 = $('.demo2').bootstrapDualListbox({
-          nonSelectedListLabel: 'Methods Available:',
-          selectedListLabel: 'Methods Selected:',
-          preserveSelectionOnMove: 'moved',
-          moveOnSelect: false,
-        });
-        </script>
     </div>
 
     <div class="row">
         <div class="col-lg-12">
-            <a href="/yoga/public/selector">  <button type="button" class="btn btn-danger" style="float:right">Continue</button> </a>
+           <select id='optgroupp' multiple='multiple'>
+                @foreach($arr as $section => $subsections)
+                @foreach($subsections as $subsection => $methods)
+                        <?php 
+                        $sub = Subsection::where("ssname", "=", $subsection)->first();  
+                        $r = $sub->r;
+                        $g = $sub->g;
+                        $b = $sub->b;
+                        $str = '"color:rgb('.$r.','.$g.','.$b.')"';
+                        $str2 = '"'.$section.'<br>'.$subsection.'"';
+                        ?>
+                 <optgroup label={{$str2}} color={{$str}}>
+                    @foreach($methods as $method)
+                         @if(in_array($method->mid,$methList))
+                    <option style={{$str}} title = {{$keywords[$method->mid]}} value = {{$method->mid}} selected>{{$method->mname}}</option>
+                        @else
+                    <option style={{$str}} title = {{$keywords[$method->mid]}} value = {{$method->mid}}>{{$method->mname}}</option>
+                        @endif
+                    @endforeach
+                </optgroup>
+                @endforeach
+
+                @endforeach
+
+            </select>
+
+            <!-- <select id='optgroupp' multiple='multiple'>
+                <optgroup label="I. Internalizing Awareness <br> A. Quieting/Centering">
+
+                   <option style="color:#FF00FF">1. Om</option>
+                    <option </option>
+                </optgroup>
+            </select>-->
         </div>
+
+    </select>
+
+    <script>
+
+    function printResults(){
+
+        var arr = $('#optgroupp').val();        
+        alert(arr);
+
+
+        return false;
+    }
+
+    </script>
+
+    <div class="row">
+        <p></p>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-md-offset-10">
+           
+          {{Form::open(array('action' => 'EditingController@showSummary')); }}
+          {{Form::hidden('methodList', '', array('id' => 'hidden')); }}
+         <a href="summary">
+            <button type="submit"  onclick = "getResults()" class="btn btn-danger">Continue</button>
+         </a> 
+
+          <!-- {{Form::submit( 'Continue', array('class' => 'btn btn-edit-link'));}} -->
+          {{Form::close(); }}
+
+            
+        </div>
+
     </div>
 </div>
 
+<p id="test">
+</p>
+@stop
 
-<!-- jQuery Version 1.11.0 -->
-<script src="js/jquery-1.11.0.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
-
-<!-- Metis Menu Plugin JavaScript -->
-<script src="js/plugins/metisMenu/metisMenu.min.js"></script>
-
-<!-- DataTables JavaScript -->
-<script src="js/plugins/dataTables/jquery.dataTables.js"></script>
-<script src="js/plugins/dataTables/dataTables.bootstrap.js"></script>
-
-<!-- Custom Theme JavaScript -->
-<script src="js/sb-admin-2.js"></script>
-
-<script type="text/javascript" src="js/CollapsibleLists.js"></script>
-
-
-<!-- Page-Level Demo Scripts - Tables - Use for reference -->
 <script>
-$(document).ready(function() {
-    $('#dataTables-example').dataTable();
-});
+    function getResults() {
+        var results = $('#optgroupp').val().join();
+        document.getElementById('hidden').value = results;
+
+}
+
 </script>
 
-</body>
-</html>
+
+
