@@ -2,7 +2,7 @@
 
 class EditingController extends BaseController {
 
-	public function showSelector()
+	public function showSummary()
 	{
 		if(is_null(Session::get('arr')) && is_null(Session::get('scrId'))){
 			$methList = Input::get('methodList');
@@ -76,7 +76,7 @@ class EditingController extends BaseController {
 		$namearr = array('name'=>$name);
 
 		Session::put('arr',$arr);
-		return View::make('selector')->with('arr',$arr)->with('namearr',$namearr);
+		return View::make('summary')->with('arr',$arr)->with('namearr',$namearr);
 	}
 
 	public function getEditables(){
@@ -316,7 +316,7 @@ class EditingController extends BaseController {
 	public function showEdit()
 	{
 		if(Input::get('submitButton')==='Section Summary'){
-			$request = Request::create('selector', 'GET', array());
+			$request = Request::create('summary', 'GET', array());
 			return Route::dispatch($request)->getContent();
 		}
 		elseif(Input::get('submitButton')==='Previous'){
@@ -326,7 +326,7 @@ class EditingController extends BaseController {
 			$index--;
 			
 			if($index < 0){
-				$request = Request::create('selector', 'GET', array());
+				$request = Request::create('summary', 'GET', array());
 				return Route::dispatch($request)->getContent();
 			}
 			else{
@@ -341,7 +341,7 @@ class EditingController extends BaseController {
 			$index = array_search($meth,$methList);
 			$index++;
 			if($index > count($methList)-1){
-				$request = Request::create('selector', 'GET', array());
+				$request = Request::create('summary', 'GET', array());
 				return Route::dispatch($request)->getContent();
 			}
 			else{
@@ -415,8 +415,6 @@ class EditingController extends BaseController {
 		if($fontSize === 'large'){
 			Fpdf::AddPage('p','letter');
 			foreach($arr as $section => $subsections){
-
-
 				Fpdf::SetFont('Arial','B','20');
 				Fpdf::Write(10,html_entity_decode($section));
 
