@@ -144,12 +144,14 @@ class HomeController extends BaseController {
 							return Response::download($pathToFile);
 						}
 					}
-					$scripts = Script::where('uid','=',Auth::user()->uid)->get();
-					$emptyScript = Script::where('name','=','placeholder')->first();
+					
+					$emptyScript = Script::where('name','=','notitle')->first();
 					if(!is_null($emptyScript)){
 						ChosenMethod::where('id','=',$emptyScript->id)->delete();
-						Script::where('name','=','placeholder')->delete();
+						Script::where('name','=','notitle')->delete();
 					}
+
+					$scripts = Script::where('uid','=',Auth::user()->uid)->get();
 					$array = array('scripts'=>$scripts,'name'=>$name);
 					return View::make('dashboard')->with('array',$array);
 				}
