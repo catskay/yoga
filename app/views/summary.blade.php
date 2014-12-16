@@ -12,7 +12,7 @@
     </div>
 
 
-    <div class="row col-lg-12 custyle">
+    <div class="row col-lg-12">
         <table class="table table-striped custab">
             <thead>
                 <tr>

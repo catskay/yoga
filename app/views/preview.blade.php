@@ -6,7 +6,7 @@
     <!-- /.row -->
     <div class="row">
         <div class="col-lg-12">
-            <h2>Document Preview</h2>
+            <h2>Script Preview</h2>
         </div>
     </div>
 
@@ -45,7 +45,7 @@
                  {{Form::open(array('action' => 'HomeController@loadDashboard'))}}
                 <div class="form-group">
                     <label>Title</label><p class='font-red'>*</p>
-                    {{Form::input('text', 'title', null, ['class'=>'form-control', 'placeholder'=>'Please enter a title.'])}}
+                    {{Form::input('text', 'title', null, ['class'=>'form-control', 'required'=>'required','placeholder'=>'Please enter a title.'])}}
                     <label>Notes</label>
                      {{Form::textarea('notes', null, ['class'=>'form-control', 'rows'=> '5', 'placeholder'=>'comments on the script...'])}}
                 </div>

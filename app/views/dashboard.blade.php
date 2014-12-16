@@ -42,6 +42,7 @@
                     {{Form::close()}}   
                     <a href={{"#".$script->id}} role="button" class="btn btn-default" data-toggle="modal">Delete</a>
                   </div></td> 
+
                     <div class="modal fade" id={{$script->id}} tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                       <div class="modal-dialog">
                         <div class="modal-content">
@@ -50,7 +51,7 @@
                             <h4 class="modal-title" id="myModalLabel"></h4>
                           </div>
                           <div class="modal-body">
-                            <h4>Are you sure you want to delete  {{$script->name}}?</h4>
+                            <h4>Are you sure you want to delete {{$script->name}}?</h4>
                           </div>
                           <div class="modal-footer">
                              {{Form::open(array('action' => 'HomeController@loadDashboard'))}}
@@ -61,12 +62,12 @@
                           </div>
                         </div>
                       </div>
-                    </div>                         
+                    </div> 
+
                   </tr>
                 @endforeach
               </tbody>
             </table>
-
           </div>
         </div>
       <!-- /.panel-body -->
@@ -79,6 +80,5 @@
 <!-- /.col-lg-12 -->
 
 
-
-
 @stop
+
