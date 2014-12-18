@@ -39,17 +39,16 @@
                             data-target="#item{{$method->mid}}" onclick="render()" name="buttons">+</button>
                         {{$method->mname}}
                         {{Form::open(array('action' => 'EditingController@showEdit')) }}
-                        {{Form::hidden('meth', $method->mid) }}
                         @if($method->editable === 'true')
                         {{Form::submit('Edit', array('class' => 'btn btn-edit-link'));}}
                         @endif
+                        {{Form::hidden('meth', $method->mid) }}
                         {{Form::close() }}
                     </dd>
                     <dd>
                         <div id="item{{$method->mid}}" class="collapse" >
                             <p name = "text" value = "{{$method->text}}">{{$method->text}}</p>
                         </div>
-
                         <br/>
                     </dd>
                     @endforeach
