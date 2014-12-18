@@ -36,30 +36,9 @@
                 @endforeach
 
             </select>
-
-            <!-- <select id='optgroupp' multiple='multiple'>
-                <optgroup label="I. Internalizing Awareness <br> A. Quieting/Centering">
-
-                   <option style="color:#FF00FF">1. Om</option>
-                    <option </option>
-                </optgroup>
-            </select>-->
         </div>
 
-    </select>
-
-    <script>
-
-    function printResults(){
-
-        var arr = $('#optgroupp').val();        
-        alert(arr);
-
-
-        return false;
-    }
-
-    </script>
+    </div>
 
     <div class="row">
         <p></p>
@@ -83,14 +62,24 @@
     </div>
 </div>
 
-<p id="test">
-</p>
+
 @stop
 
 <script>
-    function getResults() {
-        var results = $('#optgroupp').val().join();
-        document.getElementById('hidden').value = results;
+
+function printResults(){
+
+    var arr = $('#optgroupp').val();        
+    alert(arr);
+
+
+    return false;
+}
+
+
+function getResults() {
+    var results = $('#optgroupp').val().join();
+    document.getElementById('hidden').value = results;
 
 }
 

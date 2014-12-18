@@ -105,7 +105,9 @@ class HomeController extends BaseController {
                 }
                 if(Input::get('actions') === "Download"){
                     $pathToFile = 'script_'.$scriptid.'.pdf';
-                    return Response::download($pathToFile);
+                    $headers = array('Content-Type: application/pdf',);
+                    return Response::download($pathToFile, $scriptname.'.pdf',$headers);
+                    //return Response::download($pathToFile);
                 }
             }
             $scripts = Script::where('uid','=',Auth::user()->uid)->get();

@@ -26,10 +26,10 @@
 </head>
 <body>
 
-
-
-<center>{{ HTML::image('img/amrit-yoga-logo.gif') }}</center>
-		<center><h1>Login to Yoga Nidra Scripts</h1>
+<div class="panel-centered">
+    {{ HTML::image('img/amrit-yoga-logo.gif') }}
+    <h1>Login to Yoga Nidra Scripts</h1>
+</div>
 				
 <div class="container">
         <div class="row">

@@ -27,6 +27,12 @@ body {
     }
 }
 
+.panel-centered{
+    background-color: transparent;
+    text-align: center;
+    vertical-align: text-bottom;
+}
+
 .navbar-top-links li {
     display: inline-block;
     color: #f2dfb5;
@@ -425,3 +431,7 @@ table.dataTable thead .sorting:after {
     right: -400px;
 }
 
+.font-red {
+    color: #cc0000;
+    display:inline;
+}
