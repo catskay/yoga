@@ -244,6 +244,10 @@ class EditingController extends BaseController {
     {
         $array = Input::get('checkgroup');
         $str = Input::get('text1');
+        if(is_null($array)){
+            echo "<script>alert('You did not select anything!');</script>";
+           return Redirect::to('method20');
+        }        
         foreach($array as $box){
             $str = $str.' &#13; '.$box;
         }

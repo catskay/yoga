@@ -9,6 +9,11 @@
 
 class HomeController extends BaseController {
 
+    public function showTest()
+    {
+        return View::make('test');
+    }
+
     public function showLogin()
     {
         return View::make('login');

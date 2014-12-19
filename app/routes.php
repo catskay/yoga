@@ -57,6 +57,9 @@ Route::get('logout', array('uses' => 'HomeController@doLogout'));
 Route::get('dashboard',array('uses'=> 'HomeController@loadDashboard'));
 Route::post('dashboard',array('uses'=> 'HomeController@loadDashboard'));
 
+Route::get('test',array('uses'=> 'HomeController@showTest'));
+
+
 Route::get('/', function()
 {
 	return View::make('login');

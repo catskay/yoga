@@ -5,12 +5,17 @@
 
 <div id="page-wrapper">
     <!-- /.row -->
+        <div class="row">
+        <br>
+        <div class="col-lg-12">
+            <a href="selection">  <button type="button" class="btn btn-danger" style="float:left">Back</button> </a>
+            <a href="preview"> <button type="button" class="btn btn-danger" style="float:right">Document Preview</button> </a>
+        </div>
     <div class="row">
         <div class="col-lg-12">
-            <h2>Section Summary</h2>
+            <h2>Selection Summary</h2>
         </div>
     </div>
-
 
     <div class="row col-lg-12">
         <table class="table table-striped custab">
@@ -19,6 +24,7 @@
                     <th>Methods</th>
                 </tr>
             </thead>
+    </div>
             @foreach($arr as $section => $subsections)
             <tr>
                 <td>
@@ -36,7 +42,7 @@
                             @foreach($methods as $method)
                             <dd style= {{$str}}>
                                 <button type="button" class="btn btn-primary btn-xs" data-toggle="collapse" 
-                                data-target="#item{{$method->mid}}" onclick="render()" name="buttons">+</button>
+                                data-target="#item{{$method->mid}}" onclick="render()" aria-expanded="true" aria-controls="demo" name="buttons">+</button>
                                 {{$method->mname}}
                                 {{Form::open(array('action' => 'EditingController@showEdit')) }}
                                 {{Form::hidden('meth', $method->mid) }}
@@ -60,12 +66,6 @@
         </table>
     </div>
 
-    <div class="row">
-        <div class="col-lg-12">
-            <a href="selection">  <button type="button" class="btn btn-danger" style="float:left">Back</button> </a>
-            <a href="preview"> <button type="button" class="btn btn-danger" style="float:right">Document Preview</button> </a>
-        </div>
-    </div>
 </div>
 
 
@@ -92,6 +92,7 @@ function render() {
  }
 
 }
+
 </script>
 @stop
 
