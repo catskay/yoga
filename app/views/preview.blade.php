@@ -38,15 +38,24 @@
             </div>
         </div>
 
+        <?php $script = Script::where('id','=',Session::get('scrId'))->first(); ?>
+
 
         <div class="panel panel-default">
             <div class="panel-body">
              {{Form::open(array('action' => 'HomeController@loadDashboard'))}}
              <div class="form-group">
-                <label>Title</label><p class='font-red'>*</p>
-                {{Form::input('text', 'title', null, ['class'=>'form-control', 'required','placeholder'=>'Please enter a title.'])}}
-                <label>Notes</label>
-                {{Form::textarea('notes', null, ['class'=>'form-control', 'rows'=> '5', 'placeholder'=>'comments on the script...'])}}
+                @if($script->name === 'notitle')
+                    <label>Title</label><p class='font-red'>*</p>
+                        {{Form::input('text', 'title', null, ['class'=>'form-control', 'required','placeholder'=>'Please enter a title.'])}}
+                    <label>Notes</label>
+                        {{Form::textarea('notes', null, ['class'=>'form-control', 'rows'=> '5', 'placeholder'=>'comments on the script...'])}}
+                @else
+                    <label>Title</label><p class='font-red'>*</p>
+                        {{Form::input('text', 'title', $script->name, ['class'=>'form-control', 'required'])}}
+                    <label>Notes</label>
+                        {{Form::textarea('notes', $script->notes, ['class'=>'form-control', 'rows'=> '5'])}}
+                @endif
             </div>
             <br>
             <div class="row">

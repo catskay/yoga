@@ -64,22 +64,20 @@ class HomeController extends BaseController {
         return Redirect::to('login'); // redirect the user to the login screen
     }
 
-    public function loadDashboard(){
-
-        Session::forget('arr');
-        Session::forget('scrId');
-        Session::forget('methList');
+    public function loadDashboard(){     
 
         // redirecting from print preview, check if POST has "title"
         // save the title and notes to the database
         if(isset($_POST['title'])){
             $title = null;
             if (Input::has('title')){
+
                 $title = Input::get('title');
                 $notes = Input::get('notes');
                 $script = Script::where('id','=',Session::get('scrId'))->first();
                 $script->name = $title;
                 $script->notes = $notes;
+                $script->date = date('Y-m-d');
                 $script->save();
 
                 Session::forget('scrId');
@@ -93,6 +91,12 @@ class HomeController extends BaseController {
                 $request = Request::create('preview', 'GET', array());
                 return Route::dispatch($request)->getContent();
             }
+        }
+        else{
+            Session::forget('arr');
+            Session::forget('scrId');
+            Session::forget('methList');
+            Session::forget('intention');
         }
 
         if(Auth::check()){
@@ -120,12 +124,14 @@ class HomeController extends BaseController {
                     //return Response::download($pathToFile);
                 }
             }
-            $scripts = Script::where('uid','=',Auth::user()->uid)->get();
-            $emptyScript = Script::where('name','=','placeholder')->first();
+            
+            $emptyScript = Script::where('name','=','notitle')->first();
             if(!is_null($emptyScript)){
                 ChosenMethod::where('id','=',$emptyScript->id)->delete();
-                Script::where('name','=','placeholder')->delete();
+                Script::where('name','=','notitle')->delete();
             }
+            
+            $scripts = Script::where('uid','=',Auth::user()->uid)->get();
             $array = array('scripts'=>$scripts,'name'=>$name);
             return View::make('dashboard')->with('array',$array);
         }
