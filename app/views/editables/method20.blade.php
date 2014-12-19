@@ -21,7 +21,7 @@
  
     <div class="panel panel-default">
         <div class="panel body">
-            Choose up to five images.<br>
+            <br></br><strong>Choose up to five images.</strong><br></br>
             {{Form::open(array('url' => 'method20')) }}
             <form role="form" id="options" name="options" type="post">
                 <textarea name="text1" value="Resting in witness consciousness, allow yourself to receive the following  images and experiences.
@@ -86,6 +86,20 @@ Judge nothing, remaining unconditionally open and present to all that passes in 
         </div>
     </div>
     </div>
+
+    <script>
+
+    var checkboxes = $("input[type='checkbox']");
+    var submitButton = $("input[type='submit']");
+
+    submitButton.attr("disabled",!checkboxes.is(":checked"));
+
+    checkboxes.click(function(){
+        submitButton.attr("disabled",!checkboxes.is(":checked"));
+    });
+
+</script>
+
     {{Form::close() }}
 
 

@@ -21,7 +21,7 @@
 
     <div class="panel panel-default">
         <div class="panel body">
-            {{Form::open(array('url' => 'method2'))}}
+            {{Form::open(array('url' => 'method3'))}}
            {{Form::textarea('text', "Asatoma sad gamaya Lead me from the unreal to the real&#13;
 Tamasoma Jyotir gamaya  Lead me from darkness to light&#13;
 Mrityorma amritam gamaya    Lead me from the timebound state of consciousness to the timeless state of being that we are.&#13;
@@ -33,9 +33,7 @@ During this time, I will participate wholeheartedly in this process and trust th
            {{Form::textarea('purpose', null,['placeholder' => 'Please enter your statement of purpose.', 'size' => '120x5'])}}
         </div>
     </div>
-    <script>
     
-    </script>
 
     <input type="hidden" name="mid" value={{$array['method']->mid}}>
 

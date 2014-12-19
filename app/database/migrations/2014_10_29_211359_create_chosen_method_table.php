@@ -14,6 +14,8 @@ class CreateChosenMethodTable extends Migration {
 	{
 		Schema::create('chosen_methods', function(Blueprint $table)
 		{
+			$table->engine = 'InnoDB';
+			
 			$table->increments('cid');
 			
 			$table->unsignedInteger('mid');
@@ -28,7 +30,7 @@ class CreateChosenMethodTable extends Migration {
 
 			$table->foreign('ssid')->references('ssid')->on('subsections');
 
-			$table->string('mname',50);
+			$table->string('mname',100);
 
 			$table->string('text',9000);
 

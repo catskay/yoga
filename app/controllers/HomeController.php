@@ -65,6 +65,11 @@ class HomeController extends BaseController {
     }
 
     public function loadDashboard(){
+
+        Session::forget('arr');
+        Session::forget('scrId');
+        Session::forget('methList');
+
         // redirecting from print preview, check if POST has "title"
         // save the title and notes to the database
         if(isset($_POST['title'])){

@@ -21,7 +21,7 @@
  
     <div class="panel panel-default">
         <div class="panel body">
-            Choose up to four pairs of opposites.<br>
+            <br></br><strong>Choose up to four pairs of opposites.</strong><br></br>
             {{Form::open(array('url' => 'method19')) }}
             <form role="form">
                 <textarea name="text1" value="In this deep state of awareness, allow the following polar experiences and their 
@@ -50,6 +50,7 @@
 
     <input type="hidden" name="mid" value={{$array['method']->mid}}>
 
+    
     <div class="row">
         <div class="col-md-4">
             <input type="submit" class="btn btn-danger" name="submitButton" value="Previous"> 
@@ -62,6 +63,20 @@
         </div>
     </div>
 </div>
+
+<script>
+
+    var checkboxes = $("input[type='checkbox']");
+    var submitButton = $("input[type='submit']");
+
+    submitButton.attr("disabled",!checkboxes.is(":checked"));
+
+    checkboxes.click(function(){
+        submitButton.attr("disabled",!checkboxes.is(":checked"));
+    });
+
+</script>
+
  {{Form::close() }}
  
 @stop

@@ -21,7 +21,7 @@
  
     <div class="panel panel-default">
         <div class="panel body">
-            (You can combine categories, however use up to three affirmations in total.)<br>
+            <br></br><strong>(You can combine categories, however use up to three affirmations in total.)</strong><br></br>
             {{Form::open(array('url' => 'method25')) }}
             <form role="form">
                 <textarea name="text1" value="Allow your entire self to respond spontaneously and effortlessly to what I say...." rows=1 cols=100 readonly>Allow your entire self to respond spontaneously and effortlessly to what I say....</textarea><br>
@@ -136,6 +136,19 @@
         </div>
     </div>
 </div>
+
+<script>
+
+    var checkboxes = $("input[type='checkbox']");
+    var submitButton = $("input[type='submit']");
+
+    submitButton.attr("disabled",!checkboxes.is(":checked"));
+
+    checkboxes.click(function(){
+        submitButton.attr("disabled",!checkboxes.is(":checked"));
+    });
+
+</script>
  
 {{Form::close() }}
 @stop

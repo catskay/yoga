@@ -14,6 +14,8 @@ class CreateKeywordsTable extends Migration {
 	{
 		Schema::create('keywords', function(Blueprint $table)
 		{
+			$table->engine = 'InnoDB';
+
 			$table->increments('kid');
                         
             $table->string('kname', 500);

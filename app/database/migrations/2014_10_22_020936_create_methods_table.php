@@ -14,9 +14,11 @@ class CreateMethodsTable extends Migration {
 	{
 		Schema::create('methods', function(Blueprint $table)
 		{
+			$table->engine = 'InnoDB';
+			
 			$table->increments('mid');
                         
-            $table->string('mname', 50);
+            $table->string('mname', 100);
 			$table->unsignedInteger('ssid');
 			$table->foreign('ssid')->references('ssid')->on('subsections');
 			$table->string('text', 9000);

@@ -21,7 +21,7 @@
  
     <div class="panel panel-default">
         <div class="panel body">
-            Select one or two phrases.<br>
+            <br></br><strong>Select one or two phrases.</strong><br></br>
             {{Form::open(array('url' => 'method7')) }}
             <form role="form">
                 <input type="checkbox" name="checkgroup[]" value="Submerge yourself into the sensations that are present in the posture."> Submerge yourself into the sensations that are present in the posture.<br>
@@ -77,6 +77,19 @@
         </div>
     </div>
 </div>
+
+<script>
+
+    var checkboxes = $("input[type='checkbox']");
+    var submitButton = $("input[type='submit']");
+
+    submitButton.attr("disabled",!checkboxes.is(":checked"));
+
+    checkboxes.click(function(){
+        submitButton.attr("disabled",!checkboxes.is(":checked"));
+    });
+
+</script>
  
 {{Form::close() }} 
 @stop

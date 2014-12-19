@@ -14,6 +14,8 @@ class CreateScriptsTable extends Migration {
 	{
 		Schema::create('scripts', function(Blueprint $table)
 		{
+			$table->engine = 'InnoDB';
+
 			$table->increments('id');
                         
             $table->string('name', 50);
@@ -21,7 +23,6 @@ class CreateScriptsTable extends Migration {
 			$table->foreign('uid')->references('uid')->on('users');
 			$table->date('date');
 			$table->string('notes', 1000);
-			$table->string('font_size', 15);
 
 			$table->timestamps();
                         

@@ -31,7 +31,6 @@ class EditingController extends BaseController {
             $script->notes = '';
             $script->uid = Auth::user()->uid;
             $script->date = date('Y-m-d');
-            $script->font_size = 'medium';
             $script->save();
             Session::put('scrId',$script->id);
 
@@ -160,6 +159,7 @@ class EditingController extends BaseController {
         $chMethod = ChosenMethod::where('mid','=',1)->where('id','=',Session::get('scrId'))->first();
         $chMethod->text = $str;
         $chMethod->save();
+        
         $request = Request::create('edit', 'POST', array());
         return Route::dispatch($request)->getContent();
     }
@@ -167,6 +167,10 @@ class EditingController extends BaseController {
     public function doMethod2()
     {
         $str = Input::get('text');
+
+        $str = $str.'&#10;'.Input::get('intention');
+
+        Session::put('intention',Input::get('intention'));
 
         $chMethod = ChosenMethod::where('mid','=',2)->where('id','=',Session::get('scrId'))->first();
         $chMethod->text = $str;
@@ -179,7 +183,7 @@ class EditingController extends BaseController {
     public function doMethod3()
     {
         $str = Input::get('text');
-        $intent = Input::get('intention');
+        $intent = Input::get('purpose');
         $str .= $intent;
 
         $chMethod = ChosenMethod::where('mid','=',3)->where('id','=',Session::get('scrId'))->first();
