@@ -9,7 +9,7 @@
         <br>
         <div class="col-lg-12">
             <a href="selection">  <button type="button" class="btn btn-danger" style="float:left">Back</button> </a>
-            <a href="preview"> <button type="button" class="btn btn-danger" style="float:right">Document Preview</button> </a>
+            <a href="preview"> <button type="button" class="btn btn-danger" style="float:right">Script Preview</button> </a>
         </div>
     <div class="row">
         <div class="col-lg-12">
@@ -65,7 +65,6 @@
             @endforeach
         </table>
     </div>
-
 </div>
 
 
