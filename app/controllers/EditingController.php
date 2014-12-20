@@ -198,6 +198,7 @@ class EditingController extends BaseController {
     {
         $array = Input::get('checkgroup');
         $str = '';
+        if(is_null($array)){  
         foreach($array as $box){
             $str = $str.chr(13).$box;
         }
@@ -205,7 +206,7 @@ class EditingController extends BaseController {
         $chMethod = ChosenMethod::where('mid','=',7)->where('id','=',Session::get('scrId'))->first();
         $chMethod->text = $str;
         $chMethod->save();
-
+    }
         $request = Request::create('edit', 'POST', array());
         return Route::dispatch($request)->getContent();
     }
@@ -230,16 +231,17 @@ class EditingController extends BaseController {
         $array = Input::get('checkgroup');
         $str = Input::get('text1');
         $str = $str.' &#13; '.Input::get('text2');
-        foreach($array as $box){
-            $str = $str.' &#13; '.$box;
+        if(!is_null($array)){  
+            foreach($array as $box){
+                $str = $str.' &#13; '.$box;
+            }
+            $str = $str.' &#13; '.Input::get('custom');
+            $str = $str.' &#13; '.Input::get('text3');
+
+            $chMethod = ChosenMethod::where('id','=',Session::get('scrId'))->where('mid','=',19)->first();
+            $chMethod->text = $str;
+            $chMethod->save();
         }
-        $str = $str.' &#13; '.Input::get('custom');
-        $str = $str.' &#13; '.Input::get('text3');
-
-        $chMethod = ChosenMethod::where('id','=',Session::get('scrId'))->where('mid','=',19)->first();
-        $chMethod->text = $str;
-        $chMethod->save();
-
         $request = Request::create('edit', 'POST', array());
         return Route::dispatch($request)->getContent();
     }
@@ -248,19 +250,17 @@ class EditingController extends BaseController {
     {
         $array = Input::get('checkgroup');
         $str = Input::get('text1');
-        if(is_null($array)){
-            echo "<script>alert('You did not select anything!');</script>";
-           return Redirect::to('method20');
-        }        
-        foreach($array as $box){
-            $str = $str.' &#13; '.$box;
-        }
-        $str = $str.' &#13; '.Input::get('custom');
-        $str = $str.' &#13; '.Input::get('text2');
+        if(!is_null($array)){      
+            foreach($array as $box){
+                $str = $str.'&#10;'.$box;
+            }
+            $str = $str.'&#13;'.Input::get('custom');
+            $str = $str.'&#13;'.Input::get('text2');
 
-        $chMethod = ChosenMethod::where('mid','=',20)->where('id','=',Session::get('scrId'))->first();
-        $chMethod->text = $str;
-        $chMethod->save();
+            $chMethod = ChosenMethod::where('mid','=',20)->where('id','=',Session::get('scrId'))->first();
+            $chMethod->text = $str;
+            $chMethod->save();
+        }
 
         $request = Request::create('edit', 'POST', array());
         return Route::dispatch($request)->getContent();
@@ -298,13 +298,14 @@ class EditingController extends BaseController {
     {
         $array = Input::get('checkgroup');
         $str = Input::get('text1');
-        foreach($array as $box){
-            $str = $str.' \r '.$box;
+        if(!is_null($array)){
+            foreach($array as $box){
+                $str = $str.'&#10;'.$box;
+            }
+            $chMethod = ChosenMethod::where('mid','=',25)->where('id','=',Session::get('scrId'))->first();
+            $chMethod->text = $str;
+            $chMethod->save();
         }
-
-        $chMethod = ChosenMethod::where('mid','=',25)->where('id','=',Session::get('scrId'))->first();
-        $chMethod->text = $str;
-        $chMethod->save();
 
         $request = Request::create('edit', 'POST', array());
         return Route::dispatch($request)->getContent();

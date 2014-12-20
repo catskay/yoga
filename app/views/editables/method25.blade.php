@@ -1,8 +1,8 @@
 @extends('layout.master')
- 
+
 @section('content')
- 
- 
+
+
 <div id="page-wrapper">
     <!-- /.row -->
     <div class="row">
@@ -10,18 +10,18 @@
             <h2>Edit method</h2>
         </div>
     </div>
- 
+
     <div class="row">
         <div class="col-lg-12">
-                <p><b> {{$array['section']->sname}} </b></p>
-                <pIndent1>{{$array['subsection']->ssname}}</pIndent1>
-                <pIndent2>{{$array['method']->mname}} </pIndent2>
+            <p><b> {{$array['section']->sname}} </b></p>
+            <pIndent1>{{$array['subsection']->ssname}}</pIndent1>
+            <pIndent2>{{$array['method']->mname}} </pIndent2>
         </div>
     </div>
- 
+
     <div class="panel panel-default">
         <div class="panel body">
-            <br></br><strong>(You can combine categories, however use up to three affirmations in total.)</strong><br></br>
+            <h4>(You can combine categories, however use up to <font color="red">3</font> affirmations in total.)</h4><br>
             {{Form::open(array('url' => 'method25')) }}
             <form role="form">
                 <textarea name="text1" value="Allow your entire self to respond spontaneously and effortlessly to what I say...." rows=1 cols=100 readonly>Allow your entire self to respond spontaneously and effortlessly to what I say....</textarea><br>
@@ -122,33 +122,40 @@
             </div>
         </div>
 
-    <input type="hidden" name="mid" value={{$array['method']->mid}}>
+        <input type="hidden" name="mid" value={{$array['method']->mid}}>
 
-    <div class="row">
-        <div class="col-md-4">
-            <input type="submit" class="btn btn-danger" name="submitButton" value="Previous"> 
-        </div>
-        <div class="col-md-4">
-            <input type="submit" class="button-center" name="submitButton" value="Section Summary">
-        </div>
-        <div class="col-md-4">
-            <input type="submit" class="btn btn-danger" style="float:right" name="submitButton" value="Next">
+        <div class="row">
+            <div class="col-md-4">
+                <input type="submit" class="btn btn-danger" name="submitButton" value="Previous"> 
+            </div>
+            <div class="col-md-4">
+                <input type="submit" class="button-center" name="submitButton" value="Section Summary">
+            </div>
+            <div class="col-md-4">
+                <input type="submit" class="btn btn-danger" style="float:right" name="submitButton" value="Next">
+            </div>
         </div>
     </div>
-</div>
 
-<script>
+    <script>
 
     var checkboxes = $("input[type='checkbox']");
     var submitButton = $("input[type='submit']");
 
-    submitButton.attr("disabled",!checkboxes.is(":checked"));
+    submitButton.click(function(){
+       if(!checkboxes.is(":checked")){
+        var warn_on_unload="";
+        warn_on_unload = "You have not selected anything!";
 
-    checkboxes.click(function(){
-        submitButton.attr("disabled",!checkboxes.is(":checked"));
-    });
+        window.onbeforeunload = function() { 
+            if(warn_on_unload != ''){
+                return warn_on_unload;
+            }   
+        };
+    }
+});
 
-</script>
- 
-{{Form::close() }}
-@stop
+    </script>
+
+    {{Form::close() }}
+    @stop

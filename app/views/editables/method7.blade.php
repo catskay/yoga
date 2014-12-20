@@ -83,12 +83,18 @@
     var checkboxes = $("input[type='checkbox']");
     var submitButton = $("input[type='submit']");
 
-    submitButton.attr("disabled",!checkboxes.is(":checked"));
+    submitButton.click(function(){
+       if(!checkboxes.is(":checked")){
+        var warn_on_unload="";
+        warn_on_unload = "You have not selected anything!";
 
-    checkboxes.click(function(){
-        submitButton.attr("disabled",!checkboxes.is(":checked"));
-    });
-
+        window.onbeforeunload = function() { 
+            if(warn_on_unload != ''){
+                return warn_on_unload;
+            }   
+        };
+    }
+});
 </script>
  
 {{Form::close() }} 
