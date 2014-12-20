@@ -41,8 +41,8 @@
                             <dt style= {{$str}}> {{$subsection}}</dt>
                             @foreach($methods as $method)
                             <dd style= {{$str}}>
-                                <button type="button" class="btn btn-primary btn-xs" data-toggle="collapse" 
-                                data-target="#item{{$method->mid}}" onclick="render()" aria-expanded="true" aria-controls="demo" name="buttons">+</button>
+                                <button type="button" class="btn btn-primary btn-xs" data-toggle="collapse" id="btn{{$method->mid}}"
+                                data-target="#item{{$method->mid}}" onclick= "{{"render('btn".$method->mid."', 'text".$method->mid."')"}}" aria-expanded="true" aria-controls="demo" name="buttons">+</button>
                                 {{$method->mname}}
                                 {{Form::open(array('action' => 'EditingController@showEdit')) }}
                                 {{Form::hidden('meth', $method->mid) }}
@@ -53,7 +53,7 @@
                             </dd>
                             <dd>
                                 <div id="item{{$method->mid}}" class="collapse" >
-                                    <p name = "text" value = "{{$method->text}}">{{$method->text}}</p>
+                                    <p id = "text{{$method->mid}}" name = "text" value = "{{$method->text}}">{{$method->text}}</p>
                                 </div>
                                 <br/>
                             </dd>
@@ -69,28 +69,26 @@
 
 
 <script>
-function render() {
- var strs = document.getElementsByName("text");
- var buttons = document.getElementsByName("buttons");
- var i;
+function render(btnid, textid) {
+ var str = document.getElementById(textid);
+ var button = document.getElementById(btnid);
 
- for(i = 0; i < strs.length; i++){
-     var str = strs[i].innerHTML;
-     str = str.replace(/(?:\r\n|\r|\n)/g, '<br />'); 
-     strs[i].innerHTML = str;
+     var text = str.innerHTML;
 
-     var button = buttons[i].innerHTML;
+     text = text.replace(/(?:\r\n|\r|\n)/g, '<br />'); 
+     str.innerHTML = text;
+
+     var buttonText = button.innerHTML;
     
-    if(button === "+"){
-        button = "-";
+    if(buttonText === "+"){
+        buttonText = "-";
      }
      else{
-        button = "+";
+        buttonText = "+";
      }
-     buttons[i].innerHTML = button;
+     button.innerHTML = buttonText;
  }
 
-}
 
 </script>
 @stop

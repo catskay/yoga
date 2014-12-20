@@ -26,6 +26,7 @@ class HomeController extends BaseController {
 
     public function doLogin()
     {
+        $errors = false;
         Session::flush();
         // validate the info, create rules for the inputs
         $rules = array(
@@ -38,8 +39,9 @@ class HomeController extends BaseController {
 
         // if the validator fails, redirect back to the form
         if ($validator->fails()) {
+            $errors = true;
             return Redirect::to('login')
-                ->withErrors($validator) // send back all errors to the login form
+                ->with('errors', $errors) // send back all errors to the login form
                 ->withInput(Input::except('password')); // send back the input (not the password) so that we can repopulate the form
         }
         else {
@@ -51,9 +53,9 @@ class HomeController extends BaseController {
 
             // attempt to do the login
             if (Auth::attempt($userdata)) {
-                return Redirect::to('dashboard');
+                return Redirect::to('dashboard')->with('errors', $errors);
             } else {
-                return Redirect::to('login');
+                return Redirect::to('login')->with('errors', $errors);
             }
         }
     }
